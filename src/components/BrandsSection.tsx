@@ -17,7 +17,7 @@ const BrandsSection = () => {
   ];
 
   return (
-    <section className="bg-white py-10 md:py-14 border-t border-black/5">
+    <section className="py-10 md:py-14 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6" ref={ref}>
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
@@ -27,10 +27,10 @@ const BrandsSection = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-8"
           >
-            <p className="text-black/50 font-body font-medium tracking-widest uppercase text-xs mb-2">
+            <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-2">
               Brands & Partners
             </p>
-            <h2 className="font-heading font-bold text-xl md:text-2xl text-black">
+            <h2 className="font-heading font-bold text-xl md:text-2xl text-white">
               Trusted by Growing{" "}
               <HighlightText
                 text="Businesses"
@@ -55,9 +55,9 @@ const BrandsSection = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                className="flex items-center justify-center p-4 bg-white rounded-lg border border-black/10 hover:border-black/20 transition-colors duration-300"
+                className="flex items-center justify-center p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-colors duration-300"
               >
-                <span className="font-heading font-bold text-sm md:text-base text-black/30 tracking-wider">
+                <span className="font-heading font-bold text-sm md:text-base text-white/30 tracking-wider">
                   {brand}
                 </span>
               </motion.div>

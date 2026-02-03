@@ -8,26 +8,30 @@ import BrandsSection from "@/components/BrandsSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
+import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <main>
-        {/* Hero Section with Shader Animation */}
+        {/* Hero Section with Gradient Animation */}
         <HeroSection />
         
-        {/* Market Reality - Stacking Cards */}
+        {/* Market Reality - Stacking Cards (keeps dark bg) */}
         <MarketRealitySection />
         
-        {/* Deliberate Strategy Quote */}
+        {/* Deliberate Strategy Quote (keeps dark bg) */}
         <DeliberateStrategySection />
         
-        <AboutSection />
-        <BrandsSection />
-        <FAQSection />
-        <StrategySection />
-        <FinalCTASection />
+        {/* Remaining sections with gradient background */}
+        <FlowGradientBackground className="min-h-screen">
+          <AboutSection />
+          <BrandsSection />
+          <FAQSection />
+          <StrategySection />
+          <FinalCTASection />
+        </FlowGradientBackground>
       </main>
       <Footer />
     </div>
