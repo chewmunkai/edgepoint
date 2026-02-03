@@ -233,7 +233,7 @@ export default function FlowGradientBackground({
   }, []);
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative overflow-hidden", className)}>
       <div ref={containerRef} className="absolute inset-0 z-0" />
       <div className="relative z-10">
         {children}
