@@ -1,224 +1,289 @@
 import * as React from "react";
-import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
-type CarouselApi = UseEmblaCarouselType[1];
-type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
-type CarouselOptions = UseCarouselParameters[0];
-type CarouselPlugin = UseCarouselParameters[1];
-
-type CarouselProps = {
-  opts?: CarouselOptions;
-  plugins?: CarouselPlugin;
-  orientation?: "horizontal" | "vertical";
-  setApi?: (api: CarouselApi) => void;
-};
-
-type CarouselContextProps = {
-  carouselRef: ReturnType<typeof useEmblaCarousel>[0];
-  api: ReturnType<typeof useEmblaCarousel>[1];
-  scrollPrev: () => void;
-  scrollNext: () => void;
-  canScrollPrev: boolean;
-  canScrollNext: boolean;
-} & CarouselProps;
-
-const CarouselContext = React.createContext<CarouselContextProps | null>(null);
-
-function useCarousel() {
-  const context = React.useContext(CarouselContext);
-
-  if (!context) {
-    throw new Error("useCarousel must be used within a <Carousel />");
-  }
-
-  return context;
+// Define the type for a single report item
+export interface Report {
+  id: string;
+  quarter: string;
+  period: string;
+  imageSrc: string;
+  isNew?: boolean;
 }
 
-const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & CarouselProps>(
-  ({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props }, ref) => {
-    const [carouselRef, api] = useEmblaCarousel(
-      {
-        ...opts,
-        axis: orientation === "horizontal" ? "x" : "y",
-      },
-      plugins,
-    );
-    const [canScrollPrev, setCanScrollPrev] = React.useState(false);
-    const [canScrollNext, setCanScrollNext] = React.useState(false);
+// Define the props for the main component
+interface ShareholderReportsProps {
+  reports: Report[];
+  title?: string;
+  subtitle?: string;
+  className?: string;
+}
 
-    const onSelect = React.useCallback((api: CarouselApi) => {
-      if (!api) {
-        return;
+export const ShareholderReports = React.forwardRef<
+  HTMLDivElement,
+  ShareholderReportsProps
+>(({ reports, title = "Shareholders' Letter and Results", subtitle = "Powering India's changing lifestyles", className, ...props }, ref) => {
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
+  const [canScrollRight, setCanScrollRight] = React.useState(true);
+
+  // Function to handle scrolling and update arrow visibility
+  const checkScrollability = React.useCallback(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      checkScrollability();
+      container.addEventListener("scroll", checkScrollability);
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", checkScrollability);
       }
+    };
+  }, [reports, checkScrollability]);
 
-      setCanScrollPrev(api.canScrollPrev());
-      setCanScrollNext(api.canScrollNext());
+  // Scroll handler for navigation buttons
+  const scroll = (direction: "left" | "right") => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const scrollAmount = container.clientWidth * 0.8;
+      container.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  return (
+    <div ref={ref} className={cn("w-full", className)} {...props}>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8">
+        <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-foreground">
+          {title}
+        </h2>
+
+        <div className="flex items-center gap-2">
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            aria-label="Scroll left"
+            className={cn(
+              "p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted"
+            )}
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            aria-label="Scroll right"
+            className={cn(
+              "p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted"
+            )}
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+
+      <div
+        ref={scrollContainerRef}
+        className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth scrollbar-hide pb-4"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
+        {reports.map((report) => (
+          <div
+            key={report.id}
+            className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px]"
+          >
+            {/* Report Card */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-xl mb-3">
+                <img
+                  src={report.imageSrc}
+                  alt={`${report.quarter} Report`}
+                  className="w-full aspect-[4/5] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="text-white">
+                    <p className="font-heading font-semibold text-sm opacity-80">
+                      Shareholders' Letter and Results
+                    </p>
+                    <p className="font-body text-xs opacity-60 mt-1">
+                      {report.period}
+                    </p>
+                  </div>
+                  <p className="text-white/80 text-xs mt-2">{subtitle}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <p className="font-heading font-bold text-foreground">
+                  {report.quarter}
+                </p>
+                {report.isNew && (
+                  <span className="bg-primary text-primary-foreground text-xs font-semibold px-2 py-0.5 rounded-full">
+                    NEW
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+});
+
+ShareholderReports.displayName = "ShareholderReports";
+
+// Step Carousel types and component for Strategy Section
+export interface Step {
+  id: string;
+  stepNumber: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  imageSrc: string;
+}
+
+interface StepCarouselProps {
+  steps: Step[];
+  title?: string;
+  className?: string;
+}
+
+export const StepCarousel = React.forwardRef<HTMLDivElement, StepCarouselProps>(
+  ({ steps, title = "Our 4-Step Partnership Approach", className, ...props }, ref) => {
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+    const [canScrollLeft, setCanScrollLeft] = React.useState(false);
+    const [canScrollRight, setCanScrollRight] = React.useState(true);
+
+    const checkScrollability = React.useCallback(() => {
+      const container = scrollContainerRef.current;
+      if (container) {
+        const { scrollLeft, scrollWidth, clientWidth } = container;
+        setCanScrollLeft(scrollLeft > 0);
+        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+      }
     }, []);
 
-    const scrollPrev = React.useCallback(() => {
-      api?.scrollPrev();
-    }, [api]);
-
-    const scrollNext = React.useCallback(() => {
-      api?.scrollNext();
-    }, [api]);
-
-    const handleKeyDown = React.useCallback(
-      (event: React.KeyboardEvent<HTMLDivElement>) => {
-        if (event.key === "ArrowLeft") {
-          event.preventDefault();
-          scrollPrev();
-        } else if (event.key === "ArrowRight") {
-          event.preventDefault();
-          scrollNext();
-        }
-      },
-      [scrollPrev, scrollNext],
-    );
-
     React.useEffect(() => {
-      if (!api || !setApi) {
-        return;
+      const container = scrollContainerRef.current;
+      if (container) {
+        checkScrollability();
+        container.addEventListener("scroll", checkScrollability);
       }
-
-      setApi(api);
-    }, [api, setApi]);
-
-    React.useEffect(() => {
-      if (!api) {
-        return;
-      }
-
-      onSelect(api);
-      api.on("reInit", onSelect);
-      api.on("select", onSelect);
-
       return () => {
-        api?.off("select", onSelect);
+        if (container) {
+          container.removeEventListener("scroll", checkScrollability);
+        }
       };
-    }, [api, onSelect]);
+    }, [steps, checkScrollability]);
+
+    const scroll = (direction: "left" | "right") => {
+      const container = scrollContainerRef.current;
+      if (container) {
+        const scrollAmount = container.clientWidth * 0.8;
+        container.scrollBy({
+          left: direction === "left" ? -scrollAmount : scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    };
 
     return (
-      <CarouselContext.Provider
-        value={{
-          carouselRef,
-          api: api,
-          opts,
-          orientation: orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
-          scrollPrev,
-          scrollNext,
-          canScrollPrev,
-          canScrollNext,
-        }}
-      >
-        <div
-          ref={ref}
-          onKeyDownCapture={handleKeyDown}
-          className={cn("relative", className)}
-          role="region"
-          aria-roledescription="carousel"
-          {...props}
-        >
-          {children}
+      <div ref={ref} className={cn("w-full", className)} {...props}>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8">
+          <div className="text-center sm:text-left">
+            <p className="text-muted-foreground font-body font-medium tracking-widest uppercase text-xs mb-2">
+              Our Framework
+            </p>
+            <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-foreground">
+              {title}
+            </h2>
+          </div>
+
+          <div className="flex items-center gap-2 justify-center sm:justify-end">
+            <button
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+              className={cn(
+                "p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted"
+              )}
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+              className={cn(
+                "p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted"
+              )}
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </div>
-      </CarouselContext.Provider>
-    );
-  },
-);
-Carousel.displayName = "Carousel";
 
-const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const { carouselRef, orientation } = useCarousel();
-
-    return (
-      <div ref={carouselRef} className="overflow-hidden">
         <div
-          ref={ref}
-          className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)}
-          {...props}
-        />
+          ref={scrollContainerRef}
+          className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth scrollbar-hide pb-4"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {steps.map((step) => (
+            <div
+              key={step.id}
+              className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px]"
+            >
+              <div className="group cursor-pointer">
+                <div className="relative overflow-hidden rounded-xl mb-3">
+                  <img
+                    src={step.imageSrc}
+                    alt={step.title}
+                    className="w-full aspect-[4/5] object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="text-white">
+                      <p className="font-heading font-bold text-xs uppercase tracking-wider opacity-80 mb-1">
+                        {step.subtitle}
+                      </p>
+                      <p className="font-heading font-bold text-lg">
+                        {step.title}
+                      </p>
+                    </div>
+                    <p className="text-white/70 text-sm mt-2 line-clamp-2">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+                    {step.stepNumber}
+                  </span>
+                  <p className="font-heading font-semibold text-foreground text-sm">
+                    {step.title}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
-  },
+  }
 );
-CarouselContent.displayName = "CarouselContent";
 
-const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const { orientation } = useCarousel();
-
-    return (
-      <div
-        ref={ref}
-        role="group"
-        aria-roledescription="slide"
-        className={cn("min-w-0 shrink-0 grow-0 basis-full", orientation === "horizontal" ? "pl-4" : "pt-4", className)}
-        {...props}
-      />
-    );
-  },
-);
-CarouselItem.displayName = "CarouselItem";
-
-const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-  ({ className, variant = "outline", size = "icon", ...props }, ref) => {
-    const { orientation, scrollPrev, canScrollPrev } = useCarousel();
-
-    return (
-      <Button
-        ref={ref}
-        variant={variant}
-        size={size}
-        className={cn(
-          "absolute h-8 w-8 rounded-full",
-          orientation === "horizontal"
-            ? "-left-12 top-1/2 -translate-y-1/2"
-            : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-          className,
-        )}
-        disabled={!canScrollPrev}
-        onClick={scrollPrev}
-        {...props}
-      >
-        <ArrowLeft className="h-4 w-4" />
-        <span className="sr-only">Previous slide</span>
-      </Button>
-    );
-  },
-);
-CarouselPrevious.displayName = "CarouselPrevious";
-
-const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-  ({ className, variant = "outline", size = "icon", ...props }, ref) => {
-    const { orientation, scrollNext, canScrollNext } = useCarousel();
-
-    return (
-      <Button
-        ref={ref}
-        variant={variant}
-        size={size}
-        className={cn(
-          "absolute h-8 w-8 rounded-full",
-          orientation === "horizontal"
-            ? "-right-12 top-1/2 -translate-y-1/2"
-            : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-          className,
-        )}
-        disabled={!canScrollNext}
-        onClick={scrollNext}
-        {...props}
-      >
-        <ArrowRight className="h-4 w-4" />
-        <span className="sr-only">Next slide</span>
-      </Button>
-    );
-  },
-);
-CarouselNext.displayName = "CarouselNext";
-
-export { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext };
+StepCarousel.displayName = "StepCarousel";
