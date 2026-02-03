@@ -69,14 +69,14 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
-            <LiquidButton href="#contact" size="lg" className="font-heading text-sm md:text-base text-black">
+            <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base">
               Start Our Growth Journey
-              <ArrowRight className="w-4 h-4 text-black" />
+              <ArrowRight className="w-4 h-4" />
             </LiquidButton>
             
-            <LiquidButton href="#strategy" size="lg" className="font-heading text-sm md:text-base text-black">
+            <LiquidButton href="#strategy" size="lg" variant="dark" className="font-heading text-sm md:text-base">
               See the Framework
-              <ArrowRight className="w-4 h-4 text-black" />
+              <ArrowRight className="w-4 h-4" />
             </LiquidButton>
           </motion.div>
         </div>
