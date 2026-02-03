@@ -3,9 +3,9 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { HoverButton } from "@/components/ui/hover-button"
+import { LiquidButton } from "@/components/ui/liquid-glass-button"
 import { ShaderAnimation } from "@/components/ui/shader-animation"
-import logoDark from "@/assets/logo-dark-bg.png"
+import logo from "@/assets/logo.png"
 
 const HeroSection = () => {
   return (
@@ -26,7 +26,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center mb-6"
           >
-            <img src={logoDark} alt="Edge Point" className="h-20 md:h-28 w-auto" />
+            <img src={logo} alt="Edge Point" className="h-20 md:h-28 w-auto" />
           </motion.div>
 
           {/* Eyebrow Badge */}
@@ -69,10 +69,10 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
-            <HoverButton href="#contact" className="text-sm md:text-base px-6 py-3">
+            <LiquidButton href="#contact" size="lg" className="font-heading text-sm md:text-base">
               Start Our Growth Journey
               <ArrowRight className="w-4 h-4" />
-            </HoverButton>
+            </LiquidButton>
             
             <Button
               asChild

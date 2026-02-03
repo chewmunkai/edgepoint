@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { HoverButton } from "@/components/ui/hover-button";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -146,10 +146,10 @@ const FinalCTASection = () => {
 
               {/* Submit Button */}
               <div className="pt-2">
-                <HoverButton type="submit" className="w-full md:w-auto text-sm px-6 py-3">
+                <LiquidButton type="submit" size="lg" className="w-full md:w-auto font-heading text-sm">
                   Request Strategy Session
                   <ArrowRight className="w-4 h-4" />
-                </HoverButton>
+                </LiquidButton>
               </div>
             </form>
           </motion.div>

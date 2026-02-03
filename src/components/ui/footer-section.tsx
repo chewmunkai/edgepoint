@@ -10,7 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react"
-import logoDark from "@/assets/logo-dark-bg.png"
+import logo from "@/assets/logo.png"
 
 function Footerdemo() {
   return (
@@ -20,7 +20,7 @@ function Footerdemo() {
           {/* Logo & Newsletter */}
           <div className="col-span-2 lg:col-span-1">
             <a href="#" className="inline-block mb-4">
-              <img src={logoDark} alt="Edge Point" className="h-12 w-auto" />
+              <img src={logo} alt="Edge Point" className="h-12 w-auto" />
             </a>
             <p className="mb-4 font-body text-sm text-white/60">
               Join our newsletter for updates.

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { StackingNavbar } from "@/components/ui/stacking-navbar";
-import { HoverButton } from "@/components/ui/hover-button";
-import logoDark from "@/assets/logo-dark-bg.png";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="z-10">
-            <img src={logoDark} alt="Edge Point" className="h-10 md:h-12 w-auto" />
+            <img src={logo} alt="Edge Point" className="h-10 md:h-12 w-auto" />
           </a>
 
           {/* Desktop Navigation - Stacking Navbar */}
@@ -28,9 +28,9 @@ const Header = () => {
             <StackingNavbar items={navItems} />
             
             {/* Desktop CTA */}
-            <HoverButton href="#contact" className="px-6 py-2.5 text-sm">
+            <LiquidButton href="#contact" size="default" className="font-heading text-sm">
               Start Our Growth Journey
-            </HoverButton>
+            </LiquidButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,10 +68,10 @@ const Header = () => {
                 </motion.a>
               ))}
               <div className="mt-4">
-                <HoverButton href="#contact" className="w-full justify-center" onClick={() => setIsOpen(false)}>
+                <LiquidButton href="#contact" size="lg" className="w-full justify-center font-heading" onClick={() => setIsOpen(false)}>
                   Start Our Growth Journey
                   <ArrowRight className="w-4 h-4" />
-                </HoverButton>
+                </LiquidButton>
               </div>
             </nav>
           </motion.div>
