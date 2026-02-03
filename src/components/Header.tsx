@@ -8,9 +8,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Services", href: "#services" },
-    { label: "Strategy", href: "#strategy" },
     { label: "About", href: "#about" },
+    { label: "Framework", href: "#strategy" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   return (
@@ -32,7 +32,7 @@ const Header = () => {
               size="sm"
               className="glass-button-primary"
             >
-              Start With Strategy
+              Start Our Growth Journey
             </GlassButtonLink>
           </div>
 
@@ -76,7 +76,7 @@ const Header = () => {
                   onClick={() => setIsOpen(false)}
                   className="glass-button-primary w-full text-center"
                 >
-                  Start With Strategy
+                  Start Our Growth Journey
                 </GlassButtonLink>
               </div>
             </nav>

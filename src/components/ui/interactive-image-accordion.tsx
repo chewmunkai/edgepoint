@@ -14,25 +14,25 @@ const defaultAccordionItems: AccordionItemData[] = [
   {
     id: 1,
     title: 'Confront Reality',
-    description: 'Deep audit of market position and competition',
+    description: 'Blunt audit against your top competitors',
     imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=1000&fit=crop',
   },
   {
     id: 2,
-    title: 'Design the Funnel',
-    description: 'Map the customer journey from stranger to buyer',
+    title: 'Design the Path',
+    description: 'Map the journey from stranger to customer',
     imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=1000&fit=crop',
   },
   {
     id: 3,
     title: 'Engineer the Offer',
-    description: 'Structure offers that drive conversions',
+    description: 'Build offers the market can\'t ignore',
     imageUrl: 'https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&h=1000&fit=crop',
   },
   {
     id: 4,
-    title: 'Deploy Execution',
-    description: 'Strategic channel selection and deployment',
+    title: 'Execute & Optimize',
+    description: 'Trigger tactics based on real data',
     imageUrl: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=1000&fit=crop',
   },
 ];
@@ -105,6 +105,8 @@ interface InteractiveImageAccordionProps {
   description: string;
   ctaText: string;
   ctaHref: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
   items?: AccordionItemData[];
 }
 
@@ -114,6 +116,8 @@ export function InteractiveImageAccordion({
   description,
   ctaText,
   ctaHref,
+  secondaryCtaText,
+  secondaryCtaHref,
   items = defaultAccordionItems,
 }: InteractiveImageAccordionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -148,7 +152,7 @@ export function InteractiveImageAccordion({
               {description}
             </p>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap gap-4">
               <GlassButtonLink
                 href={ctaHref}
                 size="lg"
@@ -157,6 +161,16 @@ export function InteractiveImageAccordion({
                 {ctaText}
                 <ArrowRight className="w-5 h-5" />
               </GlassButtonLink>
+              
+              {secondaryCtaText && secondaryCtaHref && (
+                <GlassButtonLink
+                  href={secondaryCtaHref}
+                  size="lg"
+                  className="glass-button-secondary"
+                >
+                  {secondaryCtaText}
+                </GlassButtonLink>
+              )}
             </div>
           </div>
 

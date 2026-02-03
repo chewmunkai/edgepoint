@@ -2,19 +2,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const links = {
-    company: [
-      { name: "About", href: "#about" },
-      { name: "Strategy", href: "#strategy" },
-      { name: "Services", href: "#services" },
-    ],
-    resources: [
-      { name: "Case Studies", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Newsletter", href: "#" },
+    quickLinks: [
+      { name: "Home", href: "#" },
+      { name: "Our Framework", href: "#strategy" },
+      { name: "Insights", href: "#" },
     ],
     legal: [
       { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
     ],
   };
 
@@ -30,17 +24,17 @@ const Footer = () => {
                 EDGE POINT<span className="text-neon">.</span>
               </a>
               <p className="font-body text-white/50 leading-relaxed">
-                Marketing leadership for SMEs. Strategy meets execution.
+                Growth partnership for ambitious businesses. Strategy meets execution.
               </p>
             </div>
 
-            {/* Company Links */}
+            {/* Quick Links */}
             <div>
               <h4 className="font-heading font-semibold text-white text-sm tracking-wider uppercase mb-6">
-                Company
+                Quick Links
               </h4>
               <ul className="space-y-4">
-                {links.company.map((link) => (
+                {links.quickLinks.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
@@ -53,13 +47,13 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Resources Links */}
+            {/* Legal */}
             <div>
               <h4 className="font-heading font-semibold text-white text-sm tracking-wider uppercase mb-6">
-                Resources
+                Legal
               </h4>
               <ul className="space-y-4">
-                {links.resources.map((link) => (
+                {links.legal.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
@@ -91,17 +85,6 @@ const Footer = () => {
             <p className="font-body text-white/40 text-sm">
               © {currentYear} Edge Point. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              {links.legal.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="font-body text-white/40 hover:text-white/70 text-sm transition-colors duration-300"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </div>

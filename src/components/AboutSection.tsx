@@ -1,19 +1,12 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { AlertCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { GlassButtonLink } from "@/components/ui/glass-button";
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const problems = [
-    "Marketing activities pile up without a clear objective",
-    "Different agencies or staff give conflicting advice",
-    "Money is spent across channels with no single owner of outcomes",
-    "Results are reviewed, but direction never changes",
-  ];
 
   return (
     <section id="about" className="section-light py-32">
@@ -27,17 +20,17 @@ const AboutSection = () => {
             className="mb-16"
           >
             <p className="text-agency-blue font-body font-medium tracking-widest uppercase text-sm mb-4">
-              The Problem
+              About Edge Point
             </p>
             <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-black leading-tight max-w-4xl">
-              Where Most SME Marketing{" "}
-              <span className="text-gradient-blue">Goes Wrong</span>
+              A Different Kind of{" "}
+              <span className="text-gradient-blue">Partnership</span>
             </h2>
           </motion.div>
 
           {/* Content Grid */}
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left Column - Intro Text */}
+            {/* Left Column - Main Text */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -45,41 +38,27 @@ const AboutSection = () => {
               className="space-y-8"
             >
               <p className="font-body text-xl text-black/80 leading-relaxed">
-                This is the pattern we see repeatedly:
+                We didn't start Edge Point to be just another agency on your monthly expense list. We started it because we saw too many business owners losing money on marketing that had no clear direction or ownership.
               </p>
               
-              {/* Problems List */}
-              <div className="space-y-4">
-                {problems.map((problem, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
-                  >
-                    <AlertCircle className="w-5 h-5 text-agency-blue mt-0.5 flex-shrink-0" />
-                    <p className="font-body text-black/70 leading-relaxed">
-                      {problem}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
+              <p className="font-body text-xl text-black/80 leading-relaxed">
+                Think of us as your <span className="text-black font-semibold">marketing partners in the trenches</span>. We don't hide behind technical jargon or vanity metrics like "impressions" and "clicks."
+              </p>
 
               {/* CTA */}
               <div className="pt-4">
                 <GlassButtonLink
-                  href="#positioning"
+                  href="#strategy"
                   size="default"
                   className="glass-button-light"
                 >
-                  See Our Approach
+                  See Our Framework
                   <ArrowRight className="w-4 h-4" />
                 </GlassButtonLink>
               </div>
             </motion.div>
 
-            {/* Right Column - Conclusion */}
+            {/* Right Column - Key Message */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -88,11 +67,13 @@ const AboutSection = () => {
             >
               <div className="bg-black rounded-2xl p-10 text-white">
                 <p className="font-body text-xl text-white/80 leading-relaxed mb-6">
-                  The issue isn't effort.
+                  We focus on one thing:
                 </p>
-                <p className="font-heading font-bold text-3xl md:text-4xl leading-tight">
-                  It's the absence of clear{" "}
-                  <span className="text-neon">marketing leadership.</span>
+                <p className="font-heading font-bold text-3xl md:text-4xl leading-tight mb-6">
+                  <span className="text-neon">Topline Revenue.</span>
+                </p>
+                <p className="font-body text-white/60 leading-relaxed">
+                  We treat your marketing budget as if it were our own—meaning we only move forward when the logic is sound and the path to ROI is clear. We grow when you grow.
                 </p>
               </div>
             </motion.div>

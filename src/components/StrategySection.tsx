@@ -1,31 +1,40 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Eye, Map, Gift, Rocket } from "lucide-react";
 
 const StrategySection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const pillars = [
+  const steps = [
     {
       id: "01",
+      icon: Eye,
       title: "Confront Reality",
-      description: "We assess competitors, customer behaviour, internal limitations, and offer strength to understand the real commercial battlefield.",
+      subtitle: "Competitive SWOT",
+      description: "We start with a blunt audit. We analyze your business against your top 3 competitors to see exactly where you stand. If your product or price isn't competitive, we fix the offer before we spend a cent on ads.",
     },
     {
       id: "02",
-      title: "Design the Full Funnel",
-      description: "We map how strangers become customers, clearly defining the role of awareness, trust, consideration, and conversion.",
+      icon: Map,
+      title: "Design the Customer Path",
+      subtitle: "Full Funnel",
+      description: "We map out the journey from stranger to customer. We don't \"hope\" people buy; we design the Awareness, Interest, and Consideration stages so the conversion becomes the logical next step.",
     },
     {
       id: "03",
-      title: "Engineer the Offer Structure",
-      description: "We design entry offers, core revenue offers, and urgency mechanics that make sense for your market and margins.",
+      icon: Gift,
+      title: "Engineer the \"Godfather\" Offer",
+      subtitle: "Offer Stack",
+      description: "We help you build an offer stack the market can't ignore. We develop a low-barrier \"Lead Attraction\" offer to get people in the door and your \"North Star\" offer to drive core revenue.",
     },
     {
       id: "04",
-      title: "Deploy Only Relevant Execution",
-      description: "We select channels and tactics based on funnel needs, budget constraints, and execution capability — not trends.",
+      icon: Rocket,
+      title: "Execute & Optimize",
+      subtitle: "Tactical Deployment",
+      description: "Only after the strategy is set do we trigger the tactics—whether that's XHS KOC strategy, Google SEO, or Performance Ads. We stay alongside you to adjust the plan based on real-world sales data.",
     },
   ];
 
@@ -41,15 +50,12 @@ const StrategySection = () => {
             className="text-center mb-20"
           >
             <p className="text-agency-blue font-body font-medium tracking-widest uppercase text-sm mb-4">
-              Our Process
+              Our Framework
             </p>
             <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-black leading-tight">
-              How We Bring Control to{" "}
-              <span className="text-gradient-blue">Marketing Decisions</span>
+              Our 4-Step Partnership{" "}
+              <span className="text-gradient-blue">Approach</span>
             </h2>
-            <p className="font-body text-black/60 text-xl mt-6 max-w-3xl mx-auto">
-              We follow a fixed decision sequence so marketing is deliberate, not reactive.
-            </p>
           </motion.div>
 
           {/* Framework Visualization */}
@@ -57,58 +63,55 @@ const StrategySection = () => {
             {/* Connection Line */}
             <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-agency-blue/20 to-transparent hidden lg:block" />
 
-            {/* Pillars Grid */}
+            {/* Steps Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {pillars.map((pillar, index) => (
-                <motion.div
-                  key={pillar.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-                  className="relative group"
-                >
-                  {/* Card */}
-                  <div className="bg-white border border-black/5 rounded-2xl p-8 h-full transition-all duration-500 hover:shadow-2xl hover:shadow-agency-blue/10 hover:border-agency-blue/20">
-                    {/* Number */}
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="font-heading font-bold text-agency-blue text-sm">
-                        {pillar.id}
-                      </span>
-                      <div className="h-px flex-1 bg-black/10" />
+              {steps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={step.id}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
+                    className="relative group"
+                  >
+                    {/* Card */}
+                    <div className="bg-white border border-black/5 rounded-2xl p-8 h-full transition-all duration-500 hover:shadow-2xl hover:shadow-agency-blue/10 hover:border-agency-blue/20">
+                      {/* Step Number & Icon */}
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="font-heading font-bold text-agency-blue text-sm">
+                          Step {step.id}
+                        </span>
+                        <div className="w-10 h-10 rounded-lg bg-agency-blue/10 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-agency-blue" />
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="font-heading font-bold text-xl text-black mb-2">
+                        {step.title}
+                      </h3>
+                      
+                      {/* Subtitle */}
+                      <p className="font-body text-agency-blue text-sm font-medium mb-4">
+                        {step.subtitle}
+                      </p>
+
+                      {/* Description */}
+                      <p className="font-body text-black/60 leading-relaxed text-sm">
+                        {step.description}
+                      </p>
+
+                      {/* Hover Indicator */}
+                      <div className="absolute bottom-8 right-8 w-8 h-8 rounded-full bg-agency-blue/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-2 h-2 rounded-full bg-agency-blue" />
+                      </div>
                     </div>
-
-                    {/* Title */}
-                    <h3 className="font-heading font-bold text-2xl text-black mb-4">
-                      {pillar.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="font-body text-black/60 leading-relaxed">
-                      {pillar.description}
-                    </p>
-
-                    {/* Hover Indicator */}
-                    <div className="absolute bottom-8 right-8 w-8 h-8 rounded-full bg-agency-blue/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-2 h-2 rounded-full bg-agency-blue" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
-
-          {/* Warning Note */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-16 text-center"
-          >
-            <p className="font-body text-lg text-black/80 bg-agency-blue/5 inline-block px-8 py-4 rounded-full">
-              <span className="font-semibold text-agency-blue">Skipping any step</span>{" "}
-              leads to wasted spend.
-            </p>
-          </motion.div>
         </div>
       </div>
     </section>
