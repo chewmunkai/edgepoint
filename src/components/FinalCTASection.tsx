@@ -7,6 +7,42 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
+function GlassFilter() {
+  return (
+    <svg className="hidden">
+      <defs>
+        <filter
+          id="container-glass"
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          colorInterpolationFilters="sRGB"
+        >
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.05 0.05"
+            numOctaves="1"
+            seed="1"
+            result="turbulence"
+          />
+          <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="blurredNoise"
+            scale="70"
+            xChannelSelector="R"
+            yChannelSelector="B"
+            result="displaced"
+          />
+          <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+
 const FinalCTASection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -59,7 +95,8 @@ const FinalCTASection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 md:p-8 border border-black/10 space-y-4">
+            <form onSubmit={handleSubmit} className="rounded-xl p-6 md:p-8 space-y-4 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)]" style={{ backdropFilter: 'url("#container-glass")' }}>
+              <GlassFilter />
               {/* Name & Company Row */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
