@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
+  const logos = ["VERTEX", "ONWARD", "NUCLEUS", "STRATUM", "AXIOM"];
+
   return (
     <section className="relative min-h-screen bg-dark overflow-hidden flex items-center">
       {/* Animated Grid Background */}
@@ -23,7 +25,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="text-neon font-body font-medium tracking-widest uppercase text-sm mb-8"
           >
-            Strategy × Execution
+            Marketing Leadership for SMEs
           </motion.p>
 
           {/* Main Headline */}
@@ -34,11 +36,11 @@ const HeroSection = () => {
             className="font-heading font-bold text-white leading-[1.1] mb-8"
           >
             <span className="block text-4xl md:text-6xl lg:text-7xl">
-              We don't just build brands.
+              Most SME marketing fails
             </span>
             <span className="block text-4xl md:text-6xl lg:text-7xl mt-2">
-              We engineer{" "}
-              <span className="text-gradient-neon">market dominance.</span>
+              before any ad is{" "}
+              <span className="text-gradient-neon">even run.</span>
             </span>
           </motion.h1>
 
@@ -49,22 +51,30 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-body text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Strategic clarity meets execution precision. For businesses ready to 
-            stop guessing and start growing with intent.
+            Not because of effort or budget — but because no one is deciding 
+            what marketing should actually do.
           </motion.p>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
               href="#contact"
               className="cta-primary inline-flex items-center gap-3 group"
             >
-              Book Your Audit
+              Start With Strategy
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#positioning"
+              className="inline-flex items-center gap-2 text-white/70 font-heading font-semibold hover:text-white transition-colors duration-300 px-6 py-4"
+            >
+              See How We Think
+              <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
 
@@ -76,10 +86,10 @@ const HeroSection = () => {
             className="mt-20 pt-12 border-t border-white/10"
           >
             <p className="text-white/40 font-body text-sm mb-6 tracking-wide">
-              Trusted by growth-focused brands
+              Trusted by these brands
             </p>
             <div className="flex items-center justify-center gap-12 flex-wrap">
-              {["VERTEX", "ONWARD", "NUCLEUS", "STRATUM", "AXIOM"].map((brand, index) => (
+              {logos.map((brand, index) => (
                 <motion.span
                   key={brand}
                   initial={{ opacity: 0 }}

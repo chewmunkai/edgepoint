@@ -22,7 +22,7 @@ const FinalCTASection = () => {
             transition={{ duration: 0.6 }}
             className="text-neon font-body font-medium tracking-widest uppercase text-sm mb-8"
           >
-            Start Here
+            Start With Strategy
           </motion.p>
 
           {/* Main Headline */}
@@ -32,8 +32,8 @@ const FinalCTASection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-8"
           >
-            Audit. Clarity.{" "}
-            <span className="text-gradient-neon">Direction.</span>
+            Marketing shouldn't rely on{" "}
+            <span className="text-gradient-neon">opinions, trends, or hope.</span>
           </motion.h2>
 
           {/* Description */}
@@ -43,9 +43,7 @@ const FinalCTASection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-body text-white/60 text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Book a strategic audit. We'll identify your growth blockers, 
-            map opportunities, and give you a clear path forward—whether 
-            you work with us or not.
+            It needs ownership and direction.
           </motion.p>
 
           {/* CTA Button */}
@@ -58,20 +56,10 @@ const FinalCTASection = () => {
               href="#"
               className="cta-primary inline-flex items-center gap-3 group text-lg"
             >
-              Book Your Audit
+              Book a Strategy Session
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </motion.div>
-
-          {/* Trust Note */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="font-body text-white/40 text-sm mt-8"
-          >
-            30-minute strategic session • No pitch, just value
-          </motion.p>
 
           {/* Decorative Elements */}
           <motion.div
