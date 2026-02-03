@@ -3,85 +3,72 @@
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react"
 
 function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true)
-
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [isDarkMode])
-
   return (
-    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
+    <footer className="bg-black text-white border-t border-white/10">
       <div className="container mx-auto px-6 py-12 md:px-8 lg:px-12">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <h2 className="mb-4 font-heading text-3xl font-bold tracking-tight">
+            <h2 className="mb-4 font-heading text-2xl font-bold tracking-tight">
               Stay Connected
             </h2>
-            <p className="mb-6 text-muted-foreground">
+            <p className="mb-6 font-body text-white/60">
               Join our newsletter for the latest updates and exclusive offers.
             </p>
             <form className="relative">
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm"
+                className="pr-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-neon focus:ring-neon/20"
               />
               <Button
                 type="submit"
                 size="icon"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-neon text-black hover:bg-neon/90"
               >
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Subscribe</span>
               </Button>
             </form>
-            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
           <div>
             <h3 className="mb-4 font-heading text-lg font-semibold">Quick Links</h3>
-            <nav className="space-y-2 text-sm">
+            <nav className="space-y-2 text-sm font-body">
               <a
                 href="#"
-                className="block transition-colors hover:text-primary"
+                className="block text-white/60 transition-colors hover:text-white"
               >
                 Home
               </a>
               <a
                 href="#about"
-                className="block transition-colors hover:text-primary"
+                className="block text-white/60 transition-colors hover:text-white"
               >
                 About Us
               </a>
               <a
                 href="#strategy"
-                className="block transition-colors hover:text-primary"
+                className="block text-white/60 transition-colors hover:text-white"
               >
                 Our Framework
               </a>
               <a
                 href="#brands"
-                className="block transition-colors hover:text-primary"
+                className="block text-white/60 transition-colors hover:text-white"
               >
                 Case Studies
               </a>
               <a
                 href="#faq"
-                className="block transition-colors hover:text-primary"
+                className="block text-white/60 transition-colors hover:text-white"
               >
                 FAQ
               </a>
@@ -89,7 +76,7 @@ function Footerdemo() {
           </div>
           <div>
             <h3 className="mb-4 font-heading text-lg font-semibold">Contact Us</h3>
-            <address className="space-y-2 text-sm not-italic text-muted-foreground">
+            <address className="space-y-2 text-sm font-body not-italic text-white/60">
               <p>123 Innovation Street</p>
               <p>Tech City, TC 12345</p>
               <p>Phone: (123) 456-7890</p>
@@ -98,11 +85,11 @@ function Footerdemo() {
           </div>
           <div className="relative">
             <h3 className="mb-4 font-heading text-lg font-semibold">Follow Us</h3>
-            <div className="mb-6 flex space-x-4">
+            <div className="mb-6 flex space-x-3">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Facebook className="h-4 w-4" />
                       <span className="sr-only">Facebook</span>
                     </Button>
@@ -115,7 +102,7 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Twitter className="h-4 w-4" />
                       <span className="sr-only">Twitter</span>
                     </Button>
@@ -128,7 +115,7 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Instagram className="h-4 w-4" />
                       <span className="sr-only">Instagram</span>
                     </Button>
@@ -141,7 +128,7 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Linkedin className="h-4 w-4" />
                       <span className="sr-only">LinkedIn</span>
                     </Button>
@@ -152,32 +139,20 @@ function Footerdemo() {
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <div className="flex items-center space-x-2">
-              <Sun className="h-4 w-4" />
-              <Switch
-                id="dark-mode"
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-              />
-              <Moon className="h-4 w-4" />
-              <Label htmlFor="dark-mode" className="sr-only">
-                Toggle dark mode
-              </Label>
-            </div>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row md:text-left">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center md:flex-row md:text-left">
+          <p className="text-sm font-body text-white/40">
             © 2024 Edge Point. All rights reserved.
           </p>
-          <nav className="flex gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary">
+          <nav className="flex gap-4 text-sm font-body">
+            <a href="#" className="text-white/40 transition-colors hover:text-white">
               Privacy Policy
             </a>
-            <a href="#" className="transition-colors hover:text-primary">
+            <a href="#" className="text-white/40 transition-colors hover:text-white">
               Terms of Service
             </a>
-            <a href="#" className="transition-colors hover:text-primary">
+            <a href="#" className="text-white/40 transition-colors hover:text-white">
               Cookie Settings
             </a>
           </nav>

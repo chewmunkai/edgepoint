@@ -1,8 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GlassButtonLink } from "@/components/ui/glass-button"
 import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { ShaderAnimation } from "@/components/ui/shader-animation"
 
 const HeroSection = () => {
@@ -12,7 +12,7 @@ const HeroSection = () => {
       <ShaderAnimation />
       
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-[1]" />
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
@@ -22,9 +22,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-neon/30 bg-neon/5 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm"
           >
-            <span className="text-neon text-sm font-body font-medium tracking-wide">
+            <span className="text-white/80 text-sm font-body font-medium tracking-wide">
               Growth Partnership for Ambitious Businesses
             </span>
           </motion.div>
@@ -34,10 +34,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-heading font-bold text-white leading-[1.1] mb-8 text-4xl md:text-6xl lg:text-7xl"
+            className="font-heading font-bold text-white leading-[1.1] mb-8 text-3xl md:text-5xl lg:text-6xl"
           >
             Build a Marketing System That Actually{" "}
-            <span className="text-gradient-neon">Scales Your Business.</span>
+            <span className="text-white">Scales Your Business.</span>
           </motion.h1>
 
           {/* Description */}
@@ -57,22 +57,28 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <GlassButtonLink
-              href="#contact"
+            <Button
+              asChild
               size="lg"
-              className="glass-button-primary"
+              className="bg-neon text-black font-heading font-semibold hover:bg-neon/90 px-8"
             >
-              Start Our Growth Journey
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </GlassButtonLink>
+              <a href="#contact">
+                Start Our Growth Journey
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
+            </Button>
             
-            <GlassButtonLink
-              href="#strategy"
+            <Button
+              asChild
               size="lg"
+              variant="outline"
+              className="border-white/20 text-white bg-white/5 hover:bg-white/10 font-heading"
             >
-              See the Framework
-              <ArrowRight className="w-4 h-4" />
-            </GlassButtonLink>
+              <a href="#strategy">
+                See the Framework
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
+            </Button>
           </motion.div>
         </div>
       </div>

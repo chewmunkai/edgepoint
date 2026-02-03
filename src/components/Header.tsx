@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { StackingNavbar } from "@/components/ui/stacking-navbar";
-import { GlassButtonLink } from "@/components/ui/glass-button";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,13 +27,15 @@ const Header = () => {
             <StackingNavbar items={navItems} />
             
             {/* Desktop CTA */}
-            <GlassButtonLink
-              href="#contact"
+            <Button
+              asChild
               size="sm"
-              className="glass-button-primary"
+              className="bg-neon text-black font-heading font-semibold hover:bg-neon/90"
             >
-              Start Our Growth Journey
-            </GlassButtonLink>
+              <a href="#contact">
+                Start Our Growth Journey
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,13 +73,15 @@ const Header = () => {
                 </motion.a>
               ))}
               <div className="mt-4">
-                <GlassButtonLink
-                  href="#contact"
-                  onClick={() => setIsOpen(false)}
-                  className="glass-button-primary w-full text-center"
+                <Button
+                  asChild
+                  className="bg-neon text-black font-heading font-semibold hover:bg-neon/90 w-full"
                 >
-                  Start Our Growth Journey
-                </GlassButtonLink>
+                  <a href="#contact" onClick={() => setIsOpen(false)}>
+                    Start Our Growth Journey
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
               </div>
             </nav>
           </motion.div>

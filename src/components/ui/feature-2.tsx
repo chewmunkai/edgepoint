@@ -39,19 +39,19 @@ export const Feature2 = ({
             className="max-h-96 w-full rounded-xl object-cover md:w-1/2"
           />
           <div className="flex flex-col items-center md:items-start">
-            <h2 className="mb-4 max-w-xl text-center font-heading text-4xl font-bold md:text-left md:text-5xl lg:text-6xl">
+            <h2 className="mb-4 max-w-xl text-center font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-black md:text-left">
               {title}
             </h2>
-            <p className="mb-8 max-w-xl text-center font-body text-lg text-muted-foreground md:text-left">
+            <p className="mb-8 max-w-xl text-center font-body text-lg text-black/60 md:text-left leading-relaxed">
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-3 sm:flex-row md:justify-start">
-              <Button asChild className="w-full sm:w-auto">
+              <Button asChild className="w-full sm:w-auto bg-neon text-black font-heading font-semibold hover:bg-neon/90">
                 <a href={buttonPrimary.href}>
                   {buttonPrimary.label}
                 </a>
               </Button>
-              <Button asChild variant="outline" className="w-full sm:w-auto">
+              <Button asChild variant="outline" className="w-full sm:w-auto border-black/20 text-black hover:bg-black/5 font-heading">
                 <a href={buttonSecondary.href}>
                   {buttonSecondary.label}
                 </a>

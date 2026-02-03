@@ -28,10 +28,10 @@ const defaultTabs: Tab[] = [
           alt="Tab 1"
         />
         <div className="flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-foreground mb-2">
+          <h3 className="text-xl font-bold text-black mb-2">
             Tab 1
           </h3>
-          <p className="text-muted-foreground">
+          <p className="text-black/60">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos.
           </p>
@@ -50,10 +50,10 @@ const defaultTabs: Tab[] = [
           alt="Tab 2"
         />
         <div className="flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-foreground mb-2">
+          <h3 className="text-xl font-bold text-black mb-2">
             Tab 2
           </h3>
-          <p className="text-muted-foreground">
+          <p className="text-black/60">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos.
           </p>
@@ -72,10 +72,10 @@ const defaultTabs: Tab[] = [
           alt="Tab 3"
         />
         <div className="flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-foreground mb-2">
+          <h3 className="text-xl font-bold text-black mb-2">
             Tab 3
           </h3>
-          <p className="text-muted-foreground">
+          <p className="text-black/60">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos.
           </p>
@@ -96,22 +96,22 @@ const AnimatedTabs = ({
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="flex flex-wrap gap-2 justify-center p-2 bg-secondary/50 rounded-xl mb-6">
+      <div className="flex flex-wrap gap-2 justify-center p-2 bg-black/5 rounded-xl mb-6">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={cn(
-              "relative px-4 py-2 text-sm font-medium rounded-lg outline-none transition-colors",
+              "relative px-4 py-2 text-sm font-heading font-medium rounded-lg outline-none transition-colors",
               activeTab === tab.id
-                ? "text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground"
+                ? "text-black"
+                : "text-black/50 hover:text-black/70"
             )}
           >
             {activeTab === tab.id && (
               <motion.div
                 layoutId="active-tab"
-                className="absolute inset-0 bg-primary rounded-lg"
+                className="absolute inset-0 bg-white rounded-lg shadow-sm"
                 transition={{ type: "spring", duration: 0.5 }}
               />
             )}
@@ -120,7 +120,7 @@ const AnimatedTabs = ({
         ))}
       </div>
 
-      <div className="overflow-hidden rounded-xl bg-card border border-border">
+      <div className="overflow-hidden rounded-xl bg-white border border-black/10">
         {tabs.map(
           (tab) =>
             activeTab === tab.id && (
