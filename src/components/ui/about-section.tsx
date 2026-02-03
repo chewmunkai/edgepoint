@@ -39,10 +39,10 @@ export default function AboutSection3() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen w-full px-4 py-12 md:py-16 border-t border-white/10"
+      className="relative w-full px-4 py-8 md:py-12 border-t border-white/10"
     >
       <div className="mx-auto max-w-6xl font-body">
-        <div className="grid gap-8 md:gap-12 lg:grid-cols-[1fr_1.2fr]">
+        <div className="grid gap-6 md:gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
           {/* Header */}
           <div className="space-y-6 md:space-y-8">
             <TimelineContent

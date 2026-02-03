@@ -69,7 +69,7 @@ const FinalCTASection = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-16 border-t border-white/10">
+    <section id="contact" className="py-8 md:py-12 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6" ref={ref}>
         <div className="max-w-2xl mx-auto">
           {/* Header */}
@@ -191,9 +191,8 @@ const FinalCTASection = () => {
 
               {/* Submit Button */}
               <div className="pt-2">
-                <LiquidButton type="submit" size="lg" variant="dark" className="w-full md:w-auto font-heading text-sm whitespace-nowrap">
-                  Request Strategy Session
-                  <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                <LiquidButton type="submit" size="lg" variant="dark" className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[280px] justify-center">
+                  Request Strategy Session <ArrowRight className="w-4 h-4 flex-shrink-0 ml-1" />
                 </LiquidButton>
               </div>
             </form>

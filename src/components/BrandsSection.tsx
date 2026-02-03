@@ -17,7 +17,7 @@ const BrandsSection = () => {
   ];
 
   return (
-    <section className="py-10 md:py-14 border-t border-white/10">
+    <section className="py-6 md:py-10 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6" ref={ref}>
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
