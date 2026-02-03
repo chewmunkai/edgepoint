@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { HoverButton } from "@/components/ui/hover-button";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 interface Feature2Props {
   title: string;
@@ -47,9 +47,9 @@ export const Feature2 = ({
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-3 sm:flex-row md:justify-start">
-              <HoverButton href={buttonPrimary.href} className="px-5 py-2.5 text-sm">
+              <LiquidButton href={buttonPrimary.href} size="default" className="font-heading text-sm">
                 {buttonPrimary.label}
-              </HoverButton>
+              </LiquidButton>
               <Button asChild variant="outline" size="sm" className="w-full sm:w-auto border-black/20 text-black hover:bg-black/5 font-heading">
                 <a href={buttonSecondary.href}>
                   {buttonSecondary.label}
