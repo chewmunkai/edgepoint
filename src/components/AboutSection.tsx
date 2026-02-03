@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, ArrowRight } from "lucide-react";
+import { GlassButtonLink } from "@/components/ui/glass-button";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -63,6 +64,18 @@ const AboutSection = () => {
                     </p>
                   </motion.div>
                 ))}
+              </div>
+
+              {/* CTA */}
+              <div className="pt-4">
+                <GlassButtonLink
+                  href="#positioning"
+                  size="default"
+                  className="glass-button-light"
+                >
+                  See Our Approach
+                  <ArrowRight className="w-4 h-4" />
+                </GlassButtonLink>
               </div>
             </motion.div>
 

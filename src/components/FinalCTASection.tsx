@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { GlassButtonLink } from "@/components/ui/glass-button";
 
 const FinalCTASection = () => {
   const ref = useRef(null);
@@ -52,13 +53,14 @@ const FinalCTASection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <a
+            <GlassButtonLink
               href="#"
-              className="cta-primary inline-flex items-center gap-3 group text-lg"
+              size="lg"
+              className="glass-button-primary"
             >
               Book a Strategy Session
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </GlassButtonLink>
           </motion.div>
 
           {/* Decorative Elements */}

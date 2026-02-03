@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { GlassButtonLink } from "@/components/ui/glass-button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,8 +10,6 @@ const Header = () => {
     { name: "About", href: "#about" },
     { name: "Strategy", href: "#strategy" },
     { name: "Services", href: "#services" },
-    { name: "Industries", href: "#industries" },
-    { name: "Insights", href: "#insights" },
   ];
 
   return (
@@ -19,7 +18,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="font-heading font-bold text-xl text-white">
-            AGENCY<span className="text-neon">.</span>
+            EDGE POINT<span className="text-neon">.</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -36,9 +35,15 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <a href="#contact" className="hidden md:block cta-primary text-sm">
-            Book Audit
-          </a>
+          <div className="hidden md:block">
+            <GlassButtonLink
+              href="#contact"
+              size="sm"
+              className="glass-button-primary"
+            >
+              Start With Strategy
+            </GlassButtonLink>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -74,13 +79,15 @@ const Header = () => {
                   {item.name}
                 </motion.a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="cta-primary text-center mt-4"
-              >
-                Book Audit
-              </a>
+              <div className="mt-4">
+                <GlassButtonLink
+                  href="#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="glass-button-primary w-full text-center"
+                >
+                  Start With Strategy
+                </GlassButtonLink>
+              </div>
             </nav>
           </motion.div>
         )}

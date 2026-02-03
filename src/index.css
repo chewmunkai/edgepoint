@@ -134,6 +134,107 @@
     @apply bg-white text-black;
   }
 
+  /* ============================================
+     GLASS BUTTON STYLES
+     ============================================ */
+  
+  .glass-button {
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-glow: rgba(153, 255, 51, 0.4);
+    --glass-highlight: rgba(255, 255, 255, 0.2);
+    --glass-text: #ffffff;
+  }
+
+  /* Light mode glass button */
+  .section-light .glass-button,
+  .glass-button-light {
+    --glass-bg: rgba(0, 123, 255, 0.08);
+    --glass-border: rgba(0, 123, 255, 0.2);
+    --glass-glow: rgba(0, 123, 255, 0.3);
+    --glass-highlight: rgba(0, 123, 255, 0.15);
+    --glass-text: #000000;
+  }
+
+  .glass-button-overlay {
+    @apply relative z-10 block rounded-full;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--glass-text);
+    transition: all 0.3s ease;
+  }
+
+  .glass-button:hover .glass-button-overlay {
+    background: rgba(153, 255, 51, 0.15);
+    border-color: rgba(153, 255, 51, 0.4);
+  }
+
+  .section-light .glass-button:hover .glass-button-overlay,
+  .glass-button-light:hover .glass-button-overlay {
+    background: rgba(0, 123, 255, 0.15);
+    border-color: rgba(0, 123, 255, 0.4);
+  }
+
+  .glass-button-highlight {
+    @apply absolute inset-0 rounded-full pointer-events-none;
+    background: linear-gradient(
+      135deg,
+      var(--glass-highlight) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .glass-button:hover .glass-button-highlight {
+    opacity: 1;
+  }
+
+  .glass-button-glow {
+    @apply absolute inset-0 rounded-full pointer-events-none;
+    background: radial-gradient(
+      circle at center,
+      var(--glass-glow) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity 0.3s ease;
+    transform: scale(1.2);
+  }
+
+  .glass-button:hover .glass-button-glow {
+    opacity: 0.6;
+  }
+
+  .glass-button-text {
+    @apply font-heading font-semibold inline-flex items-center gap-2;
+  }
+
+  /* Primary CTA variant - Solid neon for high contrast */
+  .glass-button-primary {
+    --glass-bg: hsl(82 100% 60%);
+    --glass-border: hsl(82 100% 65%);
+    --glass-text: #000000;
+  }
+
+  .glass-button-primary .glass-button-overlay {
+    background: hsl(82 100% 60%);
+    border-color: hsl(82 100% 65%);
+    color: #000000;
+  }
+
+  .glass-button-primary:hover .glass-button-overlay {
+    background: hsl(82 100% 65%);
+    box-shadow: 0 0 40px rgba(153, 255, 51, 0.5);
+  }
+
+  /* ============================================
+     LEGACY BUTTON STYLES (keeping for fallback)
+     ============================================ */
+
   /* Magnetic button base */
   .btn-magnetic {
     @apply relative overflow-hidden transition-all duration-300 ease-out;
