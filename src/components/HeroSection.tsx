@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+
 import { LiquidButton } from "@/components/ui/liquid-glass-button"
 import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section"
 import { HighlightText } from "@/components/ui/animated-reveal-text"
@@ -74,11 +74,11 @@ const HeroSection = () => {
                 className="flex flex-col sm:flex-row items-center justify-center gap-3"
               >
                 <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[220px] justify-center">
-                  Start Our Growth Journey <ArrowRight className="w-4 h-4 flex-shrink-0 ml-1" />
+                  Start Our Growth Journey
                 </LiquidButton>
                 
                 <LiquidButton href="#strategy" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[220px] justify-center">
-                  See the Framework <ArrowRight className="w-4 h-4 flex-shrink-0 ml-1" />
+                  See the Framework
                 </LiquidButton>
               </motion.div>
             </div>

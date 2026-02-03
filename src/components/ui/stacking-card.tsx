@@ -3,11 +3,13 @@ import { ReactLenis } from 'lenis/react';
 import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
 import { useRef, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
+import { HyperTextParagraph } from '@/components/ui/hyper-text-with-decryption';
 
 interface ProjectData {
   title: string;
   description: string;
   color: string;
+  highlightWords?: string[];
 }
 
 interface CardProps {
@@ -15,6 +17,7 @@ interface CardProps {
   title: string;
   description: string;
   color: string;
+  highlightWords?: string[];
   progress: MotionValue<number>;
   range: [number, number];
   targetScale: number;
@@ -25,6 +28,7 @@ export const Card = ({
   title,
   description,
   color,
+  highlightWords = [],
   progress,
   range,
   targetScale,
@@ -57,9 +61,11 @@ export const Card = ({
           {title}
         </h2>
         <div className="mt-6 md:mt-8">
-          <p className="text-base md:text-lg first-letter:text-3xl first-letter:font-heading font-body text-black/80 leading-relaxed text-center max-w-2xl mx-auto">
-            {description}
-          </p>
+          <HyperTextParagraph
+            text={description}
+            highlightWords={highlightWords}
+            className="text-base md:text-lg first-letter:text-3xl first-letter:font-heading font-body text-black/80 text-center max-w-2xl mx-auto"
+          />
         </div>
       </motion.div>
     </div>
@@ -109,21 +115,22 @@ const MarketRealityStackingCards = forwardRef<HTMLDivElement, MarketRealityStack
 
           {/* Stacking Cards */}
           <section ref={container} className="relative">
-            {projects.map((project, i) => {
-              const targetScale = 1 - (projects.length - i) * 0.05;
-              return (
-                <Card
-                  key={`p_${i}`}
-                  i={i}
-                  title={project.title}
-                  description={project.description}
-                  color={project.color}
-                  progress={scrollYProgress}
-                  range={[i * (1 / projects.length), 1]}
-                  targetScale={targetScale}
-                />
-              );
-            })}
+          {projects.map((project, i) => {
+            const targetScale = 1 - (projects.length - i) * 0.05;
+            return (
+              <Card
+                key={`p_${i}`}
+                i={i}
+                title={project.title}
+                description={project.description}
+                color={project.color}
+                highlightWords={project.highlightWords}
+                progress={scrollYProgress}
+                range={[i * (1 / projects.length), 1]}
+                targetScale={targetScale}
+              />
+            );
+          })}
           </section>
         </main>
       </ReactLenis>
