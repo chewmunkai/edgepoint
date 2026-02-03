@@ -6,6 +6,7 @@ import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { HighlightText } from "@/components/ui/animated-reveal-text";
 
 function GlassFilter() {
   return (
@@ -82,7 +83,14 @@ const FinalCTASection = () => {
               Get Started
             </p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-black leading-tight mb-4">
-              Ready to Grow Together?
+              Ready to Grow{" "}
+              <HighlightText
+                text="Together?"
+                as="span"
+                textClassName="text-black"
+                highlightClassName="rounded-sm"
+                duration={1.2}
+              />
             </h2>
             <p className="font-body text-black/60 text-base max-w-xl mx-auto leading-relaxed">
               Let's look at your business and find where the leaks are.

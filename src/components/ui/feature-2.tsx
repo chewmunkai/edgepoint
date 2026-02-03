@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { HighlightText } from "@/components/ui/animated-reveal-text";
 
 interface Feature2Props {
   title: string;
@@ -30,6 +30,11 @@ export const Feature2 = ({
     href: "https://shadcnblocks.com",
   },
 }: Feature2Props) => {
+  // Split title to highlight last part
+  const titleParts = title.split(" ");
+  const highlightWord = titleParts.pop() || "";
+  const mainTitle = titleParts.join(" ");
+
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
@@ -41,7 +46,14 @@ export const Feature2 = ({
           />
           <div className="flex flex-col items-center md:items-start">
             <h2 className="mb-3 max-w-xl text-center font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-black md:text-left">
-              {title}
+              {mainTitle}{" "}
+              <HighlightText
+                text={highlightWord}
+                as="span"
+                textClassName="text-black"
+                highlightClassName="rounded-sm"
+                duration={1.2}
+              />
             </h2>
             <p className="mb-6 max-w-xl text-center font-body text-base text-black/60 md:text-left leading-relaxed">
               {description}

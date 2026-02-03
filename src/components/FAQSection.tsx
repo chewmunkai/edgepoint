@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HighlightText } from "@/components/ui/animated-reveal-text";
 
 const FAQSection = () => {
   const ref = useRef(null);
@@ -54,7 +55,14 @@ const FAQSection = () => {
               FAQ
             </p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-black leading-tight">
-              Frequently Asked Questions
+              Frequently Asked{" "}
+              <HighlightText
+                text="Questions"
+                as="span"
+                textClassName="text-black"
+                highlightClassName="rounded-sm"
+                duration={1.2}
+              />
             </h2>
           </motion.div>
 

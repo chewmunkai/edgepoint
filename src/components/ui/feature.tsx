@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { HighlightText } from "@/components/ui/animated-reveal-text";
 
 interface MarketRealityFeatureProps {
   eyebrow?: string;
@@ -49,7 +50,13 @@ function MarketRealityFeature({
               <div className="flex flex-col gap-3">
                 <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-black">
                   {headline}{" "}
-                  <span className="text-black">{highlightedText}</span>
+                  <HighlightText
+                    text={highlightedText}
+                    as="span"
+                    textClassName="text-black"
+                    highlightClassName="rounded-sm"
+                    duration={1.2}
+                  />
                 </h2>
                 <p className="font-body text-base text-black/60 max-w-xl leading-relaxed">
                   {description}
