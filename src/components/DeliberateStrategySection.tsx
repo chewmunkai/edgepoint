@@ -2,8 +2,9 @@ import TextBlockAnimation from "@/components/ui/text-block-animation";
 
 const DeliberateStrategySection = () => {
   return (
-    <section className="bg-black py-16 md:py-24">
-      <div className="container mx-auto px-4">
+    <section className="bg-black py-16 md:py-24 relative">
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <TextBlockAnimation 
             blockColor="hsl(82 100% 60%)"
