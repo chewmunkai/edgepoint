@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 
 interface Feature2Props {
   title: string;
@@ -46,11 +47,9 @@ export const Feature2 = ({
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-3 sm:flex-row md:justify-start">
-              <Button asChild className="w-full sm:w-auto bg-neon text-black font-heading font-semibold hover:bg-neon/90">
-                <a href={buttonPrimary.href}>
-                  {buttonPrimary.label}
-                </a>
-              </Button>
+              <HoverButton href={buttonPrimary.href} className="px-6 py-3">
+                {buttonPrimary.label}
+              </HoverButton>
               <Button asChild variant="outline" className="w-full sm:w-auto border-black/20 text-black hover:bg-black/5 font-heading">
                 <a href={buttonSecondary.href}>
                   {buttonSecondary.label}

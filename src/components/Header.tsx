@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { StackingNavbar } from "@/components/ui/stacking-navbar";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,15 +27,9 @@ const Header = () => {
             <StackingNavbar items={navItems} />
             
             {/* Desktop CTA */}
-            <Button
-              asChild
-              size="sm"
-              className="bg-neon text-black font-heading font-semibold hover:bg-neon/90"
-            >
-              <a href="#contact">
-                Start Our Growth Journey
-              </a>
-            </Button>
+            <HoverButton href="#contact" className="px-6 py-2.5 text-sm">
+              Start Our Growth Journey
+            </HoverButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,15 +67,10 @@ const Header = () => {
                 </motion.a>
               ))}
               <div className="mt-4">
-                <Button
-                  asChild
-                  className="bg-neon text-black font-heading font-semibold hover:bg-neon/90 w-full"
-                >
-                  <a href="#contact" onClick={() => setIsOpen(false)}>
-                    Start Our Growth Journey
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
+                <HoverButton href="#contact" className="w-full justify-center" onClick={() => setIsOpen(false)}>
+                  Start Our Growth Journey
+                  <ArrowRight className="w-4 h-4" />
+                </HoverButton>
               </div>
             </nav>
           </motion.div>

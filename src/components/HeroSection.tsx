@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { HoverButton } from "@/components/ui/hover-button"
 import { ShaderAnimation } from "@/components/ui/shader-animation"
 
 const HeroSection = () => {
@@ -57,22 +58,16 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button
-              asChild
-              size="lg"
-              className="bg-neon text-black font-heading font-semibold hover:bg-neon/90 px-8"
-            >
-              <a href="#contact">
-                Start Our Growth Journey
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
-            </Button>
+            <HoverButton href="#contact">
+              Start Our Growth Journey
+              <ArrowRight className="w-5 h-5" />
+            </HoverButton>
             
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-white/20 text-white bg-white/5 hover:bg-white/10 font-heading"
+              className="border-white/20 text-white bg-white/5 hover:bg-white/10 font-heading px-8"
             >
               <a href="#strategy">
                 See the Framework
