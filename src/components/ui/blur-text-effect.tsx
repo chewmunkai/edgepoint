@@ -15,30 +15,35 @@ export const BlurTextEffect: React.FC<BlurTextEffectProps> = ({ children, classN
   const containerRef = useRef<HTMLSpanElement>(null);
 
   useLayoutEffect(() => {
-    if (!containerRef.current) return;
+    const el = containerRef.current;
+    if (!el) return;
 
-    const chars = containerRef.current.querySelectorAll('span.char');
+    const ctx = gsap.context(() => {
+      const chars = el.querySelectorAll('span.char');
 
-    gsap.set(chars, { opacity: 0, y: 20, filter: 'blur(10px)' });
+      gsap.set(chars, { opacity: 0, y: 20, filter: 'blur(10px)' });
 
-    gsap.to(chars, {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 0.5,
-      ease: 'power2.out',
-      stagger: 0.02,
-      clearProps: 'filter',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      },
-    });
+      gsap.to(chars, {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        // 1.5x faster vs previous (0.5s / 1.5 = ~0.33s)
+        duration: 0.33,
+        ease: 'power2.out',
+        // 1.5x faster stagger (0.02 / 1.5 = ~0.013)
+        stagger: 0.013,
+        clearProps: 'filter',
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+      });
+    }, el);
 
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    return () => ctx.revert();
   }, [children]);
 
   return (

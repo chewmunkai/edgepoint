@@ -35,7 +35,6 @@ const Index = () => {
             <FAQSection />
             <StrategySection />
             <FinalCTASection />
-            <div className="h-16 md:h-20" />
           </FlowGradientBackground>
         </main>
         <Footer />
