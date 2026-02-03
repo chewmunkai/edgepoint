@@ -1,6 +1,5 @@
 "use client";
 import { TimelineContent } from "@/components/ui/timeline-animation";
-import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { HighlightText } from "@/components/ui/animated-reveal-text";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
@@ -40,7 +39,7 @@ export default function AboutSection3() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen w-full bg-white px-4 py-12 md:py-16 border-t border-black/5"
+      className="relative min-h-screen w-full px-4 py-12 md:py-16 border-t border-white/10"
     >
       <div className="mx-auto max-w-6xl font-body">
         <div className="grid gap-8 md:gap-12 lg:grid-cols-[1fr_1.2fr]">
@@ -51,7 +50,7 @@ export default function AboutSection3() {
               timelineRef={heroRef}
               variants={revealVariants}
             >
-              <div className="flex items-center gap-2 text-sm uppercase tracking-wider text-black/50">
+              <div className="flex items-center gap-2 text-sm uppercase tracking-wider text-white/50">
                 <span className="text-lg text-neon">✱</span>
                 <span className="font-body font-medium tracking-widest">
                   WHO WE ARE
@@ -64,7 +63,7 @@ export default function AboutSection3() {
               timelineRef={heroRef}
               variants={scaleVariants}
             >
-              <div className="relative aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_#000]">
+              <div className="relative aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl border-2 border-white/20 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
                 <img
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
                   alt="Team collaboration"
@@ -79,28 +78,28 @@ export default function AboutSection3() {
               timelineRef={heroRef}
               variants={revealVariants}
             >
-              <div className="space-y-3 text-sm text-black/70">
+              <div className="space-y-3 text-sm text-white/70">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <span className="text-2xl font-bold text-black font-heading">
+                  <span className="text-2xl font-bold text-white font-heading">
                     5+
                   </span>
                   <span>Years experience</span>
-                  <span className="text-black/30">|</span>
+                  <span className="text-white/30">|</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <span className="text-2xl font-bold text-black font-heading">
+                  <span className="text-2xl font-bold text-white font-heading">
                     60+
                   </span>
                   <span>Projects executed</span>
                 </div>
               </div>
-              <div className="mt-3 space-y-3 text-sm text-black/70">
+              <div className="mt-3 space-y-3 text-sm text-white/70">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <span className="text-2xl font-bold text-black font-heading">
+                  <span className="text-2xl font-bold text-white font-heading">
                     3.5 Million
                   </span>
                   <span>Ads Managed</span>
-                  <span className="text-black/30">|</span>
+                  <span className="text-white/30">|</span>
                 </div>
               </div>
             </TimelineContent>
@@ -113,7 +112,7 @@ export default function AboutSection3() {
               timelineRef={heroRef}
               variants={revealVariants}
             >
-              <h1 className="font-heading text-3xl font-bold leading-tight text-black md:text-4xl lg:text-5xl">
+              <h1 className="font-heading text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
                 A Different Kind of{" "}
                 <HighlightText
                   text="Partnership."
@@ -124,7 +123,7 @@ export default function AboutSection3() {
                 />
               </h1>
 
-              <div className="mt-6 grid gap-4 text-base leading-relaxed text-black/70 md:grid-cols-2">
+              <div className="mt-6 grid gap-4 text-base leading-relaxed text-white/70 md:grid-cols-2">
                 <TimelineContent
                   animationNum={4}
                   timelineRef={heroRef}
@@ -157,7 +156,7 @@ export default function AboutSection3() {
               timelineRef={heroRef}
               variants={revealVariants}
             >
-              <div className="rounded-xl border-2 border-black bg-black p-6 shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]">
+              <div className="rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm p-6 shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]">
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div>
                     <h3 className="font-heading text-xl font-bold text-white">
