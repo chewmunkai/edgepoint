@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { InteractiveImageAccordion } from "@/components/ui/interactive-image-accordion";
+import HeroSection from "@/components/HeroSection";
 import { MarketRealityBentoGrid } from "@/components/ui/cybernetic-bento-grid";
 import AboutSection from "@/components/AboutSection";
 import StrategySection from "@/components/StrategySection";
@@ -13,16 +13,8 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <main>
-        {/* Hero Section with Interactive Accordion */}
-        <InteractiveImageAccordion
-          eyebrow="Growth Partnership for Ambitious Businesses"
-          headline="Build a Marketing System That Actually Scales Your Business."
-          description="You've done the hard work of building a great product. Now, let's build the marketing engine it deserves. We work alongside you as dedicated partners, turning complex decisions into clear, revenue-driven growth."
-          ctaText="Start Our Growth Journey"
-          ctaHref="#contact"
-          secondaryCtaText="See the Framework"
-          secondaryCtaHref="#strategy"
-        />
+        {/* Hero Section with Shader Animation */}
+        <HeroSection />
         
         <MarketRealityBentoGrid 
           eyebrow="Market Reality"
