@@ -47,14 +47,12 @@ export const Feature2 = ({
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-3 sm:flex-row md:justify-start">
-              <LiquidButton href={buttonPrimary.href} size="default" className="font-heading text-sm">
+              <LiquidButton href={buttonPrimary.href} size="default" className="font-heading text-sm text-black">
                 {buttonPrimary.label}
               </LiquidButton>
-              <Button asChild variant="outline" size="sm" className="w-full sm:w-auto border-black/20 text-black hover:bg-black/5 font-heading">
-                <a href={buttonSecondary.href}>
-                  {buttonSecondary.label}
-                </a>
-              </Button>
+              <LiquidButton href={buttonSecondary.href} size="default" className="font-heading text-sm text-black">
+                {buttonSecondary.label}
+              </LiquidButton>
             </div>
           </div>
         </div>

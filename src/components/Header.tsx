@@ -28,7 +28,7 @@ const Header = () => {
             <StackingNavbar items={navItems} />
             
             {/* Desktop CTA */}
-            <LiquidButton href="#contact" size="default" className="font-heading text-sm">
+            <LiquidButton href="#contact" size="default" className="font-heading text-sm text-black">
               Start Our Growth Journey
             </LiquidButton>
           </div>
@@ -68,9 +68,9 @@ const Header = () => {
                 </motion.a>
               ))}
               <div className="mt-4">
-                <LiquidButton href="#contact" size="lg" className="w-full justify-center font-heading" onClick={() => setIsOpen(false)}>
+                <LiquidButton href="#contact" size="lg" className="w-full justify-center font-heading text-black" onClick={() => setIsOpen(false)}>
                   Start Our Growth Journey
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-black" />
                 </LiquidButton>
               </div>
             </nav>
