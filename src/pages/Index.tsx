@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import MarketRealitySection from "@/components/MarketRealitySection";
+import DeliberateStrategySection from "@/components/DeliberateStrategySection";
 import AboutSection from "@/components/AboutSection";
 import StrategySection from "@/components/StrategySection";
 import BrandsSection from "@/components/BrandsSection";
@@ -18,6 +19,10 @@ const Index = () => {
         
         {/* Market Reality - Stacking Cards */}
         <MarketRealitySection />
+        
+        {/* Deliberate Strategy Quote */}
+        <DeliberateStrategySection />
+        
         <AboutSection />
         <BrandsSection />
         <FAQSection />
