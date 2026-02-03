@@ -162,11 +162,11 @@
            hover:scale-105 active:scale-95;
   }
 
-  /* Bento grid card */
+  /* Bento grid card - note: add 'group' class directly in component */
   .bento-card {
     @apply bg-white border border-gray-100 rounded-2xl p-8 transition-all duration-500
            hover:shadow-2xl hover:shadow-agency-blue/10 hover:-translate-y-1
-           group cursor-pointer;
+           cursor-pointer;
   }
 
   /* Grid background animation */
