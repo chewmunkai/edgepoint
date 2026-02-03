@@ -45,7 +45,10 @@ const HeroSection = () => {
                 className="mb-6"
               >
                 <h1 className="font-heading font-bold text-white leading-[1.1] text-2xl md:text-4xl lg:text-5xl">
-                  <TextReveal word="Build a Marketing System That Actually " className="inline" />
+                  <TextReveal word="Build a Marketing System That " className="inline" />
+                  <span className="whitespace-nowrap">
+                    <TextReveal word="Actually " className="inline" />
+                  </span>
                   <HighlightText
                     text="Scales Your Business."
                     as="span"

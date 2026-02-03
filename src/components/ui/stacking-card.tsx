@@ -64,10 +64,10 @@ export const Card = ({
           <BlurTextEffect>{title}</BlurTextEffect>
         </h2>
         
-        {/* Description */}
+        {/* Description with Blur Effect */}
         <div className="mt-5 md:mt-6">
           <p className="text-base md:text-lg font-body text-black/70 leading-relaxed max-w-xl">
-            {description}
+            <BlurTextEffect>{description}</BlurTextEffect>
           </p>
         </div>
       </motion.div>
