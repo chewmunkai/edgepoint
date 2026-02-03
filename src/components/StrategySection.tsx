@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { HighlightText } from "@/components/ui/animated-reveal-text";
+import { TextReveal } from "@/components/ui/text-reveal-animation";
 import LinearCard from "@/components/ui/linear-card";
 
 const StrategySection = () => {
@@ -52,7 +53,7 @@ const StrategySection = () => {
             Our Process
           </p>
           <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-            Our 4-Step Partnership{" "}
+            <TextReveal word="Our 4-Step Partnership " className="inline" />
             <HighlightText
               text="Approach"
               as="span"

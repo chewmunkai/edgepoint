@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HighlightText } from "@/components/ui/animated-reveal-text";
+import { TextReveal } from "@/components/ui/text-reveal-animation";
 
 const FAQSection = () => {
   const ref = useRef(null);
@@ -55,7 +56,7 @@ const FAQSection = () => {
               FAQ
             </p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-              Frequently Asked{" "}
+              <TextReveal word="Frequently Asked " className="inline" />
               <HighlightText
                 text="Questions"
                 as="span"

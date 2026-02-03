@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { HighlightText } from "@/components/ui/animated-reveal-text";
+import { TextReveal } from "@/components/ui/text-reveal-animation";
 
 function GlassFilter() {
   return (
@@ -83,7 +84,7 @@ const FinalCTASection = () => {
               Get Started
             </p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight mb-4">
-              Ready to Grow{" "}
+              <TextReveal word="Ready to Grow " className="inline" />
               <HighlightText
                 text="Together?"
                 as="span"

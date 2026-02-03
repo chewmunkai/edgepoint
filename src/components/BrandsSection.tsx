@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { HighlightText } from "@/components/ui/animated-reveal-text";
+import { TextReveal } from "@/components/ui/text-reveal-animation";
 
 const BrandsSection = () => {
   const ref = useRef(null);
@@ -31,7 +32,7 @@ const BrandsSection = () => {
               Brands & Partners
             </p>
             <h2 className="font-heading font-bold text-xl md:text-2xl text-white">
-              Trusted by Growing{" "}
+              <TextReveal word="Trusted by Growing " className="inline" />
               <HighlightText
                 text="Businesses"
                 as="span"

@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react"
 import { LiquidButton } from "@/components/ui/liquid-glass-button"
 import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section"
 import { HighlightText } from "@/components/ui/animated-reveal-text"
+import { TextReveal } from "@/components/ui/text-reveal-animation"
 import logo from "@/assets/logo.png"
 
 const HeroSection = () => {
@@ -44,7 +45,7 @@ const HeroSection = () => {
                 className="mb-6"
               >
                 <h1 className="font-heading font-bold text-white leading-[1.1] text-2xl md:text-4xl lg:text-5xl">
-                  Build a Marketing System That Actually{" "}
+                  <TextReveal word="Build a Marketing System That Actually " className="inline" />
                   <HighlightText
                     text="Scales Your Business."
                     as="span"
