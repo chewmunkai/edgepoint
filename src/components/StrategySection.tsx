@@ -44,7 +44,7 @@ const StrategySection = () => {
   ];
 
   return (
-    <section id="strategy" className="bg-background py-16 md:py-24 overflow-hidden">
+    <section id="strategy" className="bg-background py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
