@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import { InteractiveImageAccordion } from "@/components/ui/interactive-image-accordion";
-import AboutSection from "@/components/AboutSection";
+import { ProblemBentoGrid } from "@/components/ui/cybernetic-bento-grid";
 import PositioningSection from "@/components/PositioningSection";
 import StrategySection from "@/components/StrategySection";
 import ServicesSection from "@/components/ServicesSection";
@@ -21,7 +21,11 @@ const Index = () => {
           ctaHref="#contact"
         />
         
-        <AboutSection />
+        <ProblemBentoGrid 
+          eyebrow="The Problem"
+          headline="Where Most SME Marketing"
+          highlightedText="Goes Wrong"
+        />
         <PositioningSection />
         <StrategySection />
         <ServicesSection />
