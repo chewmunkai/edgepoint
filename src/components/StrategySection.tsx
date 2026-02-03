@@ -21,15 +21,15 @@ const StrategySection = () => {
           />
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-agency-blue/10 flex items-center justify-center">
-                <Eye className="w-6 h-6 text-agency-blue" />
+              <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center">
+                <Eye className="w-6 h-6 text-white" />
               </div>
-              <span className="font-heading font-bold text-agency-blue text-sm">Competitive SWOT</span>
+              <span className="font-heading font-bold text-black/60 text-xs uppercase tracking-wider">Competitive SWOT</span>
             </div>
             <h3 className="font-heading text-2xl font-bold text-black mb-4">
               Confront Reality
             </h3>
-            <p className="font-body text-black/70 leading-relaxed">
+            <p className="font-body text-black/60 leading-relaxed">
               We start with a blunt audit. We analyze your business against your top 3 competitors to see exactly where you stand. If your product or price isn't competitive, we fix the offer before we spend a cent on ads.
             </p>
           </div>
@@ -48,15 +48,15 @@ const StrategySection = () => {
           />
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-agency-blue/10 flex items-center justify-center">
-                <Map className="w-6 h-6 text-agency-blue" />
+              <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center">
+                <Map className="w-6 h-6 text-white" />
               </div>
-              <span className="font-heading font-bold text-agency-blue text-sm">Full Funnel</span>
+              <span className="font-heading font-bold text-black/60 text-xs uppercase tracking-wider">Full Funnel</span>
             </div>
             <h3 className="font-heading text-2xl font-bold text-black mb-4">
               Design the Customer Path
             </h3>
-            <p className="font-body text-black/70 leading-relaxed">
+            <p className="font-body text-black/60 leading-relaxed">
               We map out the journey from stranger to customer. We don't "hope" people buy; we design the Awareness, Interest, and Consideration stages so the conversion becomes the logical next step.
             </p>
           </div>
@@ -75,15 +75,15 @@ const StrategySection = () => {
           />
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-agency-blue/10 flex items-center justify-center">
-                <Gift className="w-6 h-6 text-agency-blue" />
+              <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center">
+                <Gift className="w-6 h-6 text-white" />
               </div>
-              <span className="font-heading font-bold text-agency-blue text-sm">Offer Stack</span>
+              <span className="font-heading font-bold text-black/60 text-xs uppercase tracking-wider">Offer Stack</span>
             </div>
             <h3 className="font-heading text-2xl font-bold text-black mb-4">
               Engineer the "Godfather" Offer
             </h3>
-            <p className="font-body text-black/70 leading-relaxed">
+            <p className="font-body text-black/60 leading-relaxed">
               We help you build an offer stack the market can't ignore. We develop a low-barrier "Lead Attraction" offer to get people in the door and your "North Star" offer to drive core revenue.
             </p>
           </div>
@@ -102,15 +102,15 @@ const StrategySection = () => {
           />
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-agency-blue/10 flex items-center justify-center">
-                <Rocket className="w-6 h-6 text-agency-blue" />
+              <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center">
+                <Rocket className="w-6 h-6 text-white" />
               </div>
-              <span className="font-heading font-bold text-agency-blue text-sm">Tactical Deployment</span>
+              <span className="font-heading font-bold text-black/60 text-xs uppercase tracking-wider">Tactical Deployment</span>
             </div>
             <h3 className="font-heading text-2xl font-bold text-black mb-4">
               Execute & Optimize
             </h3>
-            <p className="font-body text-black/70 leading-relaxed">
+            <p className="font-body text-black/60 leading-relaxed">
               Only after the strategy is set do we trigger the tactics—whether that's XHS KOC strategy, Google SEO, or Performance Ads. We stay alongside you to adjust the plan based on real-world sales data.
             </p>
           </div>
@@ -120,7 +120,7 @@ const StrategySection = () => {
   ];
 
   return (
-    <section id="strategy" className="section-light py-32 overflow-hidden">
+    <section id="strategy" className="bg-white py-32 overflow-hidden">
       <div className="container mx-auto px-6" ref={ref}>
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
@@ -130,12 +130,11 @@ const StrategySection = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-agency-blue font-body font-medium tracking-widest uppercase text-sm mb-4">
+            <p className="text-black/50 font-body font-medium tracking-widest uppercase text-sm mb-4">
               Our Framework
             </p>
-            <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-black leading-tight">
-              Our 4-Step Partnership{" "}
-              <span className="text-gradient-blue">Approach</span>
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-black leading-tight">
+              Our 4-Step Partnership Approach
             </h2>
           </motion.div>
 

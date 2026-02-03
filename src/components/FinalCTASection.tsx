@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { GlassButton } from "@/components/ui/glass-button";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -21,7 +21,6 @@ const FinalCTASection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
   };
 
@@ -33,8 +32,8 @@ const FinalCTASection = () => {
   };
 
   return (
-    <section id="contact" className="relative section-light py-32 overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10" ref={ref}>
+    <section id="contact" className="bg-white py-32 border-t border-black/5">
+      <div className="container mx-auto px-6" ref={ref}>
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
@@ -43,12 +42,11 @@ const FinalCTASection = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <p className="text-agency-blue font-body font-medium tracking-widest uppercase text-sm mb-4">
+            <p className="text-black/50 font-body font-medium tracking-widest uppercase text-sm mb-4">
               Get Started
             </p>
-            <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-black leading-tight mb-6">
-              Ready to Grow{" "}
-              <span className="text-gradient-blue">Together?</span>
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-black leading-tight mb-6">
+              Ready to Grow Together?
             </h2>
             <p className="font-body text-black/60 text-xl max-w-2xl mx-auto leading-relaxed">
               We're not interested in a sales pitch. We're interested in your data. Let's look at your business and find where the leaks are.
@@ -61,7 +59,7 @@ const FinalCTASection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-lg space-y-6">
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 md:p-10 border border-black/10 space-y-6">
               {/* Name & Company Row */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -75,7 +73,7 @@ const FinalCTASection = () => {
                     placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="bg-gray-50 border-gray-200 focus:border-agency-blue focus:ring-agency-blue/20"
+                    className="bg-white border-black/20 focus:border-black focus:ring-black/20"
                     required
                   />
                 </div>
@@ -90,7 +88,7 @@ const FinalCTASection = () => {
                     placeholder="Your company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="bg-gray-50 border-gray-200 focus:border-agency-blue focus:ring-agency-blue/20"
+                    className="bg-white border-black/20 focus:border-black focus:ring-black/20"
                     required
                   />
                 </div>
@@ -108,7 +106,7 @@ const FinalCTASection = () => {
                   placeholder="e.g., Company A, Company B, Company C"
                   value={formData.competitors}
                   onChange={handleChange}
-                  className="bg-gray-50 border-gray-200 focus:border-agency-blue focus:ring-agency-blue/20"
+                  className="bg-white border-black/20 focus:border-black focus:ring-black/20"
                   required
                 />
               </div>
@@ -125,7 +123,7 @@ const FinalCTASection = () => {
                   placeholder="Describe your main offering"
                   value={formData.bestProduct}
                   onChange={handleChange}
-                  className="bg-gray-50 border-gray-200 focus:border-agency-blue focus:ring-agency-blue/20"
+                  className="bg-white border-black/20 focus:border-black focus:ring-black/20"
                   required
                 />
               </div>
@@ -141,21 +139,21 @@ const FinalCTASection = () => {
                   placeholder="Tell us about your main challenge..."
                   value={formData.bottleneck}
                   onChange={handleChange}
-                  className="bg-gray-50 border-gray-200 focus:border-agency-blue focus:ring-agency-blue/20 min-h-[120px]"
+                  className="bg-white border-black/20 focus:border-black focus:ring-black/20 min-h-[120px]"
                   required
                 />
               </div>
 
               {/* Submit Button */}
               <div className="pt-4">
-                <GlassButton
+                <Button
                   type="submit"
                   size="lg"
-                  className="glass-button-light w-full md:w-auto"
+                  className="w-full md:w-auto bg-neon text-black font-heading font-semibold hover:bg-neon/90 px-8"
                 >
                   Request Strategy Session
-                  <ArrowRight className="w-5 h-5" />
-                </GlassButton>
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
               </div>
             </form>
           </motion.div>

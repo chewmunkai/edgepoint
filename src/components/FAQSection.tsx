@@ -40,12 +40,8 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="relative bg-black py-24 md:py-32 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 grid-bg opacity-20" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
-
-      <div className="relative z-10 container mx-auto px-6" ref={ref}>
+    <section id="faq" className="bg-white py-24 md:py-32 border-t border-black/5">
+      <div className="container mx-auto px-6" ref={ref}>
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -54,12 +50,11 @@ const FAQSection = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-neon font-body font-medium tracking-widest uppercase text-sm mb-4">
+            <p className="text-black/50 font-body font-medium tracking-widest uppercase text-sm mb-4">
               FAQ
             </p>
-            <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
-              Frequently Asked{" "}
-              <span className="text-gradient-neon">Questions</span>
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-black leading-tight">
+              Frequently Asked Questions
             </h2>
           </motion.div>
 
@@ -74,12 +69,12 @@ const FAQSection = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-white/5 border border-white/10 rounded-2xl px-6 overflow-hidden hover:border-neon/30 transition-colors duration-300"
+                  className="bg-white border border-black/10 rounded-2xl px-6 overflow-hidden hover:border-black/20 transition-colors duration-300"
                 >
-                  <AccordionTrigger className="font-heading font-semibold text-lg text-white hover:text-neon transition-colors py-6 hover:no-underline">
+                  <AccordionTrigger className="font-heading font-semibold text-lg text-black hover:text-black/70 transition-colors py-6 hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="font-body text-white/60 leading-relaxed pb-6">
+                  <AccordionContent className="font-body text-black/60 leading-relaxed pb-6">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
