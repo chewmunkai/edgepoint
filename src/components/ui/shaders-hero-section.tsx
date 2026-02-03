@@ -4,6 +4,8 @@ import { PulsingBorder, MeshGradient } from "@paper-design/shaders-react"
 import { motion } from "framer-motion"
 import type React from "react"
 import { useEffect, useRef, useState } from "react"
+import { GlassButtonLink } from "@/components/ui/glass-button"
+import { ArrowRight } from "lucide-react"
 
 interface ShaderBackgroundProps {
   children: React.ReactNode
@@ -180,45 +182,23 @@ export function HeroContent({
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
+          <GlassButtonLink
             href={primaryCta.href}
-            className="cta-primary inline-flex items-center gap-3 group"
+            size="lg"
+            className="glass-button-primary"
           >
             {primaryCta.text}
-            <svg
-              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
+            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </GlassButtonLink>
+          
           {secondaryCta && (
-            <a
+            <GlassButtonLink
               href={secondaryCta.href}
-              className="inline-flex items-center gap-2 text-white/70 font-heading font-semibold hover:text-white transition-colors duration-300 px-6 py-4"
+              size="lg"
             >
               {secondaryCta.text}
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
+              <ArrowRight className="w-4 h-4" />
+            </GlassButtonLink>
           )}
         </motion.div>
       </div>
