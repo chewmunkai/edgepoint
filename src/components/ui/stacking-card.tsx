@@ -3,6 +3,7 @@ import { ReactLenis } from 'lenis/react';
 import { useTransform, motion, useScroll, MotionValue } from 'framer-motion';
 import { useRef, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
+import { HighlightText } from '@/components/ui/animated-reveal-text';
 
 interface ProjectData {
   title: string;
@@ -93,7 +94,13 @@ const MarketRealityStackingCards = forwardRef<HTMLDivElement, MarketRealityStack
               </p>
               <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white leading-tight">
                 {headline}{" "}
-                <span className="text-neon">{highlightedText}</span>
+                <HighlightText
+                  text={highlightedText}
+                  as="span"
+                  textClassName="text-black"
+                  highlightClassName="rounded-sm"
+                  duration={1.2}
+                />
               </h1>
               <p className="font-body text-white/60 text-base md:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
                 Before we talk about tactics, we have to look at the reality of the market. 
