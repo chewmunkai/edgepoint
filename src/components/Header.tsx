@@ -20,7 +20,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="z-10">
-            <img src={logo} alt="Edge Point" className="h-10 md:h-12 w-auto" />
+            <img src={logo} alt="Edge Point" className="h-12 md:h-14 w-auto" />
           </a>
 
           {/* Desktop Navigation - Animated Tabs */}
@@ -28,7 +28,7 @@ const Header = () => {
             <AnimatedNavigationTabs items={navItems} />
             
             {/* Desktop CTA */}
-            <LiquidButton href="#contact" size="default" className="font-heading text-sm text-black">
+            <LiquidButton href="#contact" size="default" className="font-heading text-sm text-white">
               Start Our Growth Journey
             </LiquidButton>
           </div>
