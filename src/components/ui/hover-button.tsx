@@ -83,7 +83,7 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
       <div
         key={id}
         className={cn(
-          "pointer-events-none absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-1000",
+          "pointer-events-none absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-1000",
           fadeState === "in" && "opacity-100 scale-100",
           fadeState === "out" && "opacity-0 scale-[3]",
           !fadeState && "opacity-0 scale-0"
@@ -97,7 +97,15 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
     ))
 
     const sharedClasses = cn(
-      "relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-8 py-4 font-heading font-semibold text-black transition-all [--circle-end:hsl(82,100%,50%)] [--circle-start:hsl(82,100%,70%)] bg-neon hover:bg-neon/90",
+      "relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 font-heading font-semibold text-black transition-all",
+      "[--circle-end:hsl(82,100%,50%)] [--circle-start:hsl(82,100%,70%)]",
+      // Liquid glass effect
+      "bg-neon/90 backdrop-blur-sm",
+      "shadow-[0_0_20px_rgba(153,255,51,0.3),inset_0_1px_0_rgba(255,255,255,0.3)]",
+      "hover:shadow-[0_0_30px_rgba(153,255,51,0.5),inset_0_1px_0_rgba(255,255,255,0.4)]",
+      "hover:bg-neon",
+      "active:scale-[0.98]",
+      "before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/30 before:to-transparent before:opacity-60",
       className
     )
 

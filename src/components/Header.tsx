@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { StackingNavbar } from "@/components/ui/stacking-navbar";
 import { HoverButton } from "@/components/ui/hover-button";
+import logoDark from "@/assets/logo-dark-bg.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,11 +16,11 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="font-heading font-bold text-xl text-white z-10">
-            EDGE POINT<span className="text-neon">.</span>
+          <a href="#" className="z-10">
+            <img src={logoDark} alt="Edge Point" className="h-10 md:h-12 w-auto" />
           </a>
 
           {/* Desktop Navigation - Stacking Navbar */}

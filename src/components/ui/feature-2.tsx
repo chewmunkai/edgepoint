@@ -31,26 +31,26 @@ export const Feature2 = ({
   },
 }: Feature2Props) => {
   return (
-    <section className="py-32">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center gap-8 md:flex-row md:gap-16">
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col items-center gap-6 md:flex-row md:gap-12">
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="max-h-96 w-full rounded-xl object-cover md:w-1/2"
+            className="max-h-72 md:max-h-80 w-full rounded-xl object-cover md:w-1/2"
           />
           <div className="flex flex-col items-center md:items-start">
-            <h2 className="mb-4 max-w-xl text-center font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-black md:text-left">
+            <h2 className="mb-3 max-w-xl text-center font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-black md:text-left">
               {title}
             </h2>
-            <p className="mb-8 max-w-xl text-center font-body text-lg text-black/60 md:text-left leading-relaxed">
+            <p className="mb-6 max-w-xl text-center font-body text-base text-black/60 md:text-left leading-relaxed">
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-3 sm:flex-row md:justify-start">
-              <HoverButton href={buttonPrimary.href} className="px-6 py-3">
+              <HoverButton href={buttonPrimary.href} className="px-5 py-2.5 text-sm">
                 {buttonPrimary.label}
               </HoverButton>
-              <Button asChild variant="outline" className="w-full sm:w-auto border-black/20 text-black hover:bg-black/5 font-heading">
+              <Button asChild variant="outline" size="sm" className="w-full sm:w-auto border-black/20 text-black hover:bg-black/5 font-heading">
                 <a href={buttonSecondary.href}>
                   {buttonSecondary.label}
                 </a>

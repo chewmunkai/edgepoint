@@ -40,20 +40,20 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="bg-white py-24 md:py-32 border-t border-black/5">
-      <div className="container mx-auto px-6" ref={ref}>
-        <div className="max-w-4xl mx-auto">
+    <section id="faq" className="bg-white py-16 md:py-24 border-t border-black/5">
+      <div className="container mx-auto px-4 md:px-6" ref={ref}>
+        <div className="max-w-3xl mx-auto">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <p className="text-black/50 font-body font-medium tracking-widest uppercase text-sm mb-4">
+            <p className="text-black/50 font-body font-medium tracking-widest uppercase text-xs mb-3">
               FAQ
             </p>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-black leading-tight">
+            <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-black leading-tight">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -64,17 +64,17 @@ const FAQSection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Accordion type="single" collapsible className="space-y-4">
+            <Accordion type="single" collapsible className="space-y-3">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-white border border-black/10 rounded-2xl px-6 overflow-hidden hover:border-black/20 transition-colors duration-300"
+                  className="bg-white border border-black/10 rounded-xl px-4 md:px-5 overflow-hidden hover:border-black/20 transition-colors duration-300"
                 >
-                  <AccordionTrigger className="font-heading font-semibold text-lg text-black hover:text-black/70 transition-colors py-6 hover:no-underline">
+                  <AccordionTrigger className="font-heading font-semibold text-base text-black hover:text-black/70 transition-colors py-4 hover:no-underline text-left">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="font-body text-black/60 leading-relaxed pb-6">
+                  <AccordionContent className="font-body text-sm text-black/60 leading-relaxed pb-4">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

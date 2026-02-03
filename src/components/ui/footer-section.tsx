@@ -10,24 +10,26 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react"
+import logoDark from "@/assets/logo-dark-bg.png"
 
 function Footerdemo() {
   return (
     <footer className="bg-black text-white border-t border-white/10">
-      <div className="container mx-auto px-6 py-12 md:px-8 lg:px-12">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="relative">
-            <h2 className="mb-4 font-heading text-2xl font-bold tracking-tight">
-              Stay Connected
-            </h2>
-            <p className="mb-6 font-body text-white/60">
-              Join our newsletter for the latest updates and exclusive offers.
+      <div className="container mx-auto px-4 md:px-6 py-10 md:py-12">
+        <div className="grid gap-8 md:gap-10 grid-cols-2 lg:grid-cols-4">
+          {/* Logo & Newsletter */}
+          <div className="col-span-2 lg:col-span-1">
+            <a href="#" className="inline-block mb-4">
+              <img src={logoDark} alt="Edge Point" className="h-12 w-auto" />
+            </a>
+            <p className="mb-4 font-body text-sm text-white/60">
+              Join our newsletter for updates.
             </p>
             <form className="relative">
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="pr-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-neon focus:ring-neon/20"
+                className="pr-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-neon focus:ring-neon/20 text-sm"
               />
               <Button
                 type="submit"
@@ -39,122 +41,88 @@ function Footerdemo() {
               </Button>
             </form>
           </div>
+
+          {/* Quick Links */}
           <div>
-            <h3 className="mb-4 font-heading text-lg font-semibold">Quick Links</h3>
+            <h3 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider">Quick Links</h3>
             <nav className="space-y-2 text-sm font-body">
-              <a
-                href="#"
-                className="block text-white/60 transition-colors hover:text-white"
-              >
-                Home
-              </a>
-              <a
-                href="#about"
-                className="block text-white/60 transition-colors hover:text-white"
-              >
-                About Us
-              </a>
-              <a
-                href="#strategy"
-                className="block text-white/60 transition-colors hover:text-white"
-              >
-                Our Framework
-              </a>
-              <a
-                href="#brands"
-                className="block text-white/60 transition-colors hover:text-white"
-              >
-                Case Studies
-              </a>
-              <a
-                href="#faq"
-                className="block text-white/60 transition-colors hover:text-white"
-              >
-                FAQ
-              </a>
+              <a href="#" className="block text-white/60 transition-colors hover:text-white">Home</a>
+              <a href="#about" className="block text-white/60 transition-colors hover:text-white">About Us</a>
+              <a href="#strategy" className="block text-white/60 transition-colors hover:text-white">Framework</a>
+              <a href="#faq" className="block text-white/60 transition-colors hover:text-white">FAQ</a>
             </nav>
           </div>
+
+          {/* Contact */}
           <div>
-            <h3 className="mb-4 font-heading text-lg font-semibold">Contact Us</h3>
+            <h3 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider">Contact</h3>
             <address className="space-y-2 text-sm font-body not-italic text-white/60">
-              <p>123 Innovation Street</p>
-              <p>Tech City, TC 12345</p>
-              <p>Phone: (123) 456-7890</p>
-              <p>Email: hello@edgepoint.com</p>
+              <p>hello@edgepoint.com</p>
+              <p>(123) 456-7890</p>
             </address>
           </div>
-          <div className="relative">
-            <h3 className="mb-4 font-heading text-lg font-semibold">Follow Us</h3>
-            <div className="mb-6 flex space-x-3">
+
+          {/* Social */}
+          <div>
+            <h3 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider">Follow Us</h3>
+            <div className="flex flex-wrap gap-2">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Facebook className="h-4 w-4" />
                       <span className="sr-only">Facebook</span>
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Follow us on Facebook</p>
-                  </TooltipContent>
+                  <TooltipContent><p>Facebook</p></TooltipContent>
                 </Tooltip>
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Twitter className="h-4 w-4" />
                       <span className="sr-only">Twitter</span>
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Follow us on Twitter</p>
-                  </TooltipContent>
+                  <TooltipContent><p>Twitter</p></TooltipContent>
                 </Tooltip>
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Instagram className="h-4 w-4" />
                       <span className="sr-only">Instagram</span>
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Follow us on Instagram</p>
-                  </TooltipContent>
+                  <TooltipContent><p>Instagram</p></TooltipContent>
                 </Tooltip>
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
                       <Linkedin className="h-4 w-4" />
                       <span className="sr-only">LinkedIn</span>
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Connect with us on LinkedIn</p>
-                  </TooltipContent>
+                  <TooltipContent><p>LinkedIn</p></TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             </div>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center md:flex-row md:text-left">
-          <p className="text-sm font-body text-white/40">
+
+        {/* Bottom Bar */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-center md:flex-row md:text-left">
+          <p className="text-xs font-body text-white/40">
             © 2024 Edge Point. All rights reserved.
           </p>
-          <nav className="flex gap-4 text-sm font-body">
-            <a href="#" className="text-white/40 transition-colors hover:text-white">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-white/40 transition-colors hover:text-white">
-              Terms of Service
-            </a>
-            <a href="#" className="text-white/40 transition-colors hover:text-white">
-              Cookie Settings
-            </a>
+          <nav className="flex gap-4 text-xs font-body">
+            <a href="#" className="text-white/40 transition-colors hover:text-white">Privacy</a>
+            <a href="#" className="text-white/40 transition-colors hover:text-white">Terms</a>
+            <a href="#" className="text-white/40 transition-colors hover:text-white">Cookies</a>
           </nav>
         </div>
       </div>
