@@ -20,9 +20,11 @@ const Index = () => {
           {/* Hero Section with Gradient Animation */}
           <HeroSection />
           
-          {/* Combined Market Reality + Deliberate Strategy (same dark bg) */}
+          {/* Market Reality - Full stacking cards experience */}
+          <MarketRealitySection />
+          
+          {/* Deliberate Strategy (dark bg) */}
           <section className="bg-black">
-            <MarketRealitySection />
             <DeliberateStrategySection />
           </section>
           

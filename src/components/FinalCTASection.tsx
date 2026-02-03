@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -70,7 +69,7 @@ const FinalCTASection = () => {
   };
 
   return (
-    <section id="contact" className="py-8 md:py-12 pb-0 border-t border-white/10">
+    <section id="contact" className="py-8 md:py-12 pb-0">
       <div className="container mx-auto px-4 md:px-6" ref={ref}>
         <div className="max-w-2xl mx-auto">
           {/* Header */}
@@ -193,7 +192,7 @@ const FinalCTASection = () => {
               {/* Submit Button */}
               <div className="pt-2">
                 <LiquidButton type="submit" size="lg" variant="dark" className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[280px] justify-center">
-                  Request Strategy Session <ArrowRight className="w-4 h-4 flex-shrink-0 ml-1" />
+                  Request Strategy Session
                 </LiquidButton>
               </div>
             </form>

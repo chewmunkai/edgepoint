@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { StackingNavbar } from "@/components/ui/stacking-navbar";
+import { Menu, X } from "lucide-react";
+import { AnimatedNavigationTabs } from "@/components/ui/animated-navigation-tabs";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import logo from "@/assets/logo.png";
 
@@ -9,9 +9,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Framework", href: "#strategy" },
-    { label: "FAQ", href: "#faq" },
+    { id: 1, tile: "About", href: "#about" },
+    { id: 2, tile: "Framework", href: "#strategy" },
+    { id: 3, tile: "FAQ", href: "#faq" },
   ];
 
   return (
@@ -23,9 +23,9 @@ const Header = () => {
             <img src={logo} alt="Edge Point" className="h-10 md:h-12 w-auto" />
           </a>
 
-          {/* Desktop Navigation - Stacking Navbar */}
+          {/* Desktop Navigation - Animated Tabs */}
           <div className="hidden md:flex items-center gap-6">
-            <StackingNavbar items={navItems} />
+            <AnimatedNavigationTabs items={navItems} />
             
             {/* Desktop CTA */}
             <LiquidButton href="#contact" size="default" className="font-heading text-sm text-black">
@@ -56,7 +56,7 @@ const Header = () => {
             <nav className="container mx-auto px-6 py-8 flex flex-col gap-6">
               {navItems.map((item, index) => (
                 <motion.a
-                  key={item.label}
+                  key={item.tile}
                   href={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -64,13 +64,12 @@ const Header = () => {
                   onClick={() => setIsOpen(false)}
                   className="text-white/70 hover:text-white font-body text-lg tracking-wide transition-colors duration-300"
                 >
-                  {item.label}
+                  {item.tile}
                 </motion.a>
               ))}
               <div className="mt-4">
                 <LiquidButton href="#contact" size="lg" className="w-full justify-center font-heading text-black" onClick={() => setIsOpen(false)}>
                   Start Our Growth Journey
-                  <ArrowRight className="w-4 h-4 text-black" />
                 </LiquidButton>
               </div>
             </nav>
