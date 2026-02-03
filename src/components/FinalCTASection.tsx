@@ -69,7 +69,7 @@ const FinalCTASection = () => {
   };
 
   return (
-    <section id="contact" className="py-8 md:py-12 border-t border-white/10">
+    <section id="contact" className="py-8 md:py-12 pb-0 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6" ref={ref}>
         <div className="max-w-2xl mx-auto">
           {/* Header */}

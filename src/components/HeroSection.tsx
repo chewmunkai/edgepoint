@@ -4,14 +4,12 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { LiquidButton } from "@/components/ui/liquid-glass-button"
 import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section"
-import { HeroScrollWrapper } from "@/components/ui/hero-scroll-animation"
 import { HighlightText } from "@/components/ui/animated-reveal-text"
 import logo from "@/assets/logo.png"
 
 const HeroSection = () => {
   return (
-    <HeroScrollWrapper className="relative">
-      <FlowGradientBackground className="min-h-[90vh]">
+    <FlowGradientBackground className="min-h-[90vh]">
         <section className="relative min-h-[90vh] overflow-hidden">
           {/* Content */}
           <div className="relative z-10 flex items-center justify-center min-h-[90vh] px-4 md:px-6 pt-12">
@@ -101,8 +99,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </section>
-      </FlowGradientBackground>
-    </HeroScrollWrapper>
+    </FlowGradientBackground>
   )
 }
 

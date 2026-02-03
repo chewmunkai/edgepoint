@@ -42,7 +42,7 @@ export default function AboutSection3() {
       className="relative w-full px-4 py-8 md:py-12 border-t border-white/10"
     >
       <div className="mx-auto max-w-6xl font-body">
-        <div className="grid gap-6 md:gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
+        <div className="grid gap-6 md:gap-8 lg:grid-cols-[auto_1fr] lg:gap-8">
           {/* Header */}
           <div className="space-y-6 md:space-y-8">
             <TimelineContent
