@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { AlertCircle } from "lucide-react";
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const stats = [
-    { value: "150+", label: "Projects Delivered" },
-    { value: "94%", label: "Client Retention" },
-    { value: "3.2x", label: "Avg. ROI Increase" },
+  const problems = [
+    "Marketing activities pile up without a clear objective",
+    "Different agencies or staff give conflicting advice",
+    "Money is spent across channels with no single owner of outcomes",
+    "Results are reviewed, but direction never changes",
   ];
 
   return (
@@ -21,20 +23,20 @@ const AboutSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="mb-20"
+            className="mb-16"
           >
             <p className="text-agency-blue font-body font-medium tracking-widest uppercase text-sm mb-4">
-              About
+              The Problem
             </p>
             <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-black leading-tight max-w-4xl">
-              We remove the noise.{" "}
-              <span className="text-gradient-blue">You get clarity.</span>
+              Where Most SME Marketing{" "}
+              <span className="text-gradient-blue">Goes Wrong</span>
             </h2>
           </motion.div>
 
           {/* Content Grid */}
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left Column - Text */}
+            {/* Left Column - Intro Text */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -42,44 +44,44 @@ const AboutSection = () => {
               className="space-y-8"
             >
               <p className="font-body text-xl text-black/80 leading-relaxed">
-                Most agencies sell you tactics. We deliver systems that compound.
+                This is the pattern we see repeatedly:
               </p>
-              <p className="font-body text-lg text-black/60 leading-relaxed">
-                Our approach strips away complexity to reveal what actually drives 
-                growth: strategic positioning, precise execution, and measurable outcomes. 
-                No fluff. No vanity metrics. Just direction.
-              </p>
-              <div className="pt-4">
-                <a
-                  href="#strategy"
-                  className="inline-flex items-center gap-2 text-agency-blue font-heading font-semibold hover:gap-4 transition-all duration-300"
-                >
-                  Explore Our Framework
-                  <span className="text-xl">→</span>
-                </a>
+              
+              {/* Problems List */}
+              <div className="space-y-4">
+                {problems.map((problem, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                    className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
+                  >
+                    <AlertCircle className="w-5 h-5 text-agency-blue mt-0.5 flex-shrink-0" />
+                    <p className="font-body text-black/70 leading-relaxed">
+                      {problem}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
-            {/* Right Column - Stats */}
+            {/* Right Column - Conclusion */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="grid gap-8"
+              className="lg:sticky lg:top-32"
             >
-              {stats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className="flex items-baseline gap-6 pb-8 border-b border-black/10 last:border-0"
-                >
-                  <span className="font-heading font-bold text-5xl md:text-6xl text-black">
-                    {stat.value}
-                  </span>
-                  <span className="font-body text-black/60 text-lg">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
+              <div className="bg-black rounded-2xl p-10 text-white">
+                <p className="font-body text-xl text-white/80 leading-relaxed mb-6">
+                  The issue isn't effort.
+                </p>
+                <p className="font-heading font-bold text-3xl md:text-4xl leading-tight">
+                  It's the absence of clear{" "}
+                  <span className="text-neon">marketing leadership.</span>
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>

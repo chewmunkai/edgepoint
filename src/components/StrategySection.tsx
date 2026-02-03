@@ -9,23 +9,23 @@ const StrategySection = () => {
   const pillars = [
     {
       id: "01",
-      title: "Diagnose",
-      description: "Deep audit of market position, competitive landscape, and growth blockers.",
+      title: "Confront Reality",
+      description: "We assess competitors, customer behaviour, internal limitations, and offer strength to understand the real commercial battlefield.",
     },
     {
       id: "02",
-      title: "Design",
-      description: "Strategic framework built on data, not assumptions. Clear direction.",
+      title: "Design the Full Funnel",
+      description: "We map how strangers become customers, clearly defining the role of awareness, trust, consideration, and conversion.",
     },
     {
       id: "03",
-      title: "Deploy",
-      description: "Precision execution across channels with measurable milestones.",
+      title: "Engineer the Offer Structure",
+      description: "We design entry offers, core revenue offers, and urgency mechanics that make sense for your market and margins.",
     },
     {
       id: "04",
-      title: "Dominate",
-      description: "Compound growth through systematic optimization and scaling.",
+      title: "Deploy Only Relevant Execution",
+      description: "We select channels and tactics based on funnel needs, budget constraints, and execution capability — not trends.",
     },
   ];
 
@@ -41,13 +41,14 @@ const StrategySection = () => {
             className="text-center mb-20"
           >
             <p className="text-agency-blue font-body font-medium tracking-widest uppercase text-sm mb-4">
-              Framework
+              Our Process
             </p>
             <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-black leading-tight">
-              Strategy as a system.
+              How We Bring Control to{" "}
+              <span className="text-gradient-blue">Marketing Decisions</span>
             </h2>
-            <p className="font-body text-black/60 text-xl mt-6 max-w-2xl mx-auto">
-              Repeatable. Scalable. Built for compounding returns.
+            <p className="font-body text-black/60 text-xl mt-6 max-w-3xl mx-auto">
+              We follow a fixed decision sequence so marketing is deliberate, not reactive.
             </p>
           </motion.div>
 
@@ -96,24 +97,17 @@ const StrategySection = () => {
             </div>
           </div>
 
-          {/* Abstract Pattern */}
+          {/* Warning Note */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="mt-20 flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-16 text-center"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-3 h-3 rounded-full bg-agency-blue" />
-              <div className="w-20 h-px bg-agency-blue/30" />
-              <div className="w-3 h-3 rounded-full border-2 border-agency-blue" />
-              <div className="w-20 h-px bg-agency-blue/30" />
-              <div className="w-3 h-3 rounded-full bg-agency-blue" />
-              <div className="w-20 h-px bg-agency-blue/30" />
-              <div className="w-3 h-3 rounded-full border-2 border-agency-blue" />
-              <div className="w-20 h-px bg-agency-blue/30" />
-              <div className="w-3 h-3 rounded-full bg-agency-blue" />
-            </div>
+            <p className="font-body text-lg text-black/80 bg-agency-blue/5 inline-block px-8 py-4 rounded-full">
+              <span className="font-semibold text-agency-blue">Skipping any step</span>{" "}
+              leads to wasted spend.
+            </p>
           </motion.div>
         </div>
       </div>
