@@ -69,10 +69,10 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <button className="h-9 w-9 rounded-full flex items-center justify-center text-white shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)] hover:scale-105 transition-all duration-300">
                       <Facebook className="h-4 w-4" />
                       <span className="sr-only">Facebook</span>
-                    </Button>
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent><p>Facebook</p></TooltipContent>
                 </Tooltip>
@@ -80,10 +80,10 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <button className="h-9 w-9 rounded-full flex items-center justify-center text-white shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)] hover:scale-105 transition-all duration-300">
                       <Twitter className="h-4 w-4" />
                       <span className="sr-only">Twitter</span>
-                    </Button>
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent><p>Twitter</p></TooltipContent>
                 </Tooltip>
@@ -91,10 +91,10 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <button className="h-9 w-9 rounded-full flex items-center justify-center text-white shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)] hover:scale-105 transition-all duration-300">
                       <Instagram className="h-4 w-4" />
                       <span className="sr-only">Instagram</span>
-                    </Button>
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent><p>Instagram</p></TooltipContent>
                 </Tooltip>
@@ -102,10 +102,10 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="h-9 w-9 rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    <button className="h-9 w-9 rounded-full flex items-center justify-center text-white shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)] hover:scale-105 transition-all duration-300">
                       <Linkedin className="h-4 w-4" />
                       <span className="sr-only">LinkedIn</span>
-                    </Button>
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent><p>LinkedIn</p></TooltipContent>
                 </Tooltip>

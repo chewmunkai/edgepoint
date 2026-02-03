@@ -146,9 +146,9 @@ const FinalCTASection = () => {
 
               {/* Submit Button */}
               <div className="pt-2">
-                <LiquidButton type="submit" size="lg" className="w-full md:w-auto font-heading text-sm">
+                <LiquidButton type="submit" size="lg" className="w-full md:w-auto font-heading text-sm text-black">
                   Request Strategy Session
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-black" />
                 </LiquidButton>
               </div>
             </form>
