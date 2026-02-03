@@ -29,12 +29,13 @@ const Index = () => {
           </section>
           
           {/* Remaining sections with gradient background */}
-          <FlowGradientBackground className="pb-12 md:pb-16">
+          <FlowGradientBackground>
             <AboutSection />
             <BrandsSection />
             <FAQSection />
             <StrategySection />
             <FinalCTASection />
+            <div className="h-16 md:h-20" />
           </FlowGradientBackground>
         </main>
         <Footer />

@@ -20,7 +20,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="z-10">
-            <img src={logo} alt="Edge Point" className="h-12 md:h-14 w-auto" />
+            <img src={logo} alt="Edge Point" className="h-[72px] w-auto" />
           </a>
 
           {/* Desktop Navigation - Animated Tabs */}
