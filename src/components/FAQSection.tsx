@@ -41,7 +41,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="py-12 md:py-16 border-t border-white/10">
+    <section id="faq" className="py-8 md:py-12 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6" ref={ref}>
         <div className="max-w-3xl mx-auto">
           {/* Section Header */}
@@ -77,12 +77,12 @@ const FAQSection = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="w-full max-w-full bg-white/5 border border-white/10 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
+                  className="w-full max-w-full bg-white/10 border border-white/20 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
                 >
-                  <AccordionTrigger className="text-base text-white hover:text-white/70 transition-colors hover:no-underline text-left">
+                  <AccordionTrigger className="text-base text-black hover:text-black/70 transition-colors hover:no-underline text-left font-medium">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/60 leading-relaxed">
+                  <AccordionContent className="text-black/80 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

@@ -11,10 +11,10 @@ import logo from "@/assets/logo.png"
 const HeroSection = () => {
   return (
     <HeroScrollWrapper className="relative">
-      <FlowGradientBackground className="min-h-screen">
-        <section className="relative min-h-screen overflow-hidden">
+      <FlowGradientBackground className="min-h-[90vh]">
+        <section className="relative min-h-[90vh] overflow-hidden">
           {/* Content */}
-          <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-16">
+          <div className="relative z-10 flex items-center justify-center min-h-[90vh] px-4 md:px-6 pt-12">
             <div className="max-w-4xl mx-auto text-center">
               {/* Logo */}
               <motion.div
@@ -74,14 +74,12 @@ const HeroSection = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-3"
               >
-                <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap">
-                  Start Our Growth Journey
-                  <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[220px] justify-center">
+                  Start Our Growth Journey <ArrowRight className="w-4 h-4 flex-shrink-0 ml-1" />
                 </LiquidButton>
                 
-                <LiquidButton href="#strategy" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap">
-                  See the Framework
-                  <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                <LiquidButton href="#strategy" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[220px] justify-center">
+                  See the Framework <ArrowRight className="w-4 h-4 flex-shrink-0 ml-1" />
                 </LiquidButton>
               </motion.div>
             </div>

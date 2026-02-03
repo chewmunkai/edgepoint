@@ -41,7 +41,7 @@ export const Card = ({
   return (
     <div
       ref={container}
-      className="h-[70vh] flex items-center justify-center sticky top-0"
+      className="h-[60vh] flex items-center justify-center sticky top-0"
     >
       <motion.div
         style={{
@@ -86,7 +86,7 @@ const MarketRealityStackingCards = forwardRef<HTMLDivElement, MarketRealityStack
       <ReactLenis root>
         <main ref={ref} className="bg-black">
           {/* Header Section */}
-          <section className="h-[60vh] w-full bg-black grid place-content-center sticky top-0">
+          <section className="h-[50vh] w-full bg-black grid place-content-center sticky top-0">
             <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]" />
             <div className="text-center px-4 relative z-10">
               <p className="text-neon font-body font-medium tracking-widest uppercase text-sm mb-4">
