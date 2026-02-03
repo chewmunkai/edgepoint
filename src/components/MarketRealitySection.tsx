@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { HighlightText } from "@/components/ui/animated-reveal-text";
+import { TextReveal } from "@/components/ui/text-reveal-animation";
 
 interface MarketCardData {
   title: string;
   description: string;
   color: string;
-  rotation: string;
 }
 
 const marketRealityData: MarketCardData[] = [
@@ -16,21 +16,18 @@ const marketRealityData: MarketCardData[] = [
     description:
       "Competition is at an all-time high, and consumers are more skeptical than ever. Simply \"showing up\" with ads isn't enough to win anymore. The market is saturated with messages.",
     color: "#99FF33",
-    rotation: "rotate-3",
   },
   {
     title: "The Internal Gaps",
     description:
       "Often, marketing fails because budgets are spent on execution before the business model or the offer is actually ready. Without a solid foundation, even the best campaigns fall flat.",
     color: "#FFD700",
-    rotation: "rotate-0",
   },
   {
     title: "The Truth",
     description:
       "Success comes from precision, not volume. Every action must tie directly to measurable business outcomes. The winners aren't those who spend the most—they're those who spend the smartest.",
     color: "#FFFFFF",
-    rotation: "-rotate-3",
   },
 ];
 
@@ -52,7 +49,7 @@ const MarketRealitySection = () => {
             Market Reality
           </p>
           <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-            Scaling Today is a Challenge,{" "}
+            <TextReveal word="Scaling Today is a Challenge, " className="inline" />
             <HighlightText
               text="Not a Given."
               as="span"
@@ -63,54 +60,37 @@ const MarketRealitySection = () => {
           </h2>
         </motion.div>
 
-        {/* Stacking Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {/* Stacking Cards */}
-          <div className="relative h-[500px] md:h-[550px]">
+        {/* Stacking Cards - Full height container for scroll effect */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative min-h-[150vh]">
             {marketRealityData.map((card, i) => (
               <div
                 key={i}
-                className={`sticky top-24 h-[140px] md:h-[160px] ${card.rotation}`}
+                className="sticky h-[200px] md:h-[220px]"
                 style={{
-                  paddingTop: `${i * 28}px`,
+                  top: `calc(20% + ${i * 50}px)`,
                 }}
               >
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  initial={{ opacity: 0, y: 50, rotate: i % 2 === 0 ? 2 : -2 }}
+                  animate={isInView ? { opacity: 1, y: 0, rotate: i % 2 === 0 ? 2 : -2 } : {}}
                   transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-                  className="h-full rounded-xl p-5 md:p-6 shadow-lg border border-white/10"
-                  style={{ backgroundColor: card.color }}
+                  className="h-full rounded-xl p-6 md:p-8 shadow-xl border border-black/10"
+                  style={{ 
+                    backgroundColor: card.color,
+                    transform: `rotate(${i % 2 === 0 ? 2 : -2}deg)`,
+                  }}
                 >
-                  <h3 className="text-lg md:text-xl font-heading font-bold text-black mb-2">
+                  <h3 className="text-xl md:text-2xl font-heading font-bold text-black mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-black/70 font-body text-sm leading-relaxed line-clamp-3">
+                  <p className="text-black/70 font-body text-sm md:text-base leading-relaxed">
                     {card.description}
                   </p>
                 </motion.div>
               </div>
             ))}
           </div>
-
-          {/* Right Side Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="sticky top-24 h-fit flex items-center justify-center lg:justify-start"
-          >
-            <div className="text-center lg:text-left">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white leading-tight">
-                The Modern{" "}
-                <br className="hidden md:block" />
-                <span className="text-neon">Challenge</span> 🎯
-              </h2>
-              <p className="mt-4 text-white/60 font-body text-base max-w-sm">
-                Scroll down to discover the realities of scaling in today's market.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

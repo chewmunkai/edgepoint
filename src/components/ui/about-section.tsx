@@ -1,6 +1,7 @@
 "use client";
 import { TimelineContent } from "@/components/ui/timeline-animation";
 import { HighlightText } from "@/components/ui/animated-reveal-text";
+import { TextReveal } from "@/components/ui/text-reveal-animation";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 
@@ -113,7 +114,7 @@ export default function AboutSection3() {
               variants={revealVariants}
             >
               <h1 className="font-heading text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
-                A Different Kind of{" "}
+                <TextReveal word="A Different Kind of " className="inline" />
                 <HighlightText
                   text="Partnership."
                   as="span"
