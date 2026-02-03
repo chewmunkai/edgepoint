@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import { MarketRealityFeature } from "@/components/ui/feature";
+import MarketRealitySection from "@/components/MarketRealitySection";
 import AboutSection from "@/components/AboutSection";
 import StrategySection from "@/components/StrategySection";
 import BrandsSection from "@/components/BrandsSection";
@@ -16,7 +16,8 @@ const Index = () => {
         {/* Hero Section with Shader Animation */}
         <HeroSection />
         
-        <MarketRealityFeature />
+        {/* Market Reality - Stacking Cards */}
+        <MarketRealitySection />
         <AboutSection />
         <BrandsSection />
         <FAQSection />
