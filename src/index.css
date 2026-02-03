@@ -49,6 +49,26 @@
     --dark-bg: 0 0% 0%;
     --light-bg: 0 0% 100%;
 
+    /* Neobrutalist accordion colors */
+    --main: #88aaee;
+    --overlay: rgba(0, 0, 0, 0.8);
+    --bg: #dfe5f2;
+    --bw: #fff;
+    --blank: #000;
+    --border-neo: #000;
+    --text: #000;
+    --mtext: #000;
+    --ring-offset: #fff;
+
+    --border-radius: 5px;
+    --box-shadow-x: 4px;
+    --box-shadow-y: 4px;
+    --reverse-box-shadow-x: -4px;
+    --reverse-box-shadow-y: -4px;
+    --base-font-weight: 500;
+    --heading-font-weight: 700;
+    --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border-neo);
+
     /* Sidebar defaults */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -309,5 +329,18 @@
   @keyframes gridMove {
     0% { background-position: 0 0; }
     100% { background-position: 60px 60px; }
+  }
+
+  @keyframes moveBackground {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: 0% -1000%;
+    }
+  }
+
+  .animate-move-background {
+    animation: moveBackground 30s linear infinite;
   }
 }

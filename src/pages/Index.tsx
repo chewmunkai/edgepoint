@@ -18,9 +18,9 @@ const Index = () => {
         
         <MarketRealityFeature />
         <AboutSection />
-        <StrategySection />
         <BrandsSection />
         <FAQSection />
+        <StrategySection />
         <FinalCTASection />
       </main>
       <Footer />

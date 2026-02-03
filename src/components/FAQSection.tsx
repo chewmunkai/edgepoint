@@ -64,17 +64,17 @@ const FAQSection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-3 w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-white border border-black/10 rounded-xl px-4 md:px-5 overflow-hidden hover:border-black/20 transition-colors duration-300"
+                  className="w-full max-w-full shadow-shadow"
                 >
-                  <AccordionTrigger className="font-heading font-semibold text-base text-black hover:text-black/70 transition-colors py-4 hover:no-underline text-left">
+                  <AccordionTrigger className="text-base text-black hover:text-black/70 transition-colors hover:no-underline text-left">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="font-body text-sm text-black/60 leading-relaxed pb-4">
+                  <AccordionContent className="text-black/60 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

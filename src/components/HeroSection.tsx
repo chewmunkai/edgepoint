@@ -37,7 +37,7 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm"
           >
             <span className="text-white/80 text-xs md:text-sm font-body font-medium tracking-wide">
-              Growth Partnership for Ambitious Businesses
+              Marketing Agency
             </span>
           </motion.div>
 
@@ -69,14 +69,14 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
-            <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base">
+            <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap">
               Start Our Growth Journey
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 flex-shrink-0" />
             </LiquidButton>
             
-            <LiquidButton href="#strategy" size="lg" variant="dark" className="font-heading text-sm md:text-base">
+            <LiquidButton href="#strategy" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap">
               See the Framework
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 flex-shrink-0" />
             </LiquidButton>
           </motion.div>
         </div>
