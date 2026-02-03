@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, ReactNode } from 'react';
-import { AlertCircle, TrendingDown, Users, Target, BarChart3, Zap } from 'lucide-react';
+import { Volume2, ShieldAlert, DollarSign, Target } from 'lucide-react';
 
 interface BentoItemProps {
   className?: string;
@@ -48,65 +48,26 @@ const BentoItem = ({ className = '', children }: BentoItemProps) => {
   );
 };
 
-interface ProblemBentoGridProps {
+interface MarketRealityBentoGridProps {
   eyebrow?: string;
   headline: string;
   highlightedText: string;
 }
 
-export const ProblemBentoGrid = ({ 
-  eyebrow = "The Problem",
-  headline = "Where Most SME Marketing",
-  highlightedText = "Goes Wrong"
-}: ProblemBentoGridProps) => {
-  const problems = [
-    {
-      icon: Target,
-      title: "No Clear Objective",
-      description: "Marketing activities pile up without a clear objective or measurable outcome.",
-      size: "large"
-    },
-    {
-      icon: Users,
-      title: "Conflicting Advice",
-      description: "Different agencies or staff give conflicting advice.",
-      size: "small"
-    },
-    {
-      icon: TrendingDown,
-      title: "Scattered Spending",
-      description: "Money is spent across channels with no single owner of outcomes.",
-      size: "small"
-    },
-    {
-      icon: BarChart3,
-      title: "Results Without Change",
-      description: "Results are reviewed, but direction never changes.",
-      size: "small"
-    },
-    {
-      icon: Zap,
-      title: "Missing Leadership",
-      description: "The issue isn't effort — it's the absence of clear marketing leadership.",
-      size: "medium"
-    },
-    {
-      icon: AlertCircle,
-      title: "Tactical Over Strategic",
-      description: "Focus on tactics without a cohesive strategy leads to wasted resources.",
-      size: "small"
-    },
-  ];
-
+export const MarketRealityBentoGrid = ({ 
+  eyebrow = "Market Reality",
+  headline = "Scaling Today is a Challenge,",
+  highlightedText = "Not a Given."
+}: MarketRealityBentoGridProps) => {
   return (
-    <section id="about" className="relative bg-black py-24 md:py-32 overflow-hidden">
+    <section id="reality" className="relative bg-black py-24 md:py-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
 
       <div className="relative z-10 container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <p className="text-neon font-body font-medium tracking-widest uppercase text-sm mb-4">
             {eyebrow}
           </p>
@@ -116,93 +77,62 @@ export const ProblemBentoGrid = ({
           </h2>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-          {/* Large Item - First Problem */}
-          {(() => {
-            const FirstIcon = problems[0].icon;
-            return (
-              <BentoItem className="md:col-span-2 md:row-span-2">
-                <div className="h-full flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center mb-6 group-hover:bg-neon/20 transition-colors">
-                      <FirstIcon className="w-6 h-6 text-neon" />
-                    </div>
-                    <h3 className="font-heading font-bold text-2xl md:text-3xl text-white mb-4">
-                      {problems[0].title}
-                    </h3>
-                    <p className="font-body text-white/60 text-lg leading-relaxed">
-                      {problems[0].description}
-                    </p>
-                  </div>
-                  <div className="mt-8 pt-6 border-t border-white/10">
-                    <p className="font-body text-white/40 text-sm">
-                      This is the pattern we see repeatedly in SME marketing.
-                    </p>
-                  </div>
-                </div>
-              </BentoItem>
-            );
-          })()}
+        {/* Intro Text */}
+        <p className="font-body text-white/60 text-lg md:text-xl text-center max-w-3xl mx-auto mb-16 leading-relaxed">
+          Before we talk about tactics, we have to look at the reality of the market. Growth usually stalls because of two specific gaps:
+        </p>
 
-          {/* Small Items */}
-          {problems.slice(1, 4).map((problem, index) => {
-            const Icon = problem.icon;
-            return (
-              <BentoItem key={index}>
-                <div className="w-10 h-10 rounded-lg bg-neon/10 flex items-center justify-center mb-4 group-hover:bg-neon/20 transition-colors">
-                  <Icon className="w-5 h-5 text-neon" />
-                </div>
-                <h3 className="font-heading font-semibold text-lg text-white mb-2">
-                  {problem.title}
-                </h3>
-                <p className="font-body text-white/60 text-sm leading-relaxed">
-                  {problem.description}
-                </p>
-              </BentoItem>
-            );
-          })}
+        {/* Bento Grid - Two Main Gaps */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+          {/* External Noise */}
+          <BentoItem className="min-h-[280px]">
+            <div className="h-full flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center mb-6 group-hover:bg-neon/20 transition-colors">
+                <Volume2 className="w-6 h-6 text-neon" />
+              </div>
+              <h3 className="font-heading font-bold text-2xl md:text-3xl text-white mb-4">
+                The External Noise
+              </h3>
+              <p className="font-body text-white/60 text-lg leading-relaxed">
+                Competition is at an all-time high, and consumers are more skeptical than ever. Simply "showing up" with ads isn't enough to win anymore.
+              </p>
+            </div>
+          </BentoItem>
 
-          {/* Medium Item - Key Insight */}
-          {(() => {
-            const InsightIcon = problems[4].icon;
-            return (
-              <BentoItem className="md:col-span-2">
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center flex-shrink-0 group-hover:bg-neon/20 transition-colors">
-                    <InsightIcon className="w-6 h-6 text-neon" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-white mb-2">
-                      {problems[4].title}
-                    </h3>
-                    <p className="font-body text-white/60 leading-relaxed">
-                      {problems[4].description}
-                    </p>
-                  </div>
-                </div>
-              </BentoItem>
-            );
-          })()}
-
-          {/* Last Small Item */}
-          {(() => {
-            const LastIcon = problems[5].icon;
-            return (
-              <BentoItem>
-                <div className="w-10 h-10 rounded-lg bg-neon/10 flex items-center justify-center mb-4 group-hover:bg-neon/20 transition-colors">
-                  <LastIcon className="w-5 h-5 text-neon" />
-                </div>
-                <h3 className="font-heading font-semibold text-lg text-white mb-2">
-                  {problems[5].title}
-                </h3>
-                <p className="font-body text-white/60 text-sm leading-relaxed">
-                  {problems[5].description}
-                </p>
-              </BentoItem>
-            );
-          })()}
+          {/* Internal Gaps */}
+          <BentoItem className="min-h-[280px]">
+            <div className="h-full flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center mb-6 group-hover:bg-neon/20 transition-colors">
+                <ShieldAlert className="w-6 h-6 text-neon" />
+              </div>
+              <h3 className="font-heading font-bold text-2xl md:text-3xl text-white mb-4">
+                The Internal Gaps
+              </h3>
+              <p className="font-body text-white/60 text-lg leading-relaxed">
+                Often, marketing fails because budgets are spent on execution before the business model or the offer is actually ready.
+              </p>
+            </div>
+          </BentoItem>
         </div>
+
+        {/* The Truth - Bottom Statement */}
+        <BentoItem className="max-w-5xl mx-auto">
+          <div className="flex items-start gap-6 p-4">
+            <div className="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center flex-shrink-0 group-hover:bg-neon/20 transition-colors">
+              <Target className="w-6 h-6 text-neon" />
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-xl md:text-2xl text-white mb-2">
+                The Truth
+              </h3>
+              <p className="font-body text-white/60 leading-relaxed text-lg">
+                To scale, you don't just need more "activity"—you need a{" "}
+                <span className="text-neon font-semibold">deliberate strategy</span>{" "}
+                that connects every dollar spent to your bottom line.
+              </p>
+            </div>
+          </div>
+        </BentoItem>
       </div>
     </section>
   );
