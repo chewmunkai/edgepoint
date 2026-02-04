@@ -161,6 +161,8 @@ class App {
   renderer: any; camera: any; scene: any; clock: any;
   touchTexture: TouchTexture; gradientBackground: GradientBackground;
   animationId: number | null = null; container: HTMLElement;
+  resizeObserver: ResizeObserver | null = null;
+  private handleResize: (() => void) | null = null;
   constructor(container: HTMLElement) {
     this.container = container;
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
@@ -191,12 +193,29 @@ class App {
       const rect = c.getBoundingClientRect();
       onMove(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
     });
-    window.addEventListener("resize", () => {
-      this.camera.aspect = c.clientWidth / c.clientHeight;
+
+    // IMPORTANT: the container height can change as sections render/expand.
+    // If we only resize on `window.resize`, the WebGL canvas can end up shorter
+    // than the content, revealing the page background as a white band.
+    this.handleResize = () => {
+      const w = c.clientWidth;
+      const h = c.clientHeight;
+      if (!w || !h) return;
+      this.camera.aspect = w / h;
       this.camera.updateProjectionMatrix();
-      this.renderer.setSize(c.clientWidth, c.clientHeight);
-      this.gradientBackground.onResize(c.clientWidth, c.clientHeight);
-    });
+      this.renderer.setSize(w, h);
+      this.gradientBackground.onResize(w, h);
+    };
+
+    // Initial sizing (in case we mounted before layout settles)
+    this.handleResize();
+
+    window.addEventListener("resize", this.handleResize);
+    if (typeof ResizeObserver !== "undefined") {
+      this.resizeObserver = new ResizeObserver(() => this.handleResize?.());
+      this.resizeObserver.observe(c);
+    }
+
     this.tick();
   }
   tick() {
@@ -208,6 +227,9 @@ class App {
   }
   cleanup() { 
     if (this.animationId) cancelAnimationFrame(this.animationId); 
+    if (this.handleResize) window.removeEventListener("resize", this.handleResize);
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = null;
     this.renderer.dispose(); 
     if (this.container && this.renderer.domElement && this.container.contains(this.renderer.domElement)) {
       this.container.removeChild(this.renderer.domElement);

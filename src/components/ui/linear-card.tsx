@@ -230,7 +230,10 @@ function DialogContainer({ children, className }: DialogContainerProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
+            onPointerDown={(e) => {
+              // More reliable on mobile than click, and only closes when tapping the backdrop itself.
+              if (e.target === e.currentTarget) setIsOpen(false);
+            }}
           />
           <div
             className={cn(
@@ -368,7 +371,7 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
       type='button'
       aria-label='Close dialog'
       key={`dialog-close-${uniqueId}`}
-      className={cn('absolute right-6 top-6', className)}
+      className={cn('absolute right-4 top-4 sm:right-6 sm:top-6', className)}
       initial='initial'
       animate='animate'
       exit='exit'
@@ -426,11 +429,11 @@ const Component = forwardRef<HTMLDivElement, ComponentProps>(({ items }, ref) =>
               </div>
             </DialogTrigger>
             <DialogContainer>
-              <DialogContent className='relative h-auto w-[500px] rounded-xl border-2 border-white/20 bg-black/90 backdrop-blur-xl'>
+              <DialogContent className='relative w-full max-w-[500px] max-h-[calc(100vh-2rem)] overflow-auto rounded-xl border-2 border-white/20 bg-black/90 backdrop-blur-xl'>
                 <DialogImage
                   src={item.url.src}
                   alt={item.title}
-                  className='h-64 w-full object-cover'
+                  className='h-48 sm:h-64 w-full object-cover'
                 />
                 <div className='p-6'>
                   <DialogTitle className='font-heading text-xl font-bold text-white'>
