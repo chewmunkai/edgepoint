@@ -9,7 +9,7 @@ interface SectionProps {
   className?: string;
 }
 
-const HeroSection: React.FC<SectionProps> = ({ scrollYProgress, children, className }) => {
+const Section1: React.FC<SectionProps> = ({ scrollYProgress, children, className }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
   
@@ -18,30 +18,50 @@ const HeroSection: React.FC<SectionProps> = ({ scrollYProgress, children, classN
       style={{ scale, rotate }}
       className={`sticky top-0 h-screen w-full origin-top ${className || ''}`}
     >
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none z-10" />
+      {children}
+    </motion.div>
+  );
+};
+
+const Section2: React.FC<SectionProps> = ({ scrollYProgress, children, className }) => {
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
+
+  return (
+    <motion.div
+      style={{ scale, rotate }}
+      className={`relative w-full origin-top ${className || ''}`}
+    >
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent to-black/10 pointer-events-none z-10" />
       {children}
     </motion.div>
   );
 };
 
 interface HeroScrollAnimationProps {
-  children: ReactNode;
+  heroContent: ReactNode;
+  secondaryContent: ReactNode;
   className?: string;
 }
 
 const HeroScrollAnimation = forwardRef<HTMLDivElement, HeroScrollAnimationProps>(
-  ({ children, className }, ref) => {
+  ({ heroContent, secondaryContent, className }, ref) => {
     const container = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
       target: container,
-      offset: ['start start', 'end start'],
+      offset: ['start start', 'end end'],
     });
 
     return (
       <div ref={ref} className={className}>
-        <div ref={container} className="relative h-[150vh]">
-          <HeroSection scrollYProgress={scrollYProgress}>
-            {children}
-          </HeroSection>
+        <div ref={container} className="relative h-[200vh]">
+          <Section1 scrollYProgress={scrollYProgress}>
+            {heroContent}
+          </Section1>
+          <Section2 scrollYProgress={scrollYProgress}>
+            {secondaryContent}
+          </Section2>
         </div>
       </div>
     );
@@ -51,4 +71,4 @@ const HeroScrollAnimation = forwardRef<HTMLDivElement, HeroScrollAnimationProps>
 HeroScrollAnimation.displayName = 'HeroScrollAnimation';
 
 export default HeroScrollAnimation;
-export { HeroSection, HeroScrollAnimation };
+export { Section1, Section2, HeroScrollAnimation };

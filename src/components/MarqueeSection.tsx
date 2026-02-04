@@ -5,14 +5,14 @@ const MarqueeSection = () => {
     <section className="py-12 md:py-16 bg-black overflow-hidden">
       <div className="space-y-4">
         <TextMarquee 
-          baseVelocity={-3} 
+          baseVelocity={-2.1} 
           className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-white tracking-tight"
           scrollDependent
         >
           WE FIND THE EDGE. WE GET TO THE POINT. •
         </TextMarquee>
         <TextMarquee 
-          baseVelocity={3} 
+          baseVelocity={2.1} 
           className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-neon tracking-tight"
           scrollDependent
           delay={200}
