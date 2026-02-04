@@ -1,52 +1,72 @@
 'use client';
 
-import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
-import React, { useRef, forwardRef } from 'react';
+import { useScroll, useTransform, motion, MotionValue } from 'motion/react';
+import React, { useRef, forwardRef, ReactNode } from 'react';
 
-interface HeroScrollWrapperProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-interface ScrollSectionProps {
+interface SectionProps {
   scrollYProgress: MotionValue<number>;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 
-const ScrollSection: React.FC<ScrollSectionProps> = ({ scrollYProgress, children, className }) => {
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -3]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0.8]);
-
+const Section1: React.FC<SectionProps> = ({ scrollYProgress, children, className }) => {
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+  
   return (
     <motion.div
-      style={{ scale, rotate, opacity }}
-      className={className}
+      style={{ scale, rotate }}
+      className={`sticky top-0 h-screen w-full origin-top ${className || ''}`}
     >
       {children}
     </motion.div>
   );
 };
 
-const HeroScrollWrapper = forwardRef<HTMLDivElement, HeroScrollWrapperProps>(
-  ({ children, className }, ref) => {
-    const containerRef = useRef<HTMLDivElement>(null);
+const Section2: React.FC<SectionProps> = ({ scrollYProgress, children, className }) => {
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
+
+  return (
+    <motion.div
+      style={{ scale, rotate }}
+      className={`relative w-full origin-top ${className || ''}`}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+interface HeroScrollAnimationProps {
+  heroContent: ReactNode;
+  secondaryContent: ReactNode;
+  className?: string;
+}
+
+const HeroScrollAnimation = forwardRef<HTMLDivElement, HeroScrollAnimationProps>(
+  ({ heroContent, secondaryContent, className }, ref) => {
+    const container = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
-      target: containerRef,
-      offset: ['start start', 'end start'],
+      target: container,
+      offset: ['start start', 'end end'],
     });
 
     return (
-      <div ref={containerRef} className={className}>
-        <ScrollSection scrollYProgress={scrollYProgress} className="sticky top-0">
-          {children}
-        </ScrollSection>
+      <div ref={ref} className={className}>
+        <div ref={container} className="relative h-[200vh]">
+          <Section1 scrollYProgress={scrollYProgress}>
+            {heroContent}
+          </Section1>
+          <Section2 scrollYProgress={scrollYProgress}>
+            {secondaryContent}
+          </Section2>
+        </div>
       </div>
     );
   }
 );
 
-HeroScrollWrapper.displayName = 'HeroScrollWrapper';
+HeroScrollAnimation.displayName = 'HeroScrollAnimation';
 
-export { HeroScrollWrapper, ScrollSection };
+export default HeroScrollAnimation;
+export { Section1, Section2, HeroScrollAnimation };

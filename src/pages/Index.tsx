@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import MarketRealitySection from "@/components/MarketRealitySection";
+import HeroWithScrollAnimation from "@/components/HeroWithScrollAnimation";
 import DeliberateStrategySection from "@/components/DeliberateStrategySection";
 import AboutSection from "@/components/AboutSection";
 import StrategySection from "@/components/StrategySection";
@@ -17,11 +16,8 @@ const Index = () => {
       <div className="min-h-screen">
         <Header />
         <main>
-          {/* Hero Section with Gradient Animation */}
-          <HeroSection />
-          
-          {/* Market Reality - Full stacking cards experience */}
-          <MarketRealitySection />
+          {/* Hero + Market Reality with scroll animation */}
+          <HeroWithScrollAnimation />
           
           {/* Deliberate Strategy (dark bg) */}
           <section className="bg-black">
