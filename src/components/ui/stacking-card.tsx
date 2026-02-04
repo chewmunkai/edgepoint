@@ -1,5 +1,4 @@
 'use client';
-import { ReactLenis } from 'lenis/react';
 import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
 import { useRef, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
@@ -91,50 +90,48 @@ const MarketRealityStackingCards = forwardRef<HTMLDivElement, MarketRealityStack
     });
 
     return (
-      <ReactLenis root>
-        <main ref={ref} className="bg-black">
-          {/* Header Section */}
-          <section className="h-[50vh] w-full bg-black grid place-content-center sticky top-0">
-            <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px]" />
-            <div className="text-center px-6 relative z-10">
-              <p className="text-neon/80 font-body font-medium tracking-[0.2em] uppercase text-xs mb-6">
-                {eyebrow}
-              </p>
-              <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white leading-tight max-w-3xl mx-auto">
-                {headline}{" "}
-                <span className="bg-neon text-black px-3 py-1 rounded-md">
-                  {highlightedText}
-                </span>
-              </h1>
-              <p className="font-body text-white/50 text-base md:text-lg max-w-xl mx-auto mt-6 leading-relaxed">
-                Before we talk about tactics, we have to look at the reality of the market.
-              </p>
-              <div className="mt-8">
-                <span className="text-white/30 text-xs font-body tracking-widest uppercase">↓ Scroll to explore</span>
-              </div>
+      <div ref={ref} className="bg-black">
+        {/* Header Section */}
+        <section className="h-[50vh] w-full bg-black grid place-content-center sticky top-0">
+          <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px]" />
+          <div className="text-center px-6 relative z-10">
+            <p className="text-neon/80 font-body font-medium tracking-[0.2em] uppercase text-xs mb-6">
+              {eyebrow}
+            </p>
+            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white leading-tight max-w-3xl mx-auto">
+              {headline}{" "}
+              <span className="bg-neon text-black px-3 py-1 rounded-md">
+                {highlightedText}
+              </span>
+            </h1>
+            <p className="font-body text-white/50 text-base md:text-lg max-w-xl mx-auto mt-6 leading-relaxed">
+              Before we talk about tactics, we have to look at the reality of the market.
+            </p>
+            <div className="mt-8">
+              <span className="text-white/30 text-xs font-body tracking-widest uppercase">↓ Scroll to explore</span>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Stacking Cards */}
-          <section ref={container} className="relative">
-            {projects.map((project, i) => {
-              const targetScale = 1 - (projects.length - i) * 0.04;
-              return (
-                <Card
-                  key={`p_${i}`}
-                  i={i}
-                  title={project.title}
-                  description={project.description}
-                  color={project.color}
-                  progress={scrollYProgress}
-                  range={[i * (1 / projects.length), 1]}
-                  targetScale={targetScale}
-                />
-              );
-            })}
-          </section>
-        </main>
-      </ReactLenis>
+        {/* Stacking Cards */}
+        <section ref={container} className="relative">
+          {projects.map((project, i) => {
+            const targetScale = 1 - (projects.length - i) * 0.04;
+            return (
+              <Card
+                key={`p_${i}`}
+                i={i}
+                title={project.title}
+                description={project.description}
+                color={project.color}
+                progress={scrollYProgress}
+                range={[i * (1 / projects.length), 1]}
+                targetScale={targetScale}
+              />
+            );
+          })}
+        </section>
+      </div>
     );
   }
 );

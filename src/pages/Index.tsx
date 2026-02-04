@@ -6,6 +6,7 @@ import AboutSection from "@/components/AboutSection";
 import StrategySection from "@/components/StrategySection";
 import BrandsSection from "@/components/BrandsSection";
 import FAQSection from "@/components/FAQSection";
+import MarqueeSection from "@/components/MarqueeSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section";
@@ -34,6 +35,13 @@ const Index = () => {
             <BrandsSection />
             <FAQSection />
             <StrategySection />
+          </FlowGradientBackground>
+          
+          {/* Marquee Section */}
+          <MarqueeSection />
+          
+          {/* Final CTA with gradient background */}
+          <FlowGradientBackground>
             <FinalCTASection />
           </FlowGradientBackground>
         </main>
