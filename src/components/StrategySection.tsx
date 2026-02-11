@@ -13,30 +13,30 @@ const StrategySection = () => {
     {
       id: 1,
       url: { src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" },
-      title: "01 — Confront Reality",
-      description: "We start with a blunt audit. We analyze your business against your top 3 competitors to see exactly where you stand. This competitive SWOT analysis reveals the truth about your market position.",
-      tags: ["Audit", "SWOT", "Analysis"],
+      title: "01 — Diagnose Reality",
+      description: "We audit your market position, customer funnel, and current marketing efforts. No sugarcoating—we identify what's working, what's broken, and what's missing.",
+      tags: ["Audit", "Analysis", "Clarity"],
     },
     {
       id: 2,
       url: { src: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&auto=format&fit=crop&q=80" },
-      title: "02 — Design the Customer Path",
-      description: "We map out the journey from stranger to customer. We design the Awareness, Interest, and Consideration stages to create a full-funnel strategy that converts.",
-      tags: ["Funnel", "Journey", "Strategy"],
+      title: "02 — Design the Path to Revenue",
+      description: "We map how customers move from first awareness to conversion, then design a marketing system that supports each stage.",
+      tags: ["Journey", "Funnel", "System"],
     },
     {
       id: 3,
       url: { src: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&auto=format&fit=crop&q=80" },
-      title: "03 — Engineer the 'Godfather' Offer",
-      description: "We help you build an offer stack the market can't ignore with 'Lead Attraction' and 'North Star' offers that position your business as the obvious choice.",
-      tags: ["Offer", "Value", "Positioning"],
+      title: "03 — Build the Execution Roadmap",
+      description: "We prioritize initiatives by impact and feasibility, then create a 90-day action plan with clear ownership and success metrics.",
+      tags: ["Roadmap", "90-Day Plan", "Priorities"],
     },
     {
       id: 4,
       url: { src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" },
-      title: "04 — Execute & Optimize",
-      description: "Only after the strategy is set do we trigger the tactics—XHS KOC strategy, Google SEO, or Performance Ads. Every tactic is tied to measurable results.",
-      tags: ["Execution", "Ads", "SEO"],
+      title: "04 — Execute or Guide Execution",
+      description: "Depending on your needs, we either execute the plan through our in-house services (SEO, web development, social media) or guide your team to execute with strategic oversight and monthly reviews.",
+      tags: ["Execution", "SEO", "Oversight"],
     },
   ];
 
@@ -53,9 +53,9 @@ const StrategySection = () => {
             Our Process
           </p>
           <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-            <TextReveal word="Our 4-Step Partnership " className="inline" />
+            <TextReveal word="The 4-Step Fix for " className="inline" />
             <HighlightText
-              text="Approach"
+              text="Scattered Marketing"
               as="span"
               textClassName="text-black"
               highlightClassName="rounded-sm"

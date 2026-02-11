@@ -97,9 +97,9 @@ export default function AboutSection3() {
               <div className="mt-3 space-y-3 text-sm text-white/70">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                   <span className="text-2xl font-bold text-white font-heading">
-                    3.5 Million
+                    RM5 Million
                   </span>
-                  <span>Ads Managed</span>
+                  <span>Ads Optimized</span>
                   <span className="text-white/30">|</span>
                 </div>
               </div>
@@ -114,9 +114,9 @@ export default function AboutSection3() {
               variants={revealVariants}
             >
               <h1 className="font-heading text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
-                <TextReveal word="A Different Kind of " className="inline" />
+                <TextReveal word="Your Strategic Partner. " className="inline" />
                 <HighlightText
-                  text="Partnership."
+                  text="Not Just Another Agency."
                   as="span"
                   textClassName="text-black"
                   highlightClassName="rounded-sm"
@@ -169,14 +169,14 @@ export default function AboutSection3() {
                   </div>
 
                   <p className="text-sm text-white/80 md:max-w-xs">
-                    Ready to transform your marketing into measurable results?
+                    Ready to see where your marketing stands—and where it could go?
                   </p>
 
                   <a
                     href="#contact"
                     className="inline-flex items-center gap-2 rounded-full bg-neon px-5 py-2.5 font-heading text-sm font-semibold text-black transition-all hover:shadow-[0_0_20px_rgba(153,255,51,0.5)]"
                   >
-                    LET'S COLLABORATE <ArrowRight className="size-4" />
+                    BOOK STRATEGIC AUDIT <ArrowRight className="size-4" />
                   </a>
                 </div>
               </div>

@@ -12,9 +12,10 @@ const DeliberateStrategySection = () => {
             duration={0.5}
           >
             <p className="font-body text-white text-xl md:text-2xl lg:text-3xl leading-relaxed">
-              To scale, you don't just need more "activity"—you need a{" "}
-              <span className="text-neon font-semibold">deliberate strategy</span>{" "}
-              that connects every dollar spent to your bottom line.
+              We don't start with tactics. We start with{" "}
+              <span className="text-neon font-semibold">strategy</span>—then
+              execute what matters. Our focus:{" "}
+              <span className="text-neon font-semibold">Commercial clarity. Revenue accountability. Strategic discipline.</span>
             </p>
           </TextBlockAnimation>
         </div>

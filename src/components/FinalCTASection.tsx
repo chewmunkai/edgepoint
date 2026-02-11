@@ -80,12 +80,12 @@ const FinalCTASection = () => {
             className="text-center mb-8"
           >
             <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">
-              Get Started
+              Start With a Strategic Audit
             </p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight mb-4">
-              <TextReveal word="Ready to Grow " className="inline" />
+              <TextReveal word="Ready to See Where " className="inline" />
               <HighlightText
-                text="Together?"
+                text="Your Marketing Stands?"
                 as="span"
                 textClassName="text-black"
                 highlightClassName="rounded-sm"
@@ -93,7 +93,7 @@ const FinalCTASection = () => {
               />
             </h2>
             <p className="font-body text-white/60 text-base max-w-xl mx-auto leading-relaxed">
-              Let's look at your business and find where the leaks are.
+              Book a Strategic Audit. We'll map your current reality, identify the gaps, and show you the highest-impact moves for the next 90 days.
             </p>
           </motion.div>
 
@@ -192,7 +192,7 @@ const FinalCTASection = () => {
               {/* Submit Button */}
               <div className="pt-2">
                 <LiquidButton type="submit" size="lg" variant="dark" className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[280px] justify-center">
-                  Request Strategy Session
+                  Book Your Strategic Audit
                 </LiquidButton>
               </div>
             </form>
