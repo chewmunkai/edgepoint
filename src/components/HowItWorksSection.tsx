@@ -1,8 +1,8 @@
-import { MapPin, MessageSquare, BarChart3, Rocket, Handshake, Users, Network } from "lucide-react";
+import { MapPin, MessageSquare, BarChart3, Rocket, Wrench, Users, Network } from "lucide-react";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const HowItWorksSection = () => {
-  const features = [
+  const strategyCards = [
     {
       Icon: MapPin,
       name: "Map the Customer Journey",
@@ -37,16 +37,19 @@ const HowItWorksSection = () => {
       href: "/contact",
       cta: "Learn more",
       background: <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-transparent" />,
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4",
     },
+  ];
+
+  const executionCards = [
     {
-      Icon: Handshake,
+      Icon: Wrench,
       name: "Need Execution?",
       description: "We handle SEO, website development, and social media marketing in-house.",
       href: "/contact",
       cta: "Get started",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent" />,
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-neon/5 to-transparent" />,
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
     },
     {
       Icon: Users,
@@ -54,16 +57,26 @@ const HowItWorksSection = () => {
       description: "We guide them with strategic clarity and oversight.",
       href: "/contact",
       cta: "Learn more",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 to-transparent" />,
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent" />,
+      className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3",
+    },
+    {
+      Icon: Network,
+      name: "Need Specialists?",
+      description: "We'll connect you with trusted partners for areas outside our scope.",
+      href: "/contact",
+      cta: "Learn more",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent" />,
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-3",
     },
   ];
 
   return (
-    <section className="py-12 md:py-16 border-t border-white/10">
+    <section className="py-16 md:py-24 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
+          {/* Section Header */}
+          <div className="text-center mb-12">
             <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">
               How Edge Point Works
             </p>
@@ -76,13 +89,32 @@ const HowItWorksSection = () => {
             </p>
           </div>
 
-          <BentoGrid className="lg:grid-rows-3">
-            {features.map((feature) => (
-              <BentoCard key={feature.name} {...feature} />
-            ))}
-          </BentoGrid>
+          {/* Strategy Phase */}
+          <div className="mb-12">
+            <h3 className="font-heading text-lg text-white mb-6">
+              Here's what that looks like in practice:
+            </h3>
+            <BentoGrid className="lg:grid-rows-3">
+              {strategyCards.map((feature) => (
+                <BentoCard key={feature.name} {...feature} />
+              ))}
+            </BentoGrid>
+          </div>
 
-          <div className="mt-8 rounded-xl border-2 border-white/20 bg-white/5 p-6 text-center">
+          {/* Execution Phase */}
+          <div className="mb-8">
+            <h3 className="font-heading text-lg text-white mb-6">
+              Then we help you act on it:
+            </h3>
+            <BentoGrid className="lg:grid-rows-2 auto-rows-[18rem]">
+              {executionCards.map((feature) => (
+                <BentoCard key={feature.name} {...feature} />
+              ))}
+            </BentoGrid>
+          </div>
+
+          {/* Bottom Statement */}
+          <div className="rounded-xl border-2 border-white/20 bg-white/5 p-6 text-center">
             <p className="font-body text-white/80 text-base">
               <span className="font-semibold text-white">Our role:</span> Strategic direction and execution support.
             </p>
