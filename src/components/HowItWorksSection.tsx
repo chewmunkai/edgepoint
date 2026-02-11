@@ -1,23 +1,68 @@
-import { MapPin, MessageSquare, BarChart3, Rocket } from "lucide-react";
+import { MapPin, MessageSquare, BarChart3, Rocket, Handshake, Users, Network } from "lucide-react";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const HowItWorksSection = () => {
-  const points = [
-    { icon: MapPin, text: "We map your customer journey and identify where prospects drop off" },
-    { icon: MessageSquare, text: "We align your offer and messaging to actual market demand" },
-    { icon: BarChart3, text: "We prioritize which channels and tactics deserve budget—and which don't" },
-    { icon: Rocket, text: "We create a focused execution roadmap with clear ownership" },
-  ];
-
-  const execOptions = [
-    { label: "Need execution?", desc: "We handle SEO, website development, and social media marketing in-house" },
-    { label: "Have a team already?", desc: "We guide them with strategic clarity and oversight" },
-    { label: "Need specialists?", desc: "We'll connect you with trusted partners for areas outside our scope" },
+  const features = [
+    {
+      Icon: MapPin,
+      name: "Map the Customer Journey",
+      description: "We map your customer journey and identify where prospects drop off.",
+      href: "/contact",
+      cta: "Learn more",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-neon/10 to-transparent" />,
+      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+    },
+    {
+      Icon: MessageSquare,
+      name: "Align Offer & Messaging",
+      description: "We align your offer and messaging to actual market demand.",
+      href: "/contact",
+      cta: "Learn more",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent" />,
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+    },
+    {
+      Icon: BarChart3,
+      name: "Prioritize Channels & Budget",
+      description: "We prioritize which channels and tactics deserve budget—and which don't.",
+      href: "/contact",
+      cta: "Learn more",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent" />,
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+    },
+    {
+      Icon: Rocket,
+      name: "Focused Execution Roadmap",
+      description: "We create a focused execution roadmap with clear ownership.",
+      href: "/contact",
+      cta: "Learn more",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-transparent" />,
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+    },
+    {
+      Icon: Handshake,
+      name: "Need Execution?",
+      description: "We handle SEO, website development, and social media marketing in-house.",
+      href: "/contact",
+      cta: "Get started",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent" />,
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+    },
+    {
+      Icon: Users,
+      name: "Have a Team Already?",
+      description: "We guide them with strategic clarity and oversight.",
+      href: "/contact",
+      cta: "Learn more",
+      background: <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 to-transparent" />,
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",
+    },
   ];
 
   return (
     <section className="py-12 md:py-16 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">
               How Edge Point Works
@@ -31,36 +76,19 @@ const HowItWorksSection = () => {
             </p>
           </div>
 
-          <div className="mb-10">
-            <h3 className="font-heading text-lg text-white mb-6">Here's what that looks like in practice:</h3>
-            <div className="grid gap-4 md:grid-cols-2">
-              {points.map((point, i) => (
-                <div key={i} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-5">
-                  <point.icon className="size-5 text-neon mt-0.5 shrink-0" />
-                  <p className="font-body text-white/70 text-sm leading-relaxed">{point.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <BentoGrid className="lg:grid-rows-3">
+            {features.map((feature) => (
+              <BentoCard key={feature.name} {...feature} />
+            ))}
+          </BentoGrid>
 
-          <div>
-            <h3 className="font-heading text-lg text-white mb-6">Then we help you act on it:</h3>
-            <div className="grid gap-4 md:grid-cols-3">
-              {execOptions.map((opt, i) => (
-                <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="font-heading text-sm text-neon mb-2 font-semibold">{opt.label}</p>
-                  <p className="font-body text-white/60 text-sm leading-relaxed">{opt.desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 rounded-xl border-2 border-white/20 bg-white/5 p-6 text-center">
-              <p className="font-body text-white/80 text-base">
-                <span className="font-semibold text-white">Our role:</span> Strategic direction and execution support.
-              </p>
-              <p className="font-body text-white/80 text-base mt-1">
-                <span className="font-semibold text-white">The outcome:</span> Marketing that's built on a plan designed to win.
-              </p>
-            </div>
+          <div className="mt-8 rounded-xl border-2 border-white/20 bg-white/5 p-6 text-center">
+            <p className="font-body text-white/80 text-base">
+              <span className="font-semibold text-white">Our role:</span> Strategic direction and execution support.
+            </p>
+            <p className="font-body text-white/80 text-base mt-1">
+              <span className="font-semibold text-white">The outcome:</span> Marketing that's built on a plan designed to win.
+            </p>
           </div>
         </div>
       </div>
