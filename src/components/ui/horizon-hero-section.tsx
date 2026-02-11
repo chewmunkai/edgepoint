@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -451,8 +452,13 @@ export const HorizonHero = () => {
       >
         <h1
           ref={titleRef}
-          className="text-[10vw] md:text-[5vw] lg:text-[4vw] font-heading font-bold text-white tracking-[0.05em] leading-[1.1]"
-          style={{ visibility: 'hidden' }}
+          className="text-[10vw] md:text-[5vw] lg:text-[4.5vw] font-heading font-bold tracking-[0.05em] leading-[1.1]"
+          style={{
+            visibility: 'hidden',
+            color: 'transparent',
+            WebkitTextStroke: '1.5px rgba(255,255,255,0.9)',
+            textShadow: '0 0 40px rgba(255,255,255,0.15)',
+          }}
         >
           {splitTitle('Hope Is Not a')}
           <br />
@@ -460,19 +466,16 @@ export const HorizonHero = () => {
         </h1>
 
         <div ref={subtitleRef} className="mt-6 md:mt-8" style={{ visibility: 'hidden' }}>
-          <p className="subtitle-line text-white/70 text-sm md:text-base lg:text-lg font-body leading-relaxed max-w-2xl mx-auto">
-            Most SMEs chase tactics without a clear direction. We help you build a focused marketing strategy—then guide or execute it with precision.
-          </p>
+          <div className="inline-block rounded-xl bg-black/50 backdrop-blur-md border border-white/10 px-6 py-4 md:px-8 md:py-5">
+            <p className="subtitle-line text-white/80 text-base md:text-lg lg:text-xl font-body leading-relaxed max-w-2xl mx-auto">
+              Most SMEs chase tactics without a clear direction. We help you build a focused marketing strategy—then guide or execute it with precision.
+            </p>
+          </div>
           <div className="subtitle-line mt-8">
-            <a
-              href="/contact"
-              className="glass-button glass-button-primary inline-block"
-            >
-              <span className="glass-button-overlay px-8 py-4">
-                <span className="glass-button-text text-sm md:text-base tracking-wider">
-                  Book Your Strategic Audit
-                </span>
-              </span>
+            <a href="/contact">
+              <LiquidButton variant="dark" size="xl" className="font-heading text-sm md:text-base tracking-wider">
+                Book Your Strategic Audit
+              </LiquidButton>
             </a>
           </div>
         </div>

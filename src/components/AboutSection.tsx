@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 const AboutSection = () => {
   return (
@@ -72,12 +72,9 @@ const AboutSection = () => {
                 <p className="text-sm text-white/80 md:max-w-xs">
                   Ready to see where your marketing stands—and where it could go?
                 </p>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-neon px-5 py-2.5 font-heading text-sm font-semibold text-black transition-all hover:shadow-[0_0_20px_rgba(153,255,51,0.5)]"
-                >
-                  BOOK STRATEGIC AUDIT <ArrowRight className="size-4" />
-                </a>
+                <LiquidButton href="#contact" variant="dark" size="lg" className="font-heading text-sm">
+                  BOOK STRATEGIC AUDIT
+                </LiquidButton>
               </div>
             </div>
           </div>
