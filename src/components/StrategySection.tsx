@@ -1,14 +1,6 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { HighlightText } from "@/components/ui/animated-reveal-text";
-import { TextReveal } from "@/components/ui/text-reveal-animation";
 import LinearCard from "@/components/ui/linear-card";
 
 const StrategySection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   const frameworkSteps = [
     {
       id: 1,
@@ -41,36 +33,18 @@ const StrategySection = () => {
   ];
 
   return (
-    <section id="strategy" className="py-8 md:py-12 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-10"
-        >
-          <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">
-            Our Process
-          </p>
+    <section id="strategy" className="py-12 md:py-16 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-10">
+          <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">Our Process</p>
           <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-            <TextReveal word="The 4-Step Fix for " className="inline" />
-            <HighlightText
-              text="Scattered Marketing"
-              as="span"
-              textClassName="text-black"
-              highlightClassName="rounded-sm"
-              duration={1.2}
-            />
+            The 4-Step Fix for{" "}
+            <span className="bg-neon text-black px-2 py-0.5 rounded-sm">Scattered Marketing</span>
           </h2>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
-        >
+        </div>
+        <div className="max-w-4xl mx-auto">
           <LinearCard items={frameworkSteps} />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
