@@ -1,51 +1,39 @@
 import Header from "@/components/Header";
-import HeroWithScrollAnimation from "@/components/HeroWithScrollAnimation";
+import HeroSection from "@/components/HeroSection";
+import MarketRealitySection from "@/components/MarketRealitySection";
 import DeliberateStrategySection from "@/components/DeliberateStrategySection";
 import AboutSection from "@/components/AboutSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import WhoWeServeSection from "@/components/WhoWeServeSection";
-import StrategySection from "@/components/StrategySection";
 import FAQSection from "@/components/FAQSection";
+import StrategySection from "@/components/StrategySection";
 import MarqueeSection from "@/components/MarqueeSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
-import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section";
-import SmoothScroll from "@/components/ui/smooth-scroll";
 
 const Index = () => {
   return (
-    <SmoothScroll>
-      <div className="min-h-screen">
-        <Header />
-        <main>
-          {/* Hero + Market Reality with scroll animation */}
-          <HeroWithScrollAnimation />
-          
-          {/* How We're Different quote (dark bg) */}
-          <section className="bg-black">
-            <DeliberateStrategySection />
-          </section>
-          
-          {/* Main content sections with gradient background */}
-          <FlowGradientBackground>
-            <AboutSection />
-            <HowItWorksSection />
-            <WhoWeServeSection />
-            <FAQSection />
-            <StrategySection />
-          </FlowGradientBackground>
-          
-          {/* Marquee Section */}
+    <div className="min-h-screen bg-black">
+      <Header />
+      <main>
+        {/* Hero - Three.js horizon scene */}
+        <HeroSection />
+
+        {/* Rest of page content - sits above the fixed canvas */}
+        <div className="relative z-20 bg-black">
+          <MarketRealitySection />
+          <DeliberateStrategySection />
+          <AboutSection />
+          <HowItWorksSection />
+          <WhoWeServeSection />
+          <FAQSection />
+          <StrategySection />
           <MarqueeSection />
-          
-          {/* Final CTA with gradient background */}
-          <FlowGradientBackground>
-            <FinalCTASection />
-          </FlowGradientBackground>
-        </main>
-        <Footer />
-      </div>
-    </SmoothScroll>
+          <FinalCTASection />
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 };
 

@@ -1,19 +1,11 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HighlightText } from "@/components/ui/animated-reveal-text";
-import { TextReveal } from "@/components/ui/text-reveal-animation";
 
 const FAQSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   const faqs = [
     {
       question: "Do you only do strategy, or do you execute too?",
@@ -42,54 +34,33 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="py-8 md:py-12">
-      <div className="container mx-auto px-4 md:px-6" ref={ref}>
+    <section id="faq" className="py-12 md:py-16">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-10"
-          >
-            <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">
-              FAQ
-            </p>
+          <div className="text-center mb-10">
+            <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">FAQ</p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-              <TextReveal word="Frequently Asked " className="inline" />
-              <HighlightText
-                text="Questions"
-                as="span"
-                textClassName="text-black"
-                highlightClassName="rounded-sm"
-                duration={1.2}
-              />
+              Frequently Asked{" "}
+              <span className="bg-neon text-black px-2 py-0.5 rounded-sm">Questions</span>
             </h2>
-          </motion.div>
+          </div>
 
-          {/* FAQ Accordion */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Accordion type="single" collapsible className="space-y-3 w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="w-full max-w-full bg-white/10 border border-white/20 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
-                >
-                  <AccordionTrigger className="text-base text-black hover:text-black/70 transition-colors hover:no-underline text-left font-medium">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-white/80 leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </motion.div>
+          <Accordion type="single" collapsible className="space-y-3 w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="w-full max-w-full bg-white/10 border border-white/20 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
+              >
+                <AccordionTrigger className="text-base text-black hover:text-black/70 transition-colors hover:no-underline text-left font-medium">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-white/80 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
