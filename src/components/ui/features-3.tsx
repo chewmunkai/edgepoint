@@ -36,7 +36,7 @@ export function Features({ label, title, subtitle, features, className }: Featur
           )}
         </div>
 
-        <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 @min-4xl:divide-x @min-4xl:divide-y-0 mx-auto mt-8 grid max-w-sm divide-y border-white/10 divide-white/10 overflow-hidden rounded-xl border shadow-zinc-950/5 *:text-center md:mt-16">
+        <div className="mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x border-white/10 divide-white/10 overflow-hidden rounded-xl border shadow-zinc-950/5 *:text-center md:mt-16">
           {features.map((feature, i) => (
             <Card key={i} className="border-none bg-white/5 rounded-none shadow-none">
               <CardHeader className="pb-3">

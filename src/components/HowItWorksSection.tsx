@@ -1,76 +1,42 @@
-import { MapPin, MessageSquare, BarChart3, Rocket, Wrench, Users, Network } from "lucide-react";
-import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { RuixenBentoGrid, type RuixenCardData } from "@/components/ui/ruixen-bento-cards";
+
+const strategyCards: RuixenCardData[] = [
+  {
+    title: "Map the Customer Journey",
+    description: "We map your customer journey and identify where prospects drop off.",
+  },
+  {
+    title: "Align Offer & Messaging",
+    description: "We align your offer and messaging to actual market demand.",
+  },
+  {
+    title: "Prioritize Channels & Budget",
+    description: "We prioritize which channels and tactics deserve budget—and which don't.",
+    className: "lg:col-span-3",
+  },
+  {
+    title: "Focused Execution Roadmap",
+    description: "We create a focused execution roadmap with clear ownership.",
+    className: "lg:col-span-3",
+  },
+];
+
+const executionCards: RuixenCardData[] = [
+  {
+    title: "Need Execution?",
+    description: "We handle SEO, website development, and social media marketing in-house.",
+  },
+  {
+    title: "Have a Team Already?",
+    description: "We guide them with strategic clarity and oversight.",
+  },
+  {
+    title: "Need Specialists?",
+    description: "We'll connect you with trusted partners for areas outside our scope.",
+  },
+];
 
 const HowItWorksSection = () => {
-  const strategyCards = [
-    {
-      Icon: MapPin,
-      name: "Map the Customer Journey",
-      description: "We map your customer journey and identify where prospects drop off.",
-      href: "/contact",
-      cta: "Learn more",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-neon/10 to-transparent" />,
-      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
-    },
-    {
-      Icon: MessageSquare,
-      name: "Align Offer & Messaging",
-      description: "We align your offer and messaging to actual market demand.",
-      href: "/contact",
-      cta: "Learn more",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-    },
-    {
-      Icon: BarChart3,
-      name: "Prioritize Channels & Budget",
-      description: "We prioritize which channels and tactics deserve budget—and which don't.",
-      href: "/contact",
-      cta: "Learn more",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
-    },
-    {
-      Icon: Rocket,
-      name: "Focused Execution Roadmap",
-      description: "We create a focused execution roadmap with clear ownership.",
-      href: "/contact",
-      cta: "Learn more",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-transparent" />,
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4",
-    },
-  ];
-
-  const executionCards = [
-    {
-      Icon: Wrench,
-      name: "Need Execution?",
-      description: "We handle SEO, website development, and social media marketing in-house.",
-      href: "/contact",
-      cta: "Get started",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-neon/5 to-transparent" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-    },
-    {
-      Icon: Users,
-      name: "Have a Team Already?",
-      description: "We guide them with strategic clarity and oversight.",
-      href: "/contact",
-      cta: "Learn more",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent" />,
-      className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3",
-    },
-    {
-      Icon: Network,
-      name: "Need Specialists?",
-      description: "We'll connect you with trusted partners for areas outside our scope.",
-      href: "/contact",
-      cta: "Learn more",
-      background: <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent" />,
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-3",
-    },
-  ];
-
   return (
     <section className="py-16 md:py-24 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6">
@@ -94,11 +60,7 @@ const HowItWorksSection = () => {
             <h3 className="font-heading text-lg text-white mb-6">
               Here's what that looks like in practice:
             </h3>
-            <BentoGrid className="lg:grid-rows-3">
-              {strategyCards.map((feature) => (
-                <BentoCard key={feature.name} {...feature} />
-              ))}
-            </BentoGrid>
+            <RuixenBentoGrid cards={strategyCards} />
           </div>
 
           {/* Execution Phase */}
@@ -106,19 +68,15 @@ const HowItWorksSection = () => {
             <h3 className="font-heading text-lg text-white mb-6">
               Then we help you act on it:
             </h3>
-            <BentoGrid className="lg:grid-rows-2 auto-rows-[18rem]">
-              {executionCards.map((feature) => (
-                <BentoCard key={feature.name} {...feature} />
-              ))}
-            </BentoGrid>
+            <RuixenBentoGrid cards={executionCards} />
           </div>
 
           {/* Bottom Statement */}
-          <div className="rounded-xl border-2 border-white/20 bg-white/5 p-6 text-center">
-            <p className="font-body text-white/80 text-base">
+          <div className="mt-8 text-center">
+            <p className="font-body text-white/60 text-base">
               <span className="font-semibold text-white">Our role:</span> Strategic direction and execution support.
             </p>
-            <p className="font-body text-white/80 text-base mt-1">
+            <p className="font-body text-white/60 text-base mt-1">
               <span className="font-semibold text-white">The outcome:</span> Marketing that's built on a plan designed to win.
             </p>
           </div>
