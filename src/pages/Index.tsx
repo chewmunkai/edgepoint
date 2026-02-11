@@ -2,8 +2,9 @@ import Header from "@/components/Header";
 import HeroWithScrollAnimation from "@/components/HeroWithScrollAnimation";
 import DeliberateStrategySection from "@/components/DeliberateStrategySection";
 import AboutSection from "@/components/AboutSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import WhoWeServeSection from "@/components/WhoWeServeSection";
 import StrategySection from "@/components/StrategySection";
-import BrandsSection from "@/components/BrandsSection";
 import FAQSection from "@/components/FAQSection";
 import MarqueeSection from "@/components/MarqueeSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -20,15 +21,16 @@ const Index = () => {
           {/* Hero + Market Reality with scroll animation */}
           <HeroWithScrollAnimation />
           
-          {/* Deliberate Strategy (dark bg) */}
+          {/* How We're Different quote (dark bg) */}
           <section className="bg-black">
             <DeliberateStrategySection />
           </section>
           
-          {/* Remaining sections with gradient background */}
+          {/* Main content sections with gradient background */}
           <FlowGradientBackground>
             <AboutSection />
-            <BrandsSection />
+            <HowItWorksSection />
+            <WhoWeServeSection />
             <FAQSection />
             <StrategySection />
           </FlowGradientBackground>

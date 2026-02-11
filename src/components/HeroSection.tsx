@@ -45,12 +45,9 @@ const HeroSection = () => {
                 className="mb-6"
               >
                 <h1 className="font-heading font-bold text-white leading-[1.1] text-2xl md:text-4xl lg:text-5xl">
-                  <TextReveal word="Build a Marketing System That " className="inline" />
-                  <span className="whitespace-nowrap">
-                    <TextReveal word="Actually " className="inline" />
-                  </span>
+                  <TextReveal word="Hope Is Not a " className="inline" />
                   <HighlightText
-                    text="Scales Your Business."
+                    text="Marketing Plan."
                     as="span"
                     textClassName="text-black"
                     highlightClassName="rounded-sm"
@@ -66,22 +63,18 @@ const HeroSection = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="font-body text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed"
               >
-                You've done the hard work of building a great product. Now, let's build the marketing engine it deserves.
+                Most SMEs chase tactics without a clear direction. We help you build a focused marketing strategy—then guide or execute it with precision.
               </motion.p>
 
-              {/* Buttons */}
+              {/* Button */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-3"
               >
-                <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[220px] justify-center">
-                  Start Our Growth Journey
-                </LiquidButton>
-                
-                <LiquidButton href="#strategy" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[220px] justify-center">
-                  See the Framework
+                <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center">
+                  Book Your Strategic Audit
                 </LiquidButton>
               </motion.div>
             </div>
