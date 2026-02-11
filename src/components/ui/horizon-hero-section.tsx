@@ -431,7 +431,7 @@ export const HorizonHero = () => {
         style={{ zIndex: 0, opacity: fixedOpacity, transition: 'opacity 0.5s ease', pointerEvents: fixedPointer }}
       />
 
-      {/* Side menu */}
+      {/* Side accent line */}
       <div
         ref={menuRef}
         className="fixed left-6 md:left-10 top-1/2 -translate-y-1/2 z-10"
@@ -442,34 +442,39 @@ export const HorizonHero = () => {
           <div className="w-0.5 h-16 bg-white/10" />
           <div className="w-0.5 h-16 bg-white/10" />
         </div>
-        <p
-          className="text-white/50 text-[10px] tracking-[0.3em] mt-4"
-          style={{ writingMode: 'vertical-rl' }}
-        >
-          SPACE
-        </p>
       </div>
 
       {/* Main content overlay */}
       <div
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center w-full px-4"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center w-full px-4 max-w-4xl"
         style={{ opacity: fixedOpacity, transition: 'opacity 0.5s ease', pointerEvents: fixedPointer }}
       >
         <h1
           ref={titleRef}
-          className="text-[12vw] md:text-[8vw] font-bold text-white tracking-[0.2em] leading-none"
+          className="text-[10vw] md:text-[5vw] lg:text-[4vw] font-heading font-bold text-white tracking-[0.05em] leading-[1.1]"
           style={{ visibility: 'hidden' }}
         >
-          {splitTitle('HORIZON')}
+          {splitTitle('Hope Is Not a')}
+          <br />
+          {splitTitle('Marketing Plan.')}
         </h1>
 
-        <div ref={subtitleRef} className="mt-8" style={{ visibility: 'hidden' }}>
-          <p className="subtitle-line text-white/60 text-base md:text-lg tracking-wider">
-            Where vision meets reality,
+        <div ref={subtitleRef} className="mt-6 md:mt-8" style={{ visibility: 'hidden' }}>
+          <p className="subtitle-line text-white/70 text-sm md:text-base lg:text-lg font-body leading-relaxed max-w-2xl mx-auto">
+            Most SMEs chase tactics without a clear direction. We help you build a focused marketing strategy—then guide or execute it with precision.
           </p>
-          <p className="subtitle-line text-white/60 text-base md:text-lg tracking-wider mt-2">
-            we shape the future of tomorrow
-          </p>
+          <div className="subtitle-line mt-8">
+            <a
+              href="/contact"
+              className="glass-button glass-button-primary inline-block"
+            >
+              <span className="glass-button-overlay px-8 py-4">
+                <span className="glass-button-text text-sm md:text-base tracking-wider">
+                  Book Your Strategic Audit
+                </span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
 
