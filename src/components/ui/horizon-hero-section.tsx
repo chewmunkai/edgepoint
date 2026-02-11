@@ -455,9 +455,9 @@ export const HorizonHero = () => {
           className="text-[10vw] md:text-[5vw] lg:text-[4.5vw] font-heading font-bold tracking-[0.05em] leading-[1.1]"
           style={{
             visibility: 'hidden',
-            color: 'transparent',
-            WebkitTextStroke: '1.5px rgba(255,255,255,0.9)',
-            textShadow: '0 0 40px rgba(255,255,255,0.15)',
+           color: 'transparent',
+            WebkitTextStroke: '1.5px hsl(82, 100%, 60%)',
+            textShadow: '0 0 40px rgba(153, 255, 51, 0.25)',
           }}
         >
           {splitTitle('Hope Is Not a')}
