@@ -7,6 +7,7 @@ import FAQSection from "@/components/FAQSection";
 import BuildProperlySection from "@/components/BuildProperlySection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
+import { Case } from "@/components/ui/cases-with-infinite-scroll";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
           <CoreServicesSection />
         </div>
         <AboutSection />
+        <Case />
         <div className="relative z-20 bg-[#f5f5f5]">
           <WorkWithUsSection />
           <FAQSection />
