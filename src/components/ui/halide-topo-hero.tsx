@@ -66,76 +66,47 @@ const HalideLanding: React.FC = () => {
           style={{ filter: 'url(#grain)' }}
         />
 
-        {/* Left content panel */}
-        <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8 md:p-12 lg:w-1/2">
-          <div className="flex items-center gap-3 text-[10px] tracking-[0.3em] text-white/40 uppercase pt-16">
-            <span>EDGE POINT</span>
-            <span className="h-px w-8 bg-white/20" />
-            <span>STRATEGIC MARKETING</span>
-          </div>
-
-          <div className="my-auto max-w-lg">
-            <h1
-              className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold leading-[0.9] tracking-tight"
-              style={{ color: 'hsl(82, 100%, 60%)' }}
-            >
-              HOPE IS
-              <br />
-              NOT A
-              <br />
-              <span className="text-white">MARKETING</span>
-              <br />
-              <span className="text-white">PLAN.</span>
-            </h1>
-          </div>
-
-          <div className="flex flex-col gap-6 pb-16">
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col gap-1 text-[10px] tracking-[0.2em] text-white/40 uppercase">
-                <span>[ STRATEGIC AUDIT ]</span>
-                <span className="text-white/25">FOCUSED STRATEGY & PRECISION EXECUTION</span>
-              </div>
-            </div>
-            <a
-              href="#contact"
-              className="group inline-flex w-fit items-center gap-3 border border-white/10 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 backdrop-blur-sm transition-all duration-500 hover:border-neon/40 hover:bg-neon/10 hover:text-white"
-            >
-              BOOK YOUR STRATEGIC AUDIT
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </a>
+        {/* Top bar: brand left, coordinates right */}
+        <div className="relative z-20 flex items-start justify-between px-6 pt-24 sm:px-10 md:px-16">
+          <span className="text-sm font-bold tracking-[0.15em] text-white uppercase">
+            EDGE_POINT
+          </span>
+          <div className="text-right text-[11px] tracking-[0.15em] uppercase" style={{ color: 'hsl(0, 70%, 55%)' }}>
+            <p>STRATEGIC MARKETING</p>
+            <p>PRECISION EXECUTION</p>
           </div>
         </div>
 
-        {/* 3D Topo Canvas */}
-        <div className="pointer-events-none absolute inset-0 z-[5] flex items-center justify-center overflow-hidden lg:left-[30%]">
+        {/* Centered 3D Topo Canvas */}
+        <div className="pointer-events-none absolute inset-0 z-[5] flex items-center justify-center">
           <div
             ref={canvasRef}
-            className="relative h-[500px] w-[500px] sm:h-[600px] sm:w-[600px] md:h-[700px] md:w-[700px]"
+            className="relative w-[85vw] max-w-[900px] aspect-[16/10]"
             style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
           >
-            {/* Topo illustration base */}
-            <div className="absolute inset-0 opacity-40" style={{ transformStyle: 'preserve-3d' }}>
+            {/* Topo illustration */}
+            <div className="absolute inset-0 opacity-50" style={{ transformStyle: 'preserve-3d' }}>
               <img
                 src={topoIllustration}
                 alt=""
-                className="w-full h-full object-cover rounded-sm"
-                style={{ filter: 'brightness(0.8) contrast(1.2)' }}
+                className="w-full h-full object-cover"
+                style={{ filter: 'brightness(0.7) contrast(1.3) grayscale(0.3)' }}
               />
             </div>
             {/* Topo layers */}
             <div
               ref={(el) => (layersRef.current[0] = el!)}
-              className="absolute inset-[10%] rounded-sm border border-white/[0.06] bg-white/[0.02]"
+              className="absolute inset-[8%] border border-white/[0.06] bg-white/[0.02]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             <div
               ref={(el) => (layersRef.current[1] = el!)}
-              className="absolute inset-[25%] rounded-sm border border-white/[0.08] bg-white/[0.03]"
+              className="absolute inset-[20%] border border-white/[0.08] bg-white/[0.03]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             <div
               ref={(el) => (layersRef.current[2] = el!)}
-              className="absolute inset-[40%] rounded-sm border border-white/[0.12] bg-white/[0.04]"
+              className="absolute inset-[35%] border border-white/[0.12] bg-white/[0.04]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             {/* Flow line */}
@@ -148,11 +119,37 @@ const HalideLanding: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom subtitle bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-white/[0.06] bg-black/40 px-6 py-4 backdrop-blur-sm sm:px-8 md:px-12">
-          <p className="max-w-xl text-xs leading-relaxed tracking-wide text-white/40 sm:text-sm font-body">
-            Most SMEs chase tactics without a clear direction. We help you build a focused marketing strategy—then guide or execute it with precision.
-          </p>
+        {/* Overlapping headline — bottom left, over the canvas */}
+        <div className="absolute left-6 bottom-[120px] z-10 sm:left-10 md:left-16 md:bottom-[140px]">
+          <h1
+            className="text-[clamp(3rem,12vw,9rem)] font-bold leading-[0.85] tracking-tight uppercase"
+            style={{ color: 'hsl(82, 100%, 60%)', textShadow: '0 0 60px rgba(153,255,51,0.15)' }}
+          >
+            HOPE IS
+            <br />
+            <span className="text-white">NOT A</span>
+            <br />
+            <span className="text-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>
+              PLAN.
+            </span>
+          </h1>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex items-end justify-between px-6 pb-6 sm:px-10 md:px-16 md:pb-8">
+          {/* Bottom left metadata */}
+          <div className="flex flex-col gap-1 text-[10px] tracking-[0.2em] text-white/50 uppercase font-body">
+            <span>[ STRATEGIC AUDIT ]</span>
+            <span className="text-white/30">FOCUSED STRATEGY & PRECISION EXECUTION</span>
+          </div>
+
+          {/* Bottom right CTA */}
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black transition-all duration-300 hover:bg-neon hover:shadow-[0_0_30px_rgba(153,255,51,0.3)]"
+          >
+            BOOK YOUR AUDIT
+          </a>
         </div>
       </div>
     </>
