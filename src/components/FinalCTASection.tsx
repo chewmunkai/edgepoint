@@ -70,7 +70,7 @@ const FinalCTASection = () => {
             </div>
 
             <div className="pt-2">
-              <LiquidButton type="submit" size="lg" variant="dark" className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[280px] justify-center">
+              <LiquidButton type="submit" size="lg" variant="dark" className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[280px] justify-center text-white bg-black hover:bg-black/90">
                 Book Your Strategic Audit
               </LiquidButton>
             </div>
