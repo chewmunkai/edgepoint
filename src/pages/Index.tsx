@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CoreServicesSection from "@/components/CoreServicesSection";
 import AboutSection from "@/components/AboutSection";
-import WorkWithUsSection from "@/components/WorkWithUsSection";
+import WhyStrategySection from "@/components/WhyStrategySection";
 import FAQSection from "@/components/FAQSection";
 import BuildProperlySection from "@/components/BuildProperlySection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -20,7 +20,7 @@ const Index = () => {
         </div>
         <AboutSection />
         <div className="relative z-20 bg-[#f5f5f5]">
-          <WorkWithUsSection />
+          <WhyStrategySection />
         </div>
         <Case />
         <div className="relative z-20 bg-[#f5f5f5]">
