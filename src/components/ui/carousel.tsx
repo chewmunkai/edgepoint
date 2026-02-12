@@ -154,6 +154,7 @@ export interface Step {
   subtitle: string;
   description: string;
   imageSrc: string;
+  items?: string[];
 }
 
 interface StepCarouselProps {
@@ -254,19 +255,36 @@ export const StepCarousel = React.forwardRef<HTMLDivElement, StepCarouselProps>(
                     alt={step.title}
                     className="w-full aspect-[4/5] object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="text-white">
-                      <p className="font-heading font-bold text-xs uppercase tracking-wider opacity-80 mb-1">
-                        {step.subtitle}
-                      </p>
-                      <p className="font-heading font-bold text-lg">
-                        {step.title}
-                      </p>
-                    </div>
-                    <p className="text-white/70 text-sm mt-2 line-clamp-2">
+                  <div className="absolute inset-0 bg-black/55" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="font-heading font-bold text-xs uppercase tracking-wider text-white/70 mb-1">
+                      {step.subtitle}
+                    </p>
+                    <p className="font-heading font-bold text-lg text-white">
+                      {step.title}
+                    </p>
+                    <p className="text-white/60 text-sm mt-2">
                       {step.description}
                     </p>
+                    {step.items && step.items.length > 0 && (
+                      <div className="mt-3">
+                        <p className="font-heading text-[10px] font-semibold tracking-widest uppercase text-white/40 mb-1.5">
+                          What's included
+                        </p>
+                        <ul className="space-y-1">
+                          {step.items.map((item) => (
+                            <li
+                              key={item}
+                              className="font-body text-xs text-white/70 flex items-start gap-2"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#99FF33] mt-1.5 shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
