@@ -257,7 +257,7 @@ export const StepCarousel = React.forwardRef<HTMLDivElement, StepCarouselProps>(
                   />
                   <div className="absolute inset-0 bg-black/55" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-between p-5">
+                  <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-7">
                     {/* Top: Title & Description */}
                     <div>
                       <p className="font-heading font-bold text-lg text-white">
@@ -277,7 +277,7 @@ export const StepCarousel = React.forwardRef<HTMLDivElement, StepCarouselProps>(
                           {step.items.map((item) => (
                             <li
                               key={item}
-                              className="font-body text-xs text-white/70 flex items-start gap-2"
+                              className="font-body text-xs font-medium text-white/80 flex items-start gap-2"
                             >
                               <span className="w-1 h-1 rounded-full bg-[#99FF33] mt-1.5 shrink-0" />
                               {item}
