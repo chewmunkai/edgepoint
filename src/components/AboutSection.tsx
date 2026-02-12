@@ -26,7 +26,7 @@ const AboutSection = () => {
             <div>
               <h2 className="font-heading text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
                 Your Strategic Partner.{" "}
-                <span className="bg-neon text-black px-2 py-0.5 rounded-sm">Not Just Another Agency.</span>
+                <span className="bg-neon text-black px-2 py-0.5 rounded-sm inline leading-[1.6] box-decoration-clone">Not Just Another Agency.</span>
               </h2>
 
               <div className="mt-6 grid gap-4 text-base leading-relaxed text-white/70 md:grid-cols-2">
