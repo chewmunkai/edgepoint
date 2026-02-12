@@ -1,35 +1,33 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section";
+import PageHero from "@/components/PageHero";
 
 const Services = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <main>
-        <FlowGradientBackground>
-          <section className="pt-32 pb-20 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h1 className="font-heading text-4xl md:text-6xl text-white mb-8 tracking-tight">
-                SERVICES
-              </h1>
-              <p className="font-body text-lg text-white/60 leading-relaxed mb-12">
-                Placeholder content — copywriting to follow.
-              </p>
-              <div className="grid md:grid-cols-3 gap-6">
-                {["Strategy", "Creative", "Growth"].map((service) => (
-                  <div
-                    key={service}
-                    className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-8 text-center"
-                  >
-                    <h3 className="font-heading text-xl text-white mb-4">{service}</h3>
-                    <p className="font-body text-white/50">Details coming soon.</p>
-                  </div>
-                ))}
-              </div>
+        <PageHero
+          label="What We Do"
+          title="Strategy-Led Services."
+          highlightWord="Services."
+          description="We don't sell tactics in isolation. Every service we offer is part of a strategic system designed to drive measurable growth."
+        />
+        <section className="bg-[#f5f5f5] py-16 px-4">
+          <div className="container mx-auto max-w-5xl">
+            <div className="grid md:grid-cols-3 gap-6">
+              {["Strategy", "Creative", "Growth"].map((service) => (
+                <div
+                  key={service}
+                  className="rounded-2xl border border-foreground/10 bg-white p-8 text-center"
+                >
+                  <h3 className="font-body text-xl font-semibold text-foreground mb-4">{service}</h3>
+                  <p className="font-body text-foreground/50">Details coming soon.</p>
+                </div>
+              ))}
             </div>
-          </section>
-        </FlowGradientBackground>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

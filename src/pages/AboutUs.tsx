@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { FlowGradientBackground } from "@/components/ui/flow-gradient-hero-section";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -30,67 +31,12 @@ const AboutUs = () => {
       <div className="min-h-screen">
         <Header />
         <main>
-          {/* Hero */}
-          <FlowGradientBackground>
-            <section className="pt-32 pb-16 px-4">
-              <div className="container mx-auto max-w-4xl text-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm"
-                >
-                  <span className="text-white/80 text-xs md:text-sm font-body font-medium tracking-wide">
-                    About Edge Point
-                  </span>
-                </motion.div>
-
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6"
-                >
-                  <TextReveal word="Built for Clarity. " className="inline" />
-                  <HighlightText
-                    text="Driven by Growth."
-                    as="span"
-                    textClassName="text-black"
-                    highlightClassName="rounded-sm"
-                    duration={1.2}
-                  />
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="font-body text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-4 leading-relaxed"
-                >
-                  We exist to stop businesses from wasting money on misaligned marketing. Edge Point is a strategy-first marketing partner for SME owners who want direction to lead execution — not the other way around.
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="font-body text-white/50 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed"
-                >
-                  We guide every decision — from positioning and offers, to funnels and paid media — so your budget works harder, and your growth is intentional.
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                >
-                  <LiquidButton href="#contact" size="lg" variant="dark" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center">
-                    Start With a Strategic Audit
-                  </LiquidButton>
-                </motion.div>
-              </div>
-            </section>
-          </FlowGradientBackground>
+          <PageHero
+            label="About Edge Point"
+            title="Built for Clarity. Driven by Growth."
+            highlightWord="Growth."
+            description="We exist to stop businesses from wasting money on misaligned marketing. Edge Point is a strategy-first marketing partner for SME owners who want direction to lead execution — not the other way around."
+          />
 
           {/* Why We Exist */}
           <section className="bg-black py-12 md:py-20 relative">
