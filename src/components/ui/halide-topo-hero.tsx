@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
 import topoIllustration from '@/assets/topo-illustration.png';
 
 const HalideLanding: React.FC = () => {
@@ -52,7 +51,7 @@ const HalideLanding: React.FC = () => {
         }
       `}</style>
 
-      <div className="relative min-h-screen w-full overflow-hidden bg-black font-heading">
+      <div className="relative h-screen w-full overflow-hidden bg-black font-heading">
         {/* SVG Filter for Grain */}
         <svg className="hidden">
           <filter id="grain">
@@ -68,8 +67,8 @@ const HalideLanding: React.FC = () => {
         />
 
         {/* Left content panel */}
-        <div className="relative z-10 flex min-h-screen flex-col justify-between p-6 sm:p-8 md:p-12 lg:w-1/2">
-          <div className="flex items-center gap-3 text-[10px] tracking-[0.3em] text-white/40 uppercase">
+        <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8 md:p-12 lg:w-1/2">
+          <div className="flex items-center gap-3 text-[10px] tracking-[0.3em] text-white/40 uppercase pt-16">
             <span>EDGE POINT</span>
             <span className="h-px w-8 bg-white/20" />
             <span>STRATEGIC MARKETING</span>
@@ -77,7 +76,7 @@ const HalideLanding: React.FC = () => {
 
           <div className="my-auto max-w-lg">
             <h1
-              className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold leading-[0.9] tracking-tight text-white"
+              className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold leading-[0.9] tracking-tight"
               style={{ color: 'hsl(82, 100%, 60%)' }}
             >
               HOPE IS
@@ -90,7 +89,7 @@ const HalideLanding: React.FC = () => {
             </h1>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 pb-16">
             <div className="flex items-center gap-4">
               <div className="flex flex-col gap-1 text-[10px] tracking-[0.2em] text-white/40 uppercase">
                 <span>[ STRATEGIC AUDIT ]</span>
@@ -99,7 +98,7 @@ const HalideLanding: React.FC = () => {
             </div>
             <a
               href="#contact"
-              className="group inline-flex w-fit items-center gap-3 border border-white/10 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 backdrop-blur-sm transition-all duration-500 hover:border-[hsl(82,100%,60%)]/40 hover:bg-[hsl(82,100%,60%)]/10 hover:text-white"
+              className="group inline-flex w-fit items-center gap-3 border border-white/10 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 backdrop-blur-sm transition-all duration-500 hover:border-neon/40 hover:bg-neon/10 hover:text-white"
             >
               BOOK YOUR STRATEGIC AUDIT
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -114,11 +113,8 @@ const HalideLanding: React.FC = () => {
             className="relative h-[500px] w-[500px] sm:h-[600px] sm:w-[600px] md:h-[700px] md:w-[700px]"
             style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
           >
-            {/* Topo illustration base layer */}
-            <div
-              className="absolute inset-0 opacity-40"
-              style={{ transformStyle: 'preserve-3d' }}
-            >
+            {/* Topo illustration base */}
+            <div className="absolute inset-0 opacity-40" style={{ transformStyle: 'preserve-3d' }}>
               <img
                 src={topoIllustration}
                 alt=""
@@ -128,24 +124,24 @@ const HalideLanding: React.FC = () => {
             </div>
             {/* Topo layers */}
             <div
-              ref={(el) => (layersRef.current[0] = el)}
-              className="absolute inset-[10%] rounded-sm border border-neon/[0.08] bg-neon/[0.02]"
+              ref={(el) => (layersRef.current[0] = el!)}
+              className="absolute inset-[10%] rounded-sm border border-white/[0.06] bg-white/[0.02]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             <div
-              ref={(el) => (layersRef.current[1] = el)}
-              className="absolute inset-[25%] rounded-sm border border-neon/[0.12] bg-neon/[0.03]"
+              ref={(el) => (layersRef.current[1] = el!)}
+              className="absolute inset-[25%] rounded-sm border border-white/[0.08] bg-white/[0.03]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             <div
-              ref={(el) => (layersRef.current[2] = el)}
-              className="absolute inset-[40%] rounded-sm border border-neon/[0.18] bg-neon/[0.04]"
+              ref={(el) => (layersRef.current[2] = el!)}
+              className="absolute inset-[40%] rounded-sm border border-white/[0.12] bg-white/[0.04]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             {/* Flow line */}
-            <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-neon/[0.08]">
+            <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/[0.06]">
               <div
-                className="h-1/3 w-full bg-gradient-to-b from-transparent via-neon/20 to-transparent"
+                className="h-1/3 w-full bg-gradient-to-b from-transparent via-white/20 to-transparent"
                 style={{ animation: 'flow 4s ease-in-out infinite' }}
               />
             </div>
