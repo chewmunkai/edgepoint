@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Define the type for a single report item
@@ -286,6 +286,13 @@ export const StepCarousel = React.forwardRef<HTMLDivElement, StepCarouselProps>(
                         </ul>
                       </div>
                     )}
+                    <a
+                      href="/services"
+                      className="inline-flex items-center gap-1.5 font-heading text-xs font-semibold text-[#007BFF] hover:gap-3 transition-all duration-300 mt-3"
+                    >
+                      Learn More
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
