@@ -1,7 +1,7 @@
-import { HorizonHero } from "@/components/ui/horizon-hero-section";
+import HalideLanding from "@/components/ui/halide-topo-hero";
 
 const HeroSection = () => {
-  return <HorizonHero />;
+  return <HalideLanding />;
 };
 
 export default HeroSection;
