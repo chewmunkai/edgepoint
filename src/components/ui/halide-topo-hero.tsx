@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import topoIllustration from '@/assets/topo-illustration.png';
 
 const HalideLanding: React.FC = () => {
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -113,26 +114,38 @@ const HalideLanding: React.FC = () => {
             className="relative h-[500px] w-[500px] sm:h-[600px] sm:w-[600px] md:h-[700px] md:w-[700px]"
             style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
           >
+            {/* Topo illustration base layer */}
+            <div
+              className="absolute inset-0 opacity-40"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
+              <img
+                src={topoIllustration}
+                alt=""
+                className="w-full h-full object-cover rounded-sm"
+                style={{ filter: 'brightness(0.8) contrast(1.2)' }}
+              />
+            </div>
             {/* Topo layers */}
             <div
               ref={(el) => (layersRef.current[0] = el)}
-              className="absolute inset-[10%] rounded-sm border border-white/[0.06] bg-white/[0.02]"
+              className="absolute inset-[10%] rounded-sm border border-neon/[0.08] bg-neon/[0.02]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             <div
               ref={(el) => (layersRef.current[1] = el)}
-              className="absolute inset-[25%] rounded-sm border border-white/[0.08] bg-white/[0.03]"
+              className="absolute inset-[25%] rounded-sm border border-neon/[0.12] bg-neon/[0.03]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             <div
               ref={(el) => (layersRef.current[2] = el)}
-              className="absolute inset-[40%] rounded-sm border border-white/[0.12] bg-white/[0.04]"
+              className="absolute inset-[40%] rounded-sm border border-neon/[0.18] bg-neon/[0.04]"
               style={{ transformStyle: 'preserve-3d' }}
             />
             {/* Flow line */}
-            <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/[0.06]">
+            <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-neon/[0.08]">
               <div
-                className="h-1/3 w-full bg-gradient-to-b from-transparent via-white/20 to-transparent"
+                className="h-1/3 w-full bg-gradient-to-b from-transparent via-neon/20 to-transparent"
                 style={{ animation: 'flow 4s ease-in-out infinite' }}
               />
             </div>
