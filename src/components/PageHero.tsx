@@ -24,7 +24,7 @@ const PageHero = ({ label, title, highlightWord, description }: PageHeroProps) =
   };
 
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden bg-black">
       <Scene />
       <div className="relative z-10 container mx-auto px-4 pt-32 pb-20 text-center max-w-4xl">
         <motion.div
