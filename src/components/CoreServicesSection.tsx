@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { LiquidCard } from "@/components/ui/liquid-glass-card";
 
 const services = [
   {
@@ -81,9 +82,9 @@ const CoreServicesSection = () => {
         {/* Cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service) => (
-            <div
+            <LiquidCard
               key={service.number}
-              className="group relative bg-white border border-black/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-1"
+              className="group p-6 flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-white/30 backdrop-blur-md"
             >
               {/* Number badge */}
               <span className="font-heading text-xs font-bold text-[#007BFF]/60 mb-4">
@@ -125,7 +126,7 @@ const CoreServicesSection = () => {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
-            </div>
+            </LiquidCard>
           ))}
         </div>
       </div>
