@@ -20,9 +20,7 @@ const Index = () => {
           <CoreServicesSection />
         </div>
         <AboutSection />
-        <div className="relative z-20 bg-[#f5f5f5]">
-          <WhyStrategySection />
-        </div>
+        <WhyStrategySection />
         <Case />
         <div className="relative z-20 bg-[#f5f5f5]">
           <FAQSection />
