@@ -43,11 +43,11 @@
 
     --radius: 0.5rem;
 
-    /* Custom agency colors */
-    --neon-green: 82 100% 60%;
+    /* Custom agency colors — corporate identity */
+    --neon-green: 90 100% 60%;
     --agency-blue: 211 100% 50%;
     --dark-bg: 0 0% 0%;
-    --light-bg: 0 0% 100%;
+    --light-bg: 0 0% 96%;
 
     /* Neobrutalist accordion colors */
     --main: #88aaee;

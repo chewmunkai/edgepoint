@@ -32,7 +32,7 @@ const FinalCTASection = () => {
             </p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-black leading-tight mb-4">
               Ready to See Where{" "}
-              <span className="bg-black text-white px-2 py-0.5 rounded-sm">Your Marketing Stands?</span>
+              <span className="bg-[#007BFF] text-white px-2 py-0.5 rounded-sm">Your Marketing Stands?</span>
             </h2>
             <p className="font-body text-black/50 text-base max-w-xl mx-auto leading-relaxed">
               Book a Strategic Audit. We'll map your current reality, identify the gaps, and show you the highest-impact moves for the next 90 days.
@@ -46,27 +46,27 @@ const FinalCTASection = () => {
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <Label htmlFor="name" className="font-body font-medium text-sm text-black">Name</Label>
-                <Input id="name" name="name" type="text" placeholder="Your name" value={formData.name} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-black focus:ring-black/20 text-sm text-black placeholder:text-black/40" required />
+                <Input id="name" name="name" type="text" placeholder="Your name" value={formData.name} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" required />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="company" className="font-body font-medium text-sm text-black">Company Name</Label>
-                <Input id="company" name="company" type="text" placeholder="Your company" value={formData.company} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-black focus:ring-black/20 text-sm text-black placeholder:text-black/40" required />
+                <Input id="company" name="company" type="text" placeholder="Your company" value={formData.company} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" required />
               </div>
             </div>
 
             <div className="space-y-1.5">
               <Label htmlFor="competitors" className="font-body font-medium text-sm text-black">Who are your top 3 competitors?</Label>
-              <Input id="competitors" name="competitors" type="text" placeholder="e.g., Company A, Company B, Company C" value={formData.competitors} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-black focus:ring-black/20 text-sm text-black placeholder:text-black/40" required />
+              <Input id="competitors" name="competitors" type="text" placeholder="e.g., Company A, Company B, Company C" value={formData.competitors} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" required />
             </div>
 
             <div className="space-y-1.5">
               <Label htmlFor="bestProduct" className="font-body font-medium text-sm text-black">What is your best-selling product/service?</Label>
-              <Input id="bestProduct" name="bestProduct" type="text" placeholder="Describe your main offering" value={formData.bestProduct} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-black focus:ring-black/20 text-sm text-black placeholder:text-black/40" required />
+              <Input id="bestProduct" name="bestProduct" type="text" placeholder="Describe your main offering" value={formData.bestProduct} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" required />
             </div>
 
             <div className="space-y-1.5">
               <Label htmlFor="bottleneck" className="font-body font-medium text-sm text-black">Biggest growth bottleneck?</Label>
-              <Textarea id="bottleneck" name="bottleneck" placeholder="Tell us about your main challenge..." value={formData.bottleneck} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-black focus:ring-black/20 min-h-[100px] text-sm text-black placeholder:text-black/40" required />
+              <Textarea id="bottleneck" name="bottleneck" placeholder="Tell us about your main challenge..." value={formData.bottleneck} onChange={handleChange} className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 min-h-[100px] text-sm text-black placeholder:text-black/40" required />
             </div>
 
             <div className="pt-2">
