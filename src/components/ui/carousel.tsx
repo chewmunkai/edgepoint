@@ -257,18 +257,19 @@ export const StepCarousel = React.forwardRef<HTMLDivElement, StepCarouselProps>(
                   />
                   <div className="absolute inset-0 bg-black/55" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="font-heading font-bold text-xs uppercase tracking-wider text-white/70 mb-1">
-                      {step.subtitle}
-                    </p>
-                    <p className="font-heading font-bold text-lg text-white">
-                      {step.title}
-                    </p>
-                    <p className="text-white/60 text-sm mt-2">
-                      {step.description}
-                    </p>
+                  <div className="absolute inset-0 flex flex-col justify-between p-5">
+                    {/* Top: Title & Description */}
+                    <div>
+                      <p className="font-heading font-bold text-lg text-white">
+                        {step.title}
+                      </p>
+                      <p className="text-white/60 text-sm mt-2">
+                        {step.description}
+                      </p>
+                    </div>
+                    {/* Bottom: Bullet items */}
                     {step.items && step.items.length > 0 && (
-                      <div className="mt-3">
+                      <div>
                         <p className="font-heading text-[10px] font-semibold tracking-widest uppercase text-white/40 mb-1.5">
                           What's included
                         </p>
