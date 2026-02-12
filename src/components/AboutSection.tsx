@@ -34,7 +34,7 @@ const AboutSection = () => {
             </div>
             <div className="space-y-3 text-sm text-white/70">
               <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span className="text-2xl font-bold text-white font-heading">RM5 Million</span>
+                <span className="text-2xl font-bold text-white font-heading">RM3.6+ Million</span>
                 <span>Ads Optimized</span>
               </div>
             </div>
@@ -63,20 +63,6 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="rounded-xl border-2 border-white/20 bg-white/5 p-6 shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <h3 className="font-heading text-xl font-bold text-white">EDGE POINT</h3>
-                  <p className="text-sm text-white/60">Growth Partners | Revenue Focused</p>
-                </div>
-                <p className="text-sm text-white/80 md:max-w-xs">
-                  Ready to see where your marketing stands—and where it could go?
-                </p>
-                <LiquidButton href="#contact" variant="dark" size="lg" className="font-heading text-sm">
-                  BOOK STRATEGIC AUDIT
-                </LiquidButton>
-              </div>
-            </div>
           </div>
         </div>
       </div>
