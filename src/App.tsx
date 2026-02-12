@@ -8,6 +8,7 @@ import Loader from "@/components/ui/loader-6";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
