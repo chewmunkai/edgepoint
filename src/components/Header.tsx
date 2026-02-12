@@ -17,6 +17,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [desktopDropdown, setDesktopDropdown] = useState(false);
+  const [servicesLeft, setServicesLeft] = useState(0);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const navItems = [
@@ -27,8 +28,9 @@ const Header = () => {
     { id: 5, tile: "Contact Us", href: "/contact" },
   ];
 
-  const handleDropdownEnter = () => {
+  const handleDropdownEnter = (left?: number) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    if (left !== undefined) setServicesLeft(left);
     setDesktopDropdown(true);
   };
 
@@ -47,20 +49,25 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <div className="relative" onMouseEnter={handleDropdownEnter} onMouseLeave={handleDropdownLeave}>
-              <AnimatedNavigationTabs items={navItems} />
+            <div className="relative" data-nav-container>
+              <AnimatedNavigationTabs
+                items={navItems}
+                onServiceHover={handleDropdownEnter}
+                onServiceLeave={handleDropdownLeave}
+              />
               
               {/* Desktop Services Dropdown */}
               <AnimatePresence>
                 {desktopDropdown && (
                   <motion.div
+                    id="services-dropdown"
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl py-2 shadow-2xl"
-                    style={{ marginLeft: '20px' }}
-                    onMouseEnter={handleDropdownEnter}
+                    className="absolute top-full mt-2 w-64 rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl py-2 shadow-2xl"
+                    style={{ left: `${servicesLeft}px`, transform: 'translateX(-50%)' }}
+                    onMouseEnter={() => handleDropdownEnter()}
                     onMouseLeave={handleDropdownLeave}
                   >
                     {serviceSubPages.map((sub) => (
