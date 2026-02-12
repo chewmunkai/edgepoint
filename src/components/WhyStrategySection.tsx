@@ -48,30 +48,31 @@ const WhyStrategySection = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-4xl mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-4xl mt-10 md:items-stretch">
             {/* Without Strategy */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="flex"
             >
               <GlowCard
                 glowColor="red"
                 customSize
-                className="w-full !aspect-auto p-6 md:p-8"
+                className="w-full !aspect-auto p-8 md:p-10 flex-1"
               >
                 <div className="relative z-10 text-left flex flex-col h-full">
-                  <div className="mb-6">
-                    <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-red-400 mb-2">
+                  <div className="mb-8">
+                    <h2 className="font-heading text-lg md:text-xl font-bold text-red-400 mb-2">
                       Without Strategy
-                    </p>
+                    </h2>
                     <p className="font-body text-sm text-white/30">
                       Execution without direction
                     </p>
                   </div>
-                  <div className="h-px w-full bg-white/10 mb-6" />
-                  <ul className="space-y-5 flex-1">
+                  <div className="h-px w-full bg-red-400/15 mb-8" />
+                  <ul className="space-y-6 flex-1">
                     {withoutFeatures.map((feature, index) => (
                       <motion.li
                         key={index}
@@ -96,23 +97,24 @@ const WhyStrategySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 }}
+              className="flex"
             >
               <GlowCard
-                glowColor="blue"
+                glowColor="green"
                 customSize
-                className="w-full !aspect-auto p-6 md:p-8"
+                className="w-full !aspect-auto p-8 md:p-10 flex-1"
               >
                 <div className="relative z-10 text-left flex flex-col h-full">
-                  <div className="mb-6">
-                    <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-agency-blue mb-2">
+                  <div className="mb-8">
+                    <h2 className="font-heading text-lg md:text-xl font-bold text-neon mb-2">
                       With Strategy
-                    </p>
+                    </h2>
                     <p className="font-body text-sm text-white/30">
                       A system that compounds
                     </p>
                   </div>
-                  <div className="h-px w-full bg-agency-blue/20 mb-6" />
-                  <ul className="space-y-5 flex-1">
+                  <div className="h-px w-full bg-neon/15 mb-8" />
+                  <ul className="space-y-6 flex-1">
                     {withFeatures.map((feature, index) => (
                       <motion.li
                         key={index}
@@ -122,7 +124,7 @@ const WhyStrategySection = () => {
                         transition={{ duration: 0.3, delay: 0.1 * index }}
                         className="flex items-start gap-3 font-body text-sm text-white/80 leading-relaxed"
                       >
-                        <CircleCheck className="size-4 text-agency-blue flex-shrink-0 mt-0.5" />
+                        <CircleCheck className="size-4 text-neon flex-shrink-0 mt-0.5" />
                         {feature}
                       </motion.li>
                     ))}
@@ -137,7 +139,7 @@ const WhyStrategySection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="font-body text-base md:text-lg text-white/80 font-semibold leading-relaxed border-l-4 border-agency-blue pl-5 max-w-2xl text-left mt-8"
+            className="font-body text-base md:text-lg text-white/80 font-semibold leading-relaxed border-l-4 border-neon pl-5 max-w-2xl text-left mt-8"
           >
             We help you decide what deserves to be built before you build it. Then we execute it with discipline.
           </motion.p>
