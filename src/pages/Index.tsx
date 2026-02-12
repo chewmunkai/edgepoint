@@ -10,7 +10,7 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <div className="relative z-20 bg-black">
+        <div className="relative z-20 bg-[#f5f5f5]">
           <FAQSection />
           <FinalCTASection />
         </div>
