@@ -79,7 +79,7 @@ const HalideLanding: React.FC = () => {
 
         {/* Top bar */}
         <div className="relative z-20 flex items-start justify-between px-6 pt-24 sm:px-10 md:px-16">
-          <span className="text-sm font-bold tracking-[0.15em] text-white uppercase">
+          <span className="text-sm font-bold tracking-[0.15em] text-white uppercase hidden">
             EDGE_POINT
           </span>
           <div className="text-right text-[11px] tracking-[0.15em] uppercase" style={{ color: 'hsl(0, 70%, 55%)' }}>
