@@ -41,7 +41,7 @@ const FAQSection = () => {
             <p className="text-black/40 font-body font-medium tracking-widest uppercase text-xs mb-3">FAQ</p>
             <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-black leading-tight">
               Frequently Asked{" "}
-              <span className="bg-black text-white px-2 py-0.5 rounded-sm">Questions</span>
+              <span className="bg-[#007BFF] text-white px-2 py-0.5 rounded-sm">Questions</span>
             </h2>
           </div>
 
@@ -52,7 +52,7 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="w-full max-w-full bg-white border border-black/10 rounded-lg overflow-hidden"
               >
-                <AccordionTrigger className="text-base text-black/90 hover:text-black transition-colors hover:no-underline text-left font-medium bg-white border-black/10">
+                <AccordionTrigger className="text-base text-black/90 hover:text-[#007BFF] transition-colors hover:no-underline text-left font-medium bg-white border-black/10">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-black/60 leading-relaxed">
