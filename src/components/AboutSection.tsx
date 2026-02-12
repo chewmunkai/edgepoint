@@ -1,4 +1,4 @@
-import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { Stats } from "@/components/ui/stats-section";
 
 const AboutSection = () => {
   return (
@@ -18,25 +18,6 @@ const AboutSection = () => {
                 alt="Team collaboration"
                 className="h-full w-full object-cover"
               />
-            </div>
-
-            {/* Stats */}
-            <div className="space-y-3 text-sm text-white/70">
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span className="text-2xl font-bold text-white font-heading">5+</span>
-                <span>Years experience</span>
-                <span className="text-white/30">|</span>
-              </div>
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span className="text-2xl font-bold text-white font-heading">60+</span>
-                <span>Projects executed</span>
-              </div>
-            </div>
-            <div className="space-y-3 text-sm text-white/70">
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span className="text-2xl font-bold text-white font-heading">RM3.6+ Million</span>
-                <span>Ads Optimized</span>
-              </div>
             </div>
           </div>
 
@@ -62,9 +43,11 @@ const AboutSection = () => {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
+
+        {/* Stats Section */}
+        <Stats className="mt-10" />
       </div>
     </section>
   );
