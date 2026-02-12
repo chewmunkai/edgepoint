@@ -13,6 +13,13 @@ const steps: Step[] = [
     description:
       "Brand foundation isn't about logos and colors—it's strategic infrastructure that makes everything else work.",
     imageSrc: serviceBrand,
+    items: [
+      "Branding Kit Development",
+      "Brand Positioning & Messaging",
+      "Offer Structuring",
+      "Website Development",
+      "Conversion-Focused Landing Pages",
+    ],
   },
   {
     id: "visibility",
@@ -22,6 +29,12 @@ const steps: Step[] = [
     description:
       "Organic channels compound over time. We build discoverability where your ideal customers are already searching.",
     imageSrc: serviceVisibility,
+    items: [
+      "SEO Strategy & Execution",
+      "Content Strategy",
+      "Social Media Marketing",
+      "Organic Funnel Structuring",
+    ],
   },
   {
     id: "performance",
@@ -31,6 +44,12 @@ const steps: Step[] = [
     description:
       "Performance marketing works when you have clear positioning, a converting funnel, and proven offers.",
     imageSrc: servicePerformance,
+    items: [
+      "Performance Marketing",
+      "Paid Media Strategy",
+      "Funnel Optimization",
+      "Campaign Tracking & Reporting",
+    ],
   },
   {
     id: "events",
@@ -40,6 +59,11 @@ const steps: Step[] = [
     description:
       "Events are powerful growth channels when integrated with your broader strategy.",
     imageSrc: serviceEvents,
+    items: [
+      "Event Planning & Execution",
+      "Brand Activation Campaigns",
+      "Offline-Online Funnel Integration",
+    ],
   },
 ];
 
