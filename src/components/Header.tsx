@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedNavigationTabs } from "@/components/ui/animated-navigation-tabs";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import logo from "@/assets/logo.png";
 
+const serviceSubPages = [
+  { title: "Brand & Foundation", href: "/services/brand-foundation" },
+  { title: "Visibility & Organic Growth", href: "/services/visibility-organic-growth" },
+  { title: "Performance & Scale", href: "/services/performance-scale" },
+  { title: "Events & Activation", href: "/services/events-activation" },
+];
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [desktopDropdown, setDesktopDropdown] = useState(false);
+  const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const navItems = [
     { id: 1, tile: "Home", href: "/" },
@@ -16,6 +26,15 @@ const Header = () => {
     { id: 4, tile: "Insights", href: "/insights" },
     { id: 5, tile: "Contact Us", href: "/contact" },
   ];
+
+  const handleDropdownEnter = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setDesktopDropdown(true);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setDesktopDropdown(false), 200);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300" style={{ backgroundColor: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(16px)' }}>
@@ -26,9 +45,37 @@ const Header = () => {
             <img src={logo} alt="Edge Point" className="h-[72px] w-auto" />
           </Link>
 
-          {/* Desktop Navigation - Animated Tabs */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <AnimatedNavigationTabs items={navItems} />
+            <div className="relative" onMouseEnter={handleDropdownEnter} onMouseLeave={handleDropdownLeave}>
+              <AnimatedNavigationTabs items={navItems} />
+              
+              {/* Desktop Services Dropdown */}
+              <AnimatePresence>
+                {desktopDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl py-2 shadow-2xl"
+                    style={{ marginLeft: '20px' }}
+                    onMouseEnter={handleDropdownEnter}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    {serviceSubPages.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        to={sub.href}
+                        className="block px-4 py-2.5 text-sm font-body text-white/60 hover:text-white hover:bg-white/5 transition-colors duration-200"
+                      >
+                        {sub.title}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             
             {/* Desktop CTA */}
             <LiquidButton href="#contact" size="default" className="font-heading text-sm text-white">
@@ -64,13 +111,55 @@ const Header = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link
-                    to={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-white/70 hover:text-white font-body text-lg tracking-wide transition-colors duration-300 block"
-                  >
-                    {item.tile}
-                  </Link>
+                  {item.tile === "Services" ? (
+                    <div>
+                      <button
+                        onClick={() => setServicesOpen(!servicesOpen)}
+                        className="text-white/70 hover:text-white font-body text-lg tracking-wide transition-colors duration-300 flex items-center gap-2 w-full"
+                      >
+                        Services
+                        <ChevronDown className={`size-4 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {servicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pt-3 flex flex-col gap-3">
+                              <Link
+                                to="/services"
+                                onClick={() => setIsOpen(false)}
+                                className="text-white/50 hover:text-white font-body text-base transition-colors duration-300"
+                              >
+                                All Services
+                              </Link>
+                              {serviceSubPages.map((sub) => (
+                                <Link
+                                  key={sub.href}
+                                  to={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="text-white/50 hover:text-white font-body text-base transition-colors duration-300"
+                                >
+                                  {sub.title}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-white/70 hover:text-white font-body text-lg tracking-wide transition-colors duration-300 block"
+                    >
+                      {item.tile}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
               <div className="mt-4">
