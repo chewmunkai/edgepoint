@@ -38,10 +38,10 @@ const FAQSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-white/50 font-body font-medium tracking-widest uppercase text-xs mb-3">FAQ</p>
-            <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
+            <p className="text-black/40 font-body font-medium tracking-widest uppercase text-xs mb-3">FAQ</p>
+            <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-black leading-tight">
               Frequently Asked{" "}
-              <span className="bg-neon text-black px-2 py-0.5 rounded-sm">Questions</span>
+              <span className="bg-black text-white px-2 py-0.5 rounded-sm">Questions</span>
             </h2>
           </div>
 
@@ -50,12 +50,12 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="w-full max-w-full bg-white/5 border border-white/10 rounded-lg overflow-hidden"
+                className="w-full max-w-full bg-white border border-black/10 rounded-lg overflow-hidden"
               >
-                <AccordionTrigger className="text-base text-white/90 hover:text-white transition-colors hover:no-underline text-left font-medium bg-white/5 border-white/10">
+                <AccordionTrigger className="text-base text-black/90 hover:text-black transition-colors hover:no-underline text-left font-medium bg-white border-black/10">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-white/60 leading-relaxed">
+                <AccordionContent className="text-black/60 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
