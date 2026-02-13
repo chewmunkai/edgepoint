@@ -1,4 +1,5 @@
 import { Stats } from "@/components/ui/stats-section";
+import aboutImage from "@/assets/about-retro-futuristic.jpg";
 
 const AboutSection = () => {
   return (
@@ -14,8 +15,8 @@ const AboutSection = () => {
 
             <div className="relative aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl border-2 border-white/20 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
-                alt="Team collaboration"
+                src={aboutImage}
+                alt="Retro-futuristic strategy command center"
                 className="h-full w-full object-cover"
               />
             </div>
