@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { Check, ArrowRight, ChevronDown, Palette, MessageSquare, Package, Globe, FileText, X } from "lucide-react";
+import { Check, ArrowRight, ChevronDown, Palette, MessageSquare, Package, Globe, FileText, X, CircleCheck, CircleX } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { Link } from "react-router-dom";
 
@@ -132,7 +132,6 @@ const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index:
         onClick={() => setOpen(!open)}
       >
         <div className="p-6 md:p-8">
-          {/* Header */}
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${open ? "bg-neon/20" : "bg-foreground/5"}`}>
@@ -144,12 +143,9 @@ const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index:
               className={`size-5 shrink-0 mt-1 transition-transform duration-300 ${open ? "rotate-180 text-white/60" : "text-foreground/30"}`}
             />
           </div>
-
           <p className={`font-body text-sm leading-relaxed ${open ? "text-white/70" : "text-foreground/50"}`}>
             {item.lead}
           </p>
-
-          {/* Expanded content */}
           <motion.div
             initial={false}
             animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
@@ -192,104 +188,103 @@ const BrandFoundation = () => {
             description="Look, we get it. You want to run ads, create content, and start generating leads. But here's the truth: if your positioning isn't clear and your website doesn't convert, you're just burning money on traffic that goes nowhere."
           />
 
-          {/* ═══ SECTION 1 — Readiness CTA (dark, full-bleed) ═══ */}
-          <section className="bg-foreground">
-            <div className="container mx-auto px-4 py-16 md:py-24">
-              <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center">
-                <FadeIn>
-                  <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-3">
-                    Not Sure Where To Start?
-                  </p>
-                  <h2 className="font-heading font-bold text-2xl md:text-4xl text-white leading-tight mb-4">
-                    Take the 2-Minute<br />Readiness Check.
-                  </h2>
-                  <LiquidButton
-                    href="/contact"
-                    size="lg"
-                    className="font-heading text-sm whitespace-nowrap"
-                  >
-                    Take the Readiness Calculator
-                    <ArrowRight className="size-4 ml-2" />
-                  </LiquidButton>
-                </FadeIn>
-                <FadeIn delay={0.15}>
-                  <p className="font-body text-white/50 text-base md:text-lg leading-relaxed">
-                    Before you dive in, our Marketing Readiness Calculator tells you exactly where your gaps are and which service you actually need first. No fluff—just clarity in 2 minutes.
-                  </p>
-                </FadeIn>
-              </div>
-            </div>
-          </section>
-
-          {/* ═══ SECTION 2 — Why Foundation Matters (light, asymmetric) ═══ */}
-          <section className="bg-background">
+          {/* ═══ WHY FOUNDATION MATTERS — Redesigned ═══ */}
+          <section className="bg-background overflow-hidden">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-6xl mx-auto">
-                {/* Big statement */}
-                <FadeIn>
-                  <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                    Why Foundation Matters
-                  </p>
-                  <h2 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-foreground leading-[1.05] max-w-3xl mb-16">
-                    You can't scale<br />what isn't <span className="text-neon">clear.</span>
-                  </h2>
-                </FadeIn>
+                {/* Oversized statement with accent line */}
+                <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-end mb-20">
+                  <FadeIn>
+                    <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                      Why Foundation Matters
+                    </p>
+                    <h2 className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
+                      You can't scale
+                      <br />
+                      what isn't
+                      <span className="relative inline-block ml-3">
+                        <span className="text-neon">clear.</span>
+                        <motion.span
+                          className="absolute -bottom-2 left-0 w-full h-[3px] bg-neon origin-left"
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.5 }}
+                        />
+                      </span>
+                    </h2>
+                  </FadeIn>
+                  <FadeIn delay={0.2}>
+                    <p className="font-body text-foreground/50 text-base md:text-lg leading-relaxed lg:pb-2">
+                      Pull up your website right now and ask yourself these three questions. If you hesitate on any of them, you already know the answer.
+                    </p>
+                  </FadeIn>
+                </div>
 
-                {/* Question cards — staggered grid */}
-                <div className="grid md:grid-cols-3 gap-4 mb-16">
+                {/* Question cards — editorial numbered style */}
+                <div className="grid md:grid-cols-3 gap-0 border border-foreground/10 rounded-2xl overflow-hidden mb-20">
                   {[
-                    "Do people immediately understand what you do and why it matters?",
-                    "Does your website guide visitors toward a decision, or does it just… exist?",
-                    "Can you explain why someone should choose you over a competitor in one sentence?",
-                  ].map((q, i) => (
+                    { q: "Do people immediately understand what you do and why it matters?", num: "01" },
+                    { q: "Does your website guide visitors toward a decision, or does it just… exist?", num: "02" },
+                    { q: "Can you explain why someone should choose you over a competitor in one sentence?", num: "03" },
+                  ].map((item, i) => (
                     <FadeIn key={i} delay={0.1 * i}>
-                      <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8 h-full flex flex-col">
-                        <span className="text-neon font-heading font-bold text-3xl mb-4">?</span>
-                        <p className="font-body text-foreground/60 text-sm md:text-base leading-relaxed mt-auto">
-                          {q}
+                      <div className={`p-8 md:p-10 h-full flex flex-col ${i < 2 ? "md:border-r border-b md:border-b-0 border-foreground/10" : ""}`}>
+                        <span className="font-heading font-bold text-5xl md:text-6xl text-foreground/[0.06] mb-6 block">
+                          {item.num}
+                        </span>
+                        <p className="font-body text-foreground/70 text-sm md:text-base leading-relaxed mt-auto">
+                          {item.q}
                         </p>
                       </div>
                     </FadeIn>
                   ))}
                 </div>
 
-                {/* Comparison — side by side columns */}
-                <FadeIn delay={0.2}>
-                  <p className="font-body text-foreground/60 text-base leading-relaxed mb-2">
-                    If you hesitated on any of those, you know what the problem is.
-                  </p>
-                  <p className="font-heading font-bold text-foreground text-lg md:text-xl mb-8">
+                {/* Comparison — overlapping card design */}
+                <FadeIn>
+                  <p className="font-heading font-bold text-foreground text-lg md:text-2xl mb-10">
                     Here's what happens when you skip foundation:
                   </p>
                 </FadeIn>
 
-                <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                  {/* Without */}
-                  <FadeIn delay={0.25}>
-                    <div className="rounded-2xl border border-foreground/10 p-6 md:p-8 bg-foreground/[0.02]">
-                      <p className="font-heading font-bold text-xs uppercase tracking-widest text-foreground/30 mb-6">
-                        Without Foundation
-                      </p>
-                      <ul className="space-y-4">
+                <div className="grid lg:grid-cols-2 gap-6">
+                  {/* Without — muted */}
+                  <FadeIn delay={0.1}>
+                    <div className="relative rounded-2xl border border-foreground/10 p-8 md:p-10 bg-foreground/[0.02] h-full">
+                      <div className="flex items-center gap-3 mb-8">
+                        <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center">
+                          <X className="size-4 text-destructive/60" />
+                        </div>
+                        <p className="font-heading font-bold text-sm uppercase tracking-widest text-foreground/30">
+                          Without Foundation
+                        </p>
+                      </div>
+                      <ul className="space-y-5">
                         {comparisonData.map((row, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <X className="size-4 text-destructive/60 mt-0.5 shrink-0" />
-                            <span className="font-body text-foreground/50 text-sm leading-relaxed">{row.without}</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-foreground/20 mt-2 shrink-0" />
+                            <span className="font-body text-foreground/45 text-sm leading-relaxed">{row.without}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </FadeIn>
-                  {/* With */}
-                  <FadeIn delay={0.3}>
-                    <div className="rounded-2xl border border-neon/30 p-6 md:p-8 bg-neon/5">
-                      <p className="font-heading font-bold text-xs uppercase tracking-widest text-neon mb-6">
-                        With Foundation
-                      </p>
-                      <ul className="space-y-4">
+                  {/* With — elevated */}
+                  <FadeIn delay={0.2}>
+                    <div className="relative rounded-2xl border-2 border-neon/40 p-8 md:p-10 bg-neon/[0.04] h-full shadow-[0_0_60px_-20px_hsl(var(--neon)/0.15)]">
+                      <div className="flex items-center gap-3 mb-8">
+                        <div className="w-8 h-8 rounded-full bg-neon/15 flex items-center justify-center">
+                          <Check className="size-4 text-neon" />
+                        </div>
+                        <p className="font-heading font-bold text-sm uppercase tracking-widest text-neon">
+                          With Foundation
+                        </p>
+                      </div>
+                      <ul className="space-y-5">
                         {comparisonData.map((row, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <Check className="size-4 text-neon mt-0.5 shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-neon mt-2 shrink-0" />
                             <span className="font-body text-foreground/80 text-sm leading-relaxed font-medium">{row.with}</span>
                           </li>
                         ))}
@@ -298,8 +293,8 @@ const BrandFoundation = () => {
                   </FadeIn>
                 </div>
 
-                <FadeIn delay={0.35}>
-                  <p className="font-body text-foreground/40 text-base leading-relaxed mt-10 italic max-w-2xl">
+                <FadeIn delay={0.3}>
+                  <p className="font-body text-foreground/40 text-base leading-relaxed mt-12 italic max-w-2xl">
                     Foundation isn't the sexy part of marketing. But it's the part that makes everything else actually work.
                   </p>
                 </FadeIn>
@@ -307,7 +302,7 @@ const BrandFoundation = () => {
             </div>
           </section>
 
-          {/* ═══ SECTION 3 — Deliverables (dark, bento-style) ═══ */}
+          {/* ═══ DELIVERABLES (dark, bento-style) — KEPT ═══ */}
           <section className="bg-foreground">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-6xl mx-auto">
@@ -322,14 +317,11 @@ const BrandFoundation = () => {
                     Click any card to explore the deliverables and understand why each one matters.
                   </p>
                 </FadeIn>
-
-                {/* Top row — 2 large cards */}
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   {deliverables.slice(0, 2).map((item, i) => (
                     <DeliverableCard key={item.title} item={item} index={i} />
                   ))}
                 </div>
-                {/* Bottom row — 3 cards */}
                 <div className="grid md:grid-cols-3 gap-4">
                   {deliverables.slice(2).map((item, i) => (
                     <DeliverableCard key={item.title} item={item} index={i + 2} />
@@ -339,7 +331,7 @@ const BrandFoundation = () => {
             </div>
           </section>
 
-          {/* ═══ SECTION 4 — Process (light, horizontal timeline) ═══ */}
+          {/* ═══ HOW WE WORK (light, horizontal timeline) — KEPT ═══ */}
           <section className="bg-background">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-6xl mx-auto">
@@ -351,7 +343,6 @@ const BrandFoundation = () => {
                     Four phases.<br />Zero guesswork.
                   </h2>
                 </FadeIn>
-
                 <div className="grid md:grid-cols-4 gap-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
                   {processSteps.map((step, i) => (
                     <FadeIn key={step.number} delay={0.1 * i}>
@@ -373,100 +364,136 @@ const BrandFoundation = () => {
             </div>
           </section>
 
-          {/* ═══ SECTION 5 — Fit Assessment + Expectations (dark, split) ═══ */}
+          {/* ═══ IS THIS RIGHT FOR YOU? — Redesigned as interactive cards ═══ */}
           <section className="bg-foreground">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[1fr_1px_1fr] gap-10 lg:gap-0">
-                  {/* Fit */}
-                  <div className="lg:pr-12">
-                    <FadeIn>
-                      <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
-                        Is This Right For You?
-                      </p>
-                      <h2 className="font-heading font-bold text-2xl md:text-3xl text-white leading-tight mb-10">
-                        Fit Assessment.
-                      </h2>
-                    </FadeIn>
-
-                    <div className="space-y-8">
-                      <FadeIn delay={0.1}>
-                        <p className="font-heading font-bold text-sm text-neon mb-4 uppercase tracking-wider">
-                          Good fit
-                        </p>
-                        <ul className="space-y-3">
-                          {goodFit.map((item, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                              <Check className="size-4 text-neon mt-0.5 shrink-0" />
-                              <span className="font-body text-white/60 text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </FadeIn>
-
-                      <FadeIn delay={0.2}>
-                        <p className="font-heading font-bold text-sm text-white/30 mb-4 uppercase tracking-wider">
-                          Not a fit
-                        </p>
-                        <ul className="space-y-3">
-                          {notFit.map((item, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                              <span className="text-white/20 mt-0.5 shrink-0">—</span>
-                              <span className="font-body text-white/40 text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </FadeIn>
-                    </div>
+                <FadeIn>
+                  <div className="text-center mb-16">
+                    <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
+                      Is This Right For You?
+                    </p>
+                    <h2 className="font-heading font-bold text-3xl md:text-5xl text-white leading-tight">
+                      Honest fit check.
+                    </h2>
                   </div>
+                </FadeIn>
 
-                  {/* Divider */}
-                  <div className="hidden lg:block bg-white/10" />
-
-                  {/* Expectations */}
-                  <div className="lg:pl-12">
-                    <FadeIn delay={0.1}>
-                      <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
-                        What To Expect
-                      </p>
-                      <h2 className="font-heading font-bold text-2xl md:text-3xl text-white leading-tight mb-10">
-                        Engagement Overview.
-                      </h2>
-                    </FadeIn>
-
-                    <div className="space-y-6">
-                      {[
-                        { label: "Timeline", value: "8-12 weeks from kickoff to launch", num: "8–12", unit: "weeks" },
-                        { label: "Investment", value: "Custom quote based on scope (brand only vs. brand + website)", num: "Custom", unit: "quote" },
-                        { label: "Deliverables", value: "Brand kit, positioning framework, website, landing pages—everything you need to start marketing with confidence", num: "Full", unit: "stack" },
-                      ].map((item, i) => (
-                        <FadeIn key={i} delay={0.15 + i * 0.08}>
-                          <div className="flex items-start gap-5">
-                            <div className="text-right shrink-0 w-16">
-                              <span className="font-heading font-bold text-xl text-neon block leading-none">{item.num}</span>
-                              <span className="font-body text-white/30 text-xs uppercase tracking-wider">{item.unit}</span>
-                            </div>
-                            <div className="border-l border-white/10 pl-5">
-                              <p className="font-heading font-bold text-white text-sm mb-1">{item.label}</p>
-                              <p className="font-body text-white/50 text-sm leading-relaxed">{item.value}</p>
-                            </div>
-                          </div>
-                        </FadeIn>
-                      ))}
+                <div className="grid lg:grid-cols-2 gap-6 mb-16">
+                  {/* Good Fit — full card */}
+                  <FadeIn delay={0.1}>
+                    <div className="rounded-2xl border border-neon/20 bg-neon/[0.04] p-8 md:p-10 h-full">
+                      <div className="flex items-center gap-3 mb-8">
+                        <div className="w-10 h-10 rounded-full bg-neon/15 flex items-center justify-center">
+                          <CircleCheck className="size-5 text-neon" />
+                        </div>
+                        <div>
+                          <p className="font-heading font-bold text-white text-lg">You're a good fit</p>
+                          <p className="font-body text-white/40 text-xs">We can help you</p>
+                        </div>
+                      </div>
+                      <div className="space-y-0">
+                        {goodFit.map((item, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 + i * 0.1 }}
+                            className="flex items-center gap-4 py-4 border-b border-white/[0.06] last:border-0"
+                          >
+                            <span className="w-6 h-6 rounded-md bg-neon/10 flex items-center justify-center shrink-0">
+                              <Check className="size-3.5 text-neon" />
+                            </span>
+                            <span className="font-body text-white/70 text-sm">{item}</span>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
+                  </FadeIn>
 
-                    <FadeIn delay={0.4}>
-                      <p className="font-body text-white/30 text-sm leading-relaxed mt-8 italic">
-                        Every engagement starts with a Strategic Audit. We assess where you are, identify the gaps, and map the path forward.
-                      </p>
-                    </FadeIn>
-                  </div>
+                  {/* Not a Fit — subdued card */}
+                  <FadeIn delay={0.2}>
+                    <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 md:p-10 h-full">
+                      <div className="flex items-center gap-3 mb-8">
+                        <div className="w-10 h-10 rounded-full bg-white/[0.06] flex items-center justify-center">
+                          <CircleX className="size-5 text-white/30" />
+                        </div>
+                        <div>
+                          <p className="font-heading font-bold text-white/50 text-lg">Probably not the right fit</p>
+                          <p className="font-body text-white/25 text-xs">And that's okay</p>
+                        </div>
+                      </div>
+                      <div className="space-y-0">
+                        {notFit.map((item, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 + i * 0.1 }}
+                            className="flex items-center gap-4 py-4 border-b border-white/[0.04] last:border-0"
+                          >
+                            <span className="w-6 h-6 rounded-md bg-white/[0.04] flex items-center justify-center shrink-0">
+                              <X className="size-3.5 text-white/25" />
+                            </span>
+                            <span className="font-body text-white/40 text-sm">{item}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </FadeIn>
                 </div>
+
+                {/* Expectations row */}
+                <FadeIn delay={0.3}>
+                  <div className="grid sm:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-white/[0.08]">
+                    {[
+                      { label: "Timeline", value: "8–12 weeks", sub: "from kickoff to launch" },
+                      { label: "Investment", value: "Custom quote", sub: "based on scope" },
+                      { label: "Deliverables", value: "Full stack", sub: "brand kit, website, landing pages" },
+                    ].map((item, i) => (
+                      <div key={i} className="bg-white/[0.03] p-6 md:p-8 text-center">
+                        <p className="font-body text-white/30 text-xs uppercase tracking-widest mb-2">{item.label}</p>
+                        <p className="font-heading font-bold text-neon text-xl md:text-2xl mb-1">{item.value}</p>
+                        <p className="font-body text-white/40 text-xs">{item.sub}</p>
+                      </div>
+                    ))}
+                  </div>
+                </FadeIn>
               </div>
             </div>
           </section>
 
-          {/* ═══ SECTION 6 — Next Service + Final CTA (light) ═══ */}
+          {/* ═══ NOT SURE WHERE TO START? (dark accent, moved here) ═══ */}
+          <section className="bg-foreground border-t border-white/[0.06]">
+            <div className="container mx-auto px-4 py-16 md:py-24">
+              <div className="max-w-4xl mx-auto text-center">
+                <FadeIn>
+                  <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-3">
+                    Not Sure Where To Start?
+                  </p>
+                  <h2 className="font-heading font-bold text-2xl md:text-4xl text-white leading-tight mb-4">
+                    Take the 2-Minute Readiness Check.
+                  </h2>
+                  <p className="font-body text-white/50 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+                    Our Marketing Readiness Calculator tells you exactly where your gaps are and which service you actually need first.
+                  </p>
+                  <LiquidButton
+                    href="/contact"
+                    size="lg"
+                    variant="outline"
+                    className="font-heading text-sm whitespace-nowrap border-neon/40 text-neon hover:bg-neon/10"
+                  >
+                    Take the Readiness Calculator
+                    <ArrowRight className="size-4 ml-2" />
+                  </LiquidButton>
+                </FadeIn>
+              </div>
+            </div>
+          </section>
+
+          {/* ═══ FINAL CTA (light) ═══ */}
           <section className="bg-background">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-4xl mx-auto text-center">
