@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { Check, ArrowRight, ChevronDown, Palette, MessageSquare, Package, Globe, FileText, X, CircleCheck, CircleX, Clock, DollarSign, Layers } from "lucide-react";
+import { Check, ArrowRight, ChevronDown, Palette, MessageSquare, Package, Globe, FileText } from "lucide-react";
 import { Cta4 } from "@/components/ui/cta-4";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { Link } from "react-router-dom";
@@ -97,19 +97,6 @@ const processSteps = [
   { number: "04", title: "Launch & Optimize", description: "We implement, test, and refine based on real performance data. If something isn't working, we fix it. If it's crushing, we double down." },
 ];
 
-const goodFit = [
-  "Your positioning feels generic or unclear",
-  "Your website gets traffic but doesn't convert",
-  "You're ready to invest but need foundation first",
-  "You're willing to challenge your current approach",
-];
-
-const notFit = [
-  "You're looking for quick cosmetic changes",
-  "You're not willing to rethink your positioning",
-  "You need results in 30 days (this takes 8-12 weeks)",
-  'You just want someone to "make it pretty"',
-];
 
 /* ─── Expandable Card ─── */
 const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index: number }) => {
@@ -224,7 +211,7 @@ const BrandFoundation = () => {
                   ].map((item, i) => (
                     <FadeIn key={i} delay={0.1 * i}>
                       <div className={`p-8 md:p-10 h-full flex flex-col ${i < 2 ? "md:border-r border-b md:border-b-0 border-foreground/10" : ""}`}>
-                        <span className="font-heading font-bold text-5xl md:text-6xl text-foreground/[0.06] mb-6 block">
+                        <span className="font-heading font-bold text-5xl md:text-6xl text-destructive/20 mb-6 block">
                           {item.num}
                         </span>
                         <p className="font-body text-foreground/60 text-sm md:text-base leading-relaxed mt-auto">
@@ -322,7 +309,7 @@ const BrandFoundation = () => {
                 {/* What happens list */}
                 <div className="space-y-0 mb-20">
                   {[
-                    "You spend £10K on ads that send traffic to a website that doesn't convert.",
+                    "You spend RM10K/month on ads that send traffic to a website that doesn't convert.",
                     "Your messaging sounds exactly like your competitors'.",
                     "Prospects visit your site and leave confused.",
                     "You keep trying new tactics, but nothing really moves.",
@@ -381,84 +368,6 @@ const BrandFoundation = () => {
             </div>
           </section>
 
-          {/* ═══ IS THIS RIGHT FOR YOU? ═══ */}
-          <section className="bg-background overflow-hidden">
-            <div className="container mx-auto px-4 py-20 md:py-32">
-              <div className="max-w-6xl mx-auto">
-                <FadeIn>
-                  <div className="text-center mb-16 md:mb-20">
-                    <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                      Is This Right For You?
-                    </p>
-                    <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground leading-tight">
-                      Honest fit check.
-                    </h2>
-                  </div>
-                </FadeIn>
-
-                {/* Two-column clean list layout */}
-                <div className="grid md:grid-cols-2 gap-0 mb-16">
-                  {/* Good Fit */}
-                  <div className="p-8 md:p-12 border border-foreground/[0.08] rounded-t-2xl md:rounded-t-none md:rounded-l-2xl">
-                    <FadeIn>
-                      <div className="flex items-center gap-3 mb-10">
-                        <div className="w-3 h-3 rounded-full bg-neon" />
-                        <p className="font-heading font-bold text-foreground text-lg">Good fit</p>
-                      </div>
-                    </FadeIn>
-                    {goodFit.map((item, i) => (
-                      <FadeIn key={i} delay={0.1 + i * 0.08}>
-                        <div className="flex items-start gap-4 py-4 border-b border-foreground/[0.06] last:border-0">
-                          <Check className="size-4 text-neon mt-1 shrink-0" />
-                          <span className="font-body text-foreground/70 text-sm md:text-base leading-relaxed">{item}</span>
-                        </div>
-                      </FadeIn>
-                    ))}
-                  </div>
-
-                  {/* Not a Fit */}
-                  <div className="p-8 md:p-12 border border-foreground/[0.08] border-t-0 md:border-t md:border-l-0 rounded-b-2xl md:rounded-b-none md:rounded-r-2xl bg-foreground/[0.02]">
-                    <FadeIn delay={0.1}>
-                      <div className="flex items-center gap-3 mb-10">
-                        <div className="w-3 h-3 rounded-full bg-foreground/20" />
-                        <p className="font-heading font-bold text-foreground/40 text-lg">Not the right fit</p>
-                      </div>
-                    </FadeIn>
-                    {notFit.map((item, i) => (
-                      <FadeIn key={i} delay={0.2 + i * 0.08}>
-                        <div className="flex items-start gap-4 py-4 border-b border-foreground/[0.04] last:border-0">
-                          <X className="size-4 text-foreground/20 mt-1 shrink-0" />
-                          <span className="font-body text-foreground/35 text-sm md:text-base leading-relaxed">{item}</span>
-                        </div>
-                      </FadeIn>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Expectations row */}
-                <FadeIn delay={0.3}>
-                  <div className="grid sm:grid-cols-3 gap-4">
-                    {[
-                      { icon: Clock, label: "Timeline", value: "8–12 weeks", sub: "from kickoff to launch" },
-                      { icon: DollarSign, label: "Investment", value: "Custom quote", sub: "based on scope" },
-                      { icon: Layers, label: "Deliverables", value: "Full stack", sub: "brand kit, website, landing pages" },
-                    ].map((item, i) => (
-                      <div
-                        key={i}
-                        className="rounded-xl border border-foreground/[0.08] p-6 md:p-8"
-                      >
-                        <item.icon className="size-5 text-neon/60 mb-4" />
-                        <p className="font-body text-foreground/30 text-xs uppercase tracking-widest mb-2">{item.label}</p>
-                        <p className="font-heading font-bold text-foreground text-xl md:text-2xl mb-1">{item.value}</p>
-                        <p className="font-body text-foreground/35 text-xs">{item.sub}</p>
-                      </div>
-                    ))}
-                  </div>
-                </FadeIn>
-              </div>
-            </div>
-          </section>
-
           {/* ═══ NOT SURE WHERE TO START? ═══ */}
           <section className="bg-foreground">
             <div className="container mx-auto px-4 py-20 md:py-28">
@@ -485,17 +394,17 @@ const BrandFoundation = () => {
                         ].map((item, i) => (
                           <div key={i} className="flex items-center gap-2">
                             <Check className="size-4 text-neon shrink-0" />
-                            <span className="font-body text-white/60 text-sm">{item}</span>
+                            <span className="font-body text-white text-sm font-medium">{item}</span>
                           </div>
                         ))}
                       </div>
                       <LiquidButton
                         href="/contact"
                         size="lg"
-                        className="font-heading text-sm whitespace-nowrap w-fit"
+                        variant="dark"
+                        className="font-heading text-sm whitespace-nowrap w-fit bg-neon text-foreground hover:bg-neon/90 font-bold"
                       >
                         Take the Readiness Calculator
-                        <ArrowRight className="size-4 ml-2" />
                       </LiquidButton>
                     </div>
                   </FadeIn>
@@ -524,7 +433,6 @@ const BrandFoundation = () => {
                     className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center"
                   >
                     Book a Strategic Audit
-                    <ArrowRight className="size-4 ml-2" />
                   </LiquidButton>
                 </FadeIn>
 
