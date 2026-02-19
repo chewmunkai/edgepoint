@@ -4,8 +4,7 @@ import PageHero from "@/components/PageHero";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { Check, ArrowRight, ChevronDown, Palette, MessageSquare, Package, Globe, FileText } from "lucide-react";
-import { Cta4 } from "@/components/ui/cta-4";
+import { Check, ArrowRight, ChevronDown, Palette, MessageSquare, Package, Globe, FileText, Clock, DollarSign, FolderOpen } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { Link } from "react-router-dom";
 
@@ -32,71 +31,75 @@ const deliverables = [
     icon: Palette,
     title: "Branding Kit Development",
     lead: "Your visual identity is the first signal people see—before they read a word.",
+    description: "This isn't just about making things look pretty. Your visual identity needs to communicate professionalism, consistency, and credibility instantly.",
     items: [
-      "Logo design and variations (primary, secondary, icon)",
+      "Logo design and variations (primary, secondary, icon versions)",
       "Color palette and typography system",
-      "Brand guidelines document",
-      "Asset library for all channels",
+      "Brand guidelines document (so nothing looks off-brand)",
+      "Asset library for consistent application across all channels",
     ],
-    why: "A polished brand makes people trust you faster. A generic one makes them scroll past.",
+    why: "A polished brand builds trust instantly. A generic one gets ignored.",
   },
   {
     icon: MessageSquare,
     title: "Brand Positioning & Messaging",
     lead: "If you can't articulate who you serve and why in one sentence—you don't have positioning.",
+    description: "This is where most businesses lose the game before it even starts. If you can't clearly explain who you serve, what makes you different, and why prospects should care—you have a description, not positioning.",
     items: [
-      "Target customer definition",
-      "Competitive differentiation framework",
-      "Core messaging pillars",
-      "Value proposition that resonates",
+      "Target customer definition (who you're actually built for)",
+      "Competitive differentiation framework (what makes you the obvious choice)",
+      "Core messaging pillars (the 3-4 things you want burned into people's minds)",
+      "Value proposition that actually resonates (not jargon, not fluff—clarity)",
     ],
-    why: "Clear positioning cuts through noise. Generic messaging gets ignored.",
+    why: "Clear positioning cuts through noise. Generic messaging gets ignored. Every day you don't fix this, you're losing deals to competitors who just explain themselves better.",
   },
   {
     icon: Package,
     title: "Offer Structuring",
     lead: "How you package what you sell is as important as what you sell.",
+    description: "Most businesses make it way too complicated. Too many options, unclear pricing, no clear \"start here\" path. Prospects get overwhelmed and bail.",
     items: [
-      "Offer hierarchy (entry → mid-tier → premium)",
-      "Pricing aligned with value perception",
-      "Clear buyer pathways",
-      "Messaging for each offer level",
+      "Offer hierarchy and packaging strategy (entry → mid-tier → premium)",
+      "Pricing structure aligned with value perception",
+      "Clear pathways that guide prospects from \"just looking\" to \"ready to buy\"",
+      "Messaging for each offer level (so people know what to choose)",
     ],
-    why: "Confused prospects don't buy. Clear offers make 'yes' the easy answer.",
+    why: "Confused prospects don't buy. Clear offers remove friction and make \"yes\" the easy answer.",
   },
   {
     icon: Globe,
     title: "Website Development",
     lead: "Your website isn't a brochure. It's a revenue engine.",
+    description: "Every page should have a job—educate, build trust, or drive action. If someone lands on your site and leaves without knowing what to do next, that's not their fault. That's yours.",
     items: [
-      "Strategic site architecture",
-      "Conversion-optimized page design",
-      "Mobile-responsive, fast-loading build",
-      "Analytics and tracking setup",
+      "Strategic site architecture (logical flow, clear user journeys)",
+      "Conversion-optimized page design (CTAs in the right places, messaging that moves people)",
+      "Mobile-responsive, fast-loading build (because slow sites kill conversions)",
+      "Analytics and tracking setup (so you know what's working)",
     ],
-    why: "A strategic website turns visitors into leads. A generic one just… exists.",
+    why: "A strategic website turns visitors into leads. A generic one just exists. Which one do you want?",
   },
   {
     icon: FileText,
-    title: "Conversion Landing Pages",
+    title: "Conversion-Focused Landing Pages",
     lead: "Generic pages convert at 2%. Purpose-built pages convert at 10-15%.",
+    description: "When you're running a campaign—an ad, an email, a promo—you need a page that matches that specific intent. Not your homepage. A dedicated page built for one goal.",
     items: [
-      "Campaign-specific landing pages",
-      "A/B testing framework",
-      "Clear conversion pathways",
-      "Performance tracking setup",
+      "Campaign-specific landing pages (one message, one CTA, no distractions)",
+      "A/B testing framework (so you can improve performance over time)",
+      "Clear conversion pathways (forms, buttons, whatever gets the action)",
+      "Performance tracking setup (you'll know exactly what converts and what doesn't)",
     ],
     why: "You're paying for clicks. Don't waste them on pages that weren't designed to convert.",
   },
 ];
 
 const processSteps = [
-  { number: "01", title: "Discovery & Audit", description: "We dig into your current positioning, messaging, and market landscape. We look at competitors, customer feedback, and where the real gaps are." },
-  { number: "02", title: "Strategic Framework", description: "We build your positioning, messaging architecture, and offer structure before any design happens. Strategy first. Always." },
-  { number: "03", title: "Design & Build", description: "Now we create the visual identity and build the digital assets—all grounded in the strategic framework. No creative whims. Just execution on strategy." },
-  { number: "04", title: "Launch & Optimize", description: "We implement, test, and refine based on real performance data. If something isn't working, we fix it. If it's crushing, we double down." },
+  { number: "01", title: "Discovery & Audit", description: "We audit your positioning, messaging, and market landscape—then identify where competitors are winning and where you're leaving money on the table." },
+  { number: "02", title: "Strategic Framework", description: "We define your positioning, messaging, and offers before any design happens. No logo until we know what it needs to communicate." },
+  { number: "03", title: "Design & Build", description: "We create your visual identity and build your digital assets—grounded in strategy, not designer preferences." },
+  { number: "04", title: "Launch & Optimize", description: "We launch, test, and optimize. What works gets scaled. What doesn't gets killed. No ego, just data." },
 ];
-
 
 /* ─── Expandable Card ─── */
 const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index: number }) => {
@@ -135,6 +138,12 @@ const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index:
             className="overflow-hidden"
           >
             <div className="pt-5 mt-5 border-t border-white/10 space-y-4">
+              <p className="font-body text-white/50 text-sm leading-relaxed">
+                {item.description}
+              </p>
+              <p className="font-body text-white/60 text-xs font-medium tracking-widest uppercase">
+                What you get:
+              </p>
               <ul className="grid gap-2">
                 {item.items.map((li, i) => (
                   <li key={i} className="flex items-start gap-2.5">
@@ -162,7 +171,7 @@ const BrandFoundation = () => {
       <div className="min-h-screen">
         <Header />
         <main>
-          {/* ── Hero (kept) ── */}
+          {/* ── Hero ── */}
           <PageHero
             label="Service 01"
             title="Build the Foundation Before You Scale."
@@ -170,21 +179,66 @@ const BrandFoundation = () => {
             description="Look, we get it. You want to run ads, create content, and start generating leads. But here's the truth: if your positioning isn't clear and your website doesn't convert, you're just burning money on traffic that goes nowhere."
           />
 
-          {/* ═══ WHY FOUNDATION MATTERS (light) ═══ */}
+          {/* ═══ THE PROBLEM WITH SKIPPING FOUNDATION ═══ */}
           <section className="bg-background overflow-hidden">
-            <div className="container mx-auto px-4 py-20 md:py-32">
+            <div className="container mx-auto px-4 py-20 md:py-28">
               <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-end mb-20">
+                <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
+                  {/* Left — sticky title */}
+                  <div className="lg:sticky lg:top-32">
+                    <FadeIn>
+                      <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                        The Problem With Skipping Foundation
+                      </p>
+                      <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.05]">
+                        Most businesses want to jump straight to ads and content.
+                      </h2>
+                      <p className="font-body text-foreground/40 text-sm mt-4 leading-relaxed">
+                        We get it—foundation work isn't exciting.
+                      </p>
+                    </FadeIn>
+                  </div>
+
+                  {/* Right — Prose */}
+                  <div>
+                    <FadeIn delay={0.15}>
+                      <p className="font-body text-foreground/50 text-base md:text-lg leading-[1.8] mb-6">
+                        But here's what we see all the time:
+                      </p>
+                      <p className="font-body text-foreground/50 text-base md:text-lg leading-[1.8] mb-8">
+                        Businesses spending £10K/month on ads that drive traffic to websites that don't convert. Messaging that sounds exactly like their competitors'. Prospects who visit and leave confused. Constant tactical tweaks that never move the needle.
+                      </p>
+
+                      <div className="rounded-2xl border border-foreground/10 p-6 md:p-8">
+                        <p className="font-heading font-bold text-foreground text-lg md:text-xl leading-relaxed mb-2">
+                          The problem isn't execution. It's <span className="text-neon">clarity.</span>
+                        </p>
+                        <p className="font-body text-foreground/40 text-sm leading-relaxed">
+                          Before you can scale, you need clarity on who you serve, what makes you different, and why prospects should choose you. Without that foundation, every marketing dollar is a gamble.
+                        </p>
+                      </div>
+                    </FadeIn>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ═══ CAN YOU ANSWER THESE THREE QUESTIONS? ═══ */}
+          <section className="bg-background overflow-hidden">
+            <div className="container mx-auto px-4 pb-20 md:pb-32">
+              <div className="max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-end mb-16">
                   <FadeIn>
                     <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                      Why Foundation Matters
+                      Can You Answer These Three Questions?
                     </p>
                     <h2 className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
                       You can't scale
                       <br />
-                      what isn't
+                      what you can't
                       <span className="relative inline-block ml-3">
-                        <span className="text-neon">clear.</span>
+                        <span className="text-neon">explain.</span>
                         <motion.span
                           className="absolute -bottom-2 left-0 w-full h-[3px] bg-neon origin-left"
                           initial={{ scaleX: 0 }}
@@ -197,7 +251,7 @@ const BrandFoundation = () => {
                   </FadeIn>
                   <FadeIn delay={0.2}>
                     <p className="font-body text-foreground/50 text-base md:text-lg leading-relaxed lg:pb-2">
-                      Pull up your website right now and ask yourself these three questions. If you hesitate on any of them, you already know the answer.
+                      Now that you know the stakes, here's the test. Pull up your website right now and answer these three questions without hesitating:
                     </p>
                   </FadeIn>
                 </div>
@@ -221,11 +275,17 @@ const BrandFoundation = () => {
                     </FadeIn>
                   ))}
                 </div>
+
+                <FadeIn delay={0.4}>
+                  <p className="font-body text-foreground/30 text-sm mt-6 text-center">
+                    If you hesitated on any of those, you already know what needs to happen.
+                  </p>
+                </FadeIn>
               </div>
             </div>
           </section>
 
-          {/* ═══ DELIVERABLES (dark) — KEPT ═══ */}
+          {/* ═══ WHAT'S INCLUDED (dark) ═══ */}
           <section className="bg-foreground">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-6xl mx-auto">
@@ -254,7 +314,7 @@ const BrandFoundation = () => {
             </div>
           </section>
 
-          {/* ═══ HOW WE WORK (light) — KEPT ═══ */}
+          {/* ═══ HOW WE WORK (light) ═══ */}
           <section className="bg-background">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-6xl mx-auto">
@@ -287,132 +347,58 @@ const BrandFoundation = () => {
             </div>
           </section>
 
-          {/* ═══ THE PROBLEM WITH SKIPPING FOUNDATION (light) ═══ */}
-          <section className="bg-background overflow-hidden">
-            <div className="container mx-auto px-4 py-20 md:py-28">
-              <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
-                  {/* Left — Title + Label */}
-                  <div className="lg:sticky lg:top-32">
-                    <FadeIn>
-                      <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                        The Problem With Skipping Foundation
-                      </p>
-                      <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.05]">
-                        Most businesses want to jump straight to ads and content.
-                      </h2>
-                      <p className="font-body text-foreground/40 text-sm mt-4 leading-relaxed">
-                        We get it—foundation work isn't exciting.
-                      </p>
-                    </FadeIn>
-                  </div>
-
-                  {/* Right — Prose + Questions */}
-                  <div>
-                    <FadeIn delay={0.15}>
-                      <p className="font-body text-foreground/50 text-base md:text-lg leading-[1.8] mb-8">
-                        But here's what happens when you skip it: You spend RM10K/month on ads that send traffic to a website that doesn't convert. Your messaging sounds exactly like your competitors'. Prospects visit your site and leave confused. You keep trying new tactics, but nothing really moves.
-                      </p>
-
-                      <div className="rounded-2xl border border-foreground/10 p-6 md:p-8 mb-8">
-                        <p className="font-heading font-bold text-foreground text-lg md:text-xl leading-relaxed mb-1">
-                          The issue isn't execution. It's <span className="text-neon">clarity.</span>
-                        </p>
-                        <p className="font-body text-foreground/40 text-sm leading-relaxed">
-                          Before you can scale, you need to answer three questions clearly:
-                        </p>
-                      </div>
-                    </FadeIn>
-
-                    {/* Three questions — compact horizontal cards */}
-                    <div className="grid grid-cols-3 gap-3">
-                      {[
-                        { num: "01", q: "Who are you built for?" },
-                        { num: "02", q: "What makes you different?" },
-                        { num: "03", q: "Why should someone choose you?" },
-                      ].map((item, i) => (
-                        <FadeIn key={i} delay={0.3 + 0.08 * i}>
-                          <div className="rounded-xl border border-foreground/10 p-5 h-full flex flex-col">
-                            <span className="font-heading font-bold text-3xl text-destructive/15 mb-3 block">
-                              {item.num}
-                            </span>
-                            <p className="font-body text-foreground/70 text-sm leading-relaxed mt-auto font-medium">
-                              {item.q}
-                            </p>
-                          </div>
-                        </FadeIn>
-                      ))}
-                    </div>
-
-                    <FadeIn delay={0.6}>
-                      <p className="font-body text-foreground/30 text-sm mt-6">
-                        If you can't answer those in one sentence each, you're not ready to scale. <span className="text-neon font-medium">You need foundation.</span>
-                      </p>
-                    </FadeIn>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ═══ NOT SURE WHERE TO START? ═══ */}
+          {/* ═══ WHAT TO EXPECT ═══ */}
           <section className="bg-foreground">
             <div className="container mx-auto px-4 py-20 md:py-28">
               <div className="max-w-6xl mx-auto">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-                  <div className="flex-1 max-w-xl">
-                    <FadeIn>
-                      <h3 className="font-heading font-bold text-2xl md:text-4xl text-white mb-4">
-                        Not Sure Where To Start?
-                      </h3>
-                      <p className="font-body text-white/50 text-base leading-relaxed">
-                        Take our 2-minute Marketing Readiness Calculator—find out exactly where your gaps are and which service you actually need first.
-                      </p>
-                    </FadeIn>
-                  </div>
-                  <FadeIn delay={0.2}>
-                    <div className="flex flex-col gap-5">
-                      <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-                        {[
-                          "Takes only 2 minutes",
-                          "Identifies your biggest gaps",
-                          "Tells you which service to start with",
-                          "Completely free, no commitment",
-                        ].map((item, i) => (
-                          <div key={i} className="flex items-center gap-2">
-                            <Check className="size-4 text-neon shrink-0" />
-                            <span className="font-body text-white text-sm font-medium">{item}</span>
-                          </div>
-                        ))}
+                <FadeIn>
+                  <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
+                    What To Expect
+                  </p>
+                </FadeIn>
+                <div className="grid md:grid-cols-3 gap-6 mb-10">
+                  {[
+                    { icon: Clock, label: "Timeline", value: "8-12 weeks" },
+                    { icon: DollarSign, label: "Investment", value: "Custom quote based on scope" },
+                    { icon: FolderOpen, label: "Deliverables", value: "Brand kit, positioning framework, website, landing pages" },
+                  ].map((item, i) => (
+                    <FadeIn key={i} delay={0.1 * i}>
+                      <div className="rounded-2xl border border-white/10 p-6 md:p-8 h-full">
+                        <div className="w-10 h-10 rounded-xl bg-neon/10 flex items-center justify-center mb-4">
+                          <item.icon className="size-5 text-neon" />
+                        </div>
+                        <p className="font-body text-white/40 text-xs font-medium tracking-widest uppercase mb-2">
+                          {item.label}
+                        </p>
+                        <p className="font-heading font-bold text-white text-base md:text-lg leading-snug">
+                          {item.value}
+                        </p>
                       </div>
-                      <LiquidButton
-                        href="/contact"
-                        size="lg"
-                        variant="dark"
-                        className="font-heading text-sm whitespace-nowrap w-fit bg-neon text-foreground hover:bg-neon/90 font-bold"
-                      >
-                        Take the Readiness Calculator
-                      </LiquidButton>
-                    </div>
-                  </FadeIn>
+                    </FadeIn>
+                  ))}
                 </div>
+                <FadeIn delay={0.4}>
+                  <p className="font-body text-white/40 text-sm leading-relaxed">
+                    Every engagement starts with a <span className="text-neon font-medium">Strategic Audit</span> to assess where you are and map the path forward.
+                  </p>
+                </FadeIn>
               </div>
             </div>
           </section>
 
-          {/* ═══ FINAL CTA (light) ═══ */}
+          {/* ═══ FINAL CTA ═══ */}
           <section className="bg-background">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-4xl mx-auto text-center">
                 <FadeIn>
                   <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                    Ready To Build It Right?
+                    Stop Guessing. Start With Clarity.
                   </p>
                   <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground leading-tight mb-5">
-                    Stop Guessing.<br />Start With <span className="text-neon">Clarity.</span>
+                    Stop wasting budget on marketing<br />built on a weak <span className="text-neon">foundation.</span>
                   </h2>
                   <p className="font-body text-foreground/50 text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-                    Stop wasting budget on marketing that's built on a weak foundation.
+                    Book a Strategic Audit and find out what actually needs to happen—before you spend another dollar.
                   </p>
                   <LiquidButton
                     href="/contact"
