@@ -26,12 +26,6 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 };
 
 /* ─── Data ─── */
-const comparisonData = [
-  { without: "You run ads that drive traffic to a website that doesn't convert", with: "Your ads drive traffic to pages designed to convert" },
-  { without: "Your messaging sounds like everyone else's", with: "Prospects immediately see why you're different" },
-  { without: "Visitors leave confused about what you do", with: "Visitors know exactly what to do next" },
-  { without: "You keep tweaking tactics, nothing moves", with: "Your marketing compounds because the base is solid" },
-];
 
 const deliverables = [
   {
@@ -306,64 +300,81 @@ const BrandFoundation = () => {
             </div>
           </section>
 
-          {/* ═══ SKIP FOUNDATION (dark) ═══ */}
+          {/* ═══ THE PROBLEM WITH SKIPPING FOUNDATION (dark) ═══ */}
           <section className="bg-foreground overflow-hidden">
             <div className="container mx-auto px-4 py-20 md:py-32">
               <div className="max-w-6xl mx-auto">
+                {/* Header */}
                 <FadeIn>
                   <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
-                    The Cost of Skipping
+                    The Problem With Skipping Foundation
                   </p>
-                  <h2 className="font-heading font-bold text-3xl md:text-5xl text-white leading-tight mb-16">
-                    What happens when you<br />skip foundation.
-                  </h2>
+                  <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20 items-end mb-20">
+                    <h2 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white leading-[0.95]">
+                      Most businesses want to jump straight to ads and content.
+                    </h2>
+                    <p className="font-body text-white/40 text-base md:text-lg leading-relaxed lg:pb-1">
+                      We get it—foundation work isn't exciting. But here's what happens when you skip it:
+                    </p>
+                  </div>
                 </FadeIn>
 
-                <div className="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-white/10">
-                  {/* Without column */}
-                  <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
-                    <div className="flex items-center gap-3 mb-10">
-                      <div className="w-3 h-3 rounded-full bg-destructive" />
-                      <p className="font-heading font-bold text-white/40 text-lg">Without Foundation</p>
-                    </div>
-                    {comparisonData.map((row, i) => (
-                      <FadeIn key={i} delay={0.08 * i}>
-                        <div className="flex items-start gap-4 py-5 border-b border-white/[0.06] last:border-0">
-                          <span className="font-heading font-bold text-white/[0.06] text-2xl mt-[-2px] shrink-0 w-8">
-                            {String(i + 1).padStart(2, '0')}
-                          </span>
-                          <p className="font-body text-white/35 text-sm md:text-base leading-relaxed">
-                            {row.without}
-                          </p>
-                        </div>
-                      </FadeIn>
-                    ))}
-                  </div>
-
-                  {/* With column */}
-                  <div className="p-8 md:p-12 bg-neon/[0.03]">
-                    <div className="flex items-center gap-3 mb-10">
-                      <div className="w-3 h-3 rounded-full bg-neon" />
-                      <p className="font-heading font-bold text-white text-lg">With Foundation</p>
-                    </div>
-                    {comparisonData.map((row, i) => (
-                      <FadeIn key={i} delay={0.12 + 0.08 * i}>
-                        <div className="flex items-start gap-4 py-5 border-b border-white/[0.06] last:border-0">
-                          <span className="font-heading font-bold text-neon/20 text-2xl mt-[-2px] shrink-0 w-8">
-                            {String(i + 1).padStart(2, '0')}
-                          </span>
-                          <p className="font-body text-white/75 text-sm md:text-base leading-relaxed font-medium">
-                            {row.with}
-                          </p>
-                        </div>
-                      </FadeIn>
-                    ))}
-                  </div>
+                {/* What happens list */}
+                <div className="space-y-0 mb-20">
+                  {[
+                    "You spend £10K on ads that send traffic to a website that doesn't convert.",
+                    "Your messaging sounds exactly like your competitors'.",
+                    "Prospects visit your site and leave confused.",
+                    "You keep trying new tactics, but nothing really moves.",
+                  ].map((item, i) => (
+                    <FadeIn key={i} delay={0.08 * i}>
+                      <div className="flex items-start gap-5 py-6 border-b border-white/[0.06]">
+                        <span className="font-heading font-bold text-white/[0.06] text-3xl md:text-4xl shrink-0 w-12 mt-[-4px]">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <p className="font-body text-white/50 text-base md:text-lg leading-relaxed">
+                          {item}
+                        </p>
+                      </div>
+                    </FadeIn>
+                  ))}
                 </div>
 
-                <FadeIn delay={0.5}>
-                  <p className="font-body text-white/25 text-sm italic text-center mt-16">
-                    Foundation isn't the sexy part. It's the part that makes everything else work.
+                {/* The clarity pivot */}
+                <FadeIn delay={0.4}>
+                  <div className="max-w-3xl mx-auto text-center mb-20">
+                    <p className="font-heading font-bold text-white text-xl md:text-2xl leading-relaxed mb-2">
+                      The issue isn't execution. It's <span className="text-neon">clarity.</span>
+                    </p>
+                    <p className="font-body text-white/35 text-base leading-relaxed">
+                      Before you can scale, you need to answer three questions clearly:
+                    </p>
+                  </div>
+                </FadeIn>
+
+                {/* Three questions */}
+                <div className="grid md:grid-cols-3 gap-0 rounded-2xl overflow-hidden border border-white/10">
+                  {[
+                    { num: "01", q: "Who are you built for?" },
+                    { num: "02", q: "What makes you different?" },
+                    { num: "03", q: "Why should someone choose you?" },
+                  ].map((item, i) => (
+                    <FadeIn key={i} delay={0.5 + 0.1 * i}>
+                      <div className={`p-8 md:p-10 h-full flex flex-col ${i < 2 ? "md:border-r border-b md:border-b-0 border-white/10" : ""}`}>
+                        <span className="font-heading font-bold text-5xl md:text-6xl text-white/[0.04] mb-6 block">
+                          {item.num}
+                        </span>
+                        <p className="font-body text-white/70 text-base md:text-lg leading-relaxed mt-auto font-medium">
+                          {item.q}
+                        </p>
+                      </div>
+                    </FadeIn>
+                  ))}
+                </div>
+
+                <FadeIn delay={0.8}>
+                  <p className="font-body text-white/25 text-sm text-center mt-16">
+                    If you can't answer those in one sentence each, you're not ready to scale. <span className="text-neon/50 font-medium">You need foundation.</span>
                   </p>
                 </FadeIn>
               </div>
