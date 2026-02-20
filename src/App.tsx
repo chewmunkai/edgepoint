@@ -14,6 +14,9 @@ import VisibilityGrowth from "./pages/VisibilityGrowth";
 import PerformanceScale from "./pages/PerformanceScale";
 import EventsActivation from "./pages/EventsActivation";
 import Insights from "./pages/Insights";
+import WhyMarketingPlansFail from "./pages/insights/WhyMarketingPlansFail";
+import SEO2025WhatMovesTheNeedle from "./pages/insights/SEO2025WhatMovesTheNeedle";
+import TrueCostOfRandomMarketing from "./pages/insights/TrueCostOfRandomMarketing";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -57,6 +60,9 @@ const App = () => (
             <Route path="/services/events-activation" element={<EventsActivation />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/insights" element={<Insights />} />
+            <Route path="/insights/why-marketing-plans-fail" element={<WhyMarketingPlansFail />} />
+            <Route path="/insights/seo-2025-what-moves-the-needle" element={<SEO2025WhatMovesTheNeedle />} />
+            <Route path="/insights/true-cost-of-random-marketing" element={<TrueCostOfRandomMarketing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

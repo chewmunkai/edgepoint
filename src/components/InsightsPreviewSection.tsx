@@ -1,24 +1,39 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const articles = [
   {
+    slug: "why-marketing-plans-fail",
     title: "Why Most Marketing Plans Fail Before They Start",
-    description: "The biggest mistake SMEs make isn't choosing the wrong tactic—it's skipping strategy entirely.",
+    excerpt: "The biggest mistake SMEs make isn't choosing the wrong tactic—it's skipping strategy entirely.",
     category: "Strategy",
+    date: "January 2025",
+    readTime: "7 min read",
   },
   {
+    slug: "seo-2025-what-moves-the-needle",
     title: "SEO in 2025: What Actually Moves the Needle",
-    description: "Forget keyword stuffing. Here's what search engines really reward now.",
+    excerpt: "Forget keyword stuffing. Here's what search engines really reward now.",
     category: "SEO",
+    date: "February 2025",
+    readTime: "9 min read",
   },
   {
+    slug: "true-cost-of-random-marketing",
     title: "The True Cost of Random Marketing",
-    description: "How disconnected campaigns silently drain your budget and stall growth.",
+    excerpt: "How disconnected campaigns silently drain your budget and stall growth.",
     category: "Growth",
+    date: "February 2025",
+    readTime: "8 min read",
   },
 ];
+
+const categoryColors: Record<string, string> = {
+  Strategy: "text-agency-blue",
+  SEO: "text-neon",
+  Growth: "text-orange-500",
+};
 
 const InsightsPreviewSection = () => {
   return (
@@ -49,29 +64,35 @@ const InsightsPreviewSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {articles.map((article, index) => (
               <motion.div
-                key={index}
+                key={article.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <Link to="/insights" className="group block">
-                  <div className="rounded-xl border border-foreground/10 bg-white overflow-hidden transition-all duration-300 hover:shadow-md hover:border-foreground/20">
-                    <div className="aspect-[16/9] bg-foreground/[0.03] flex items-center justify-center">
-                      <span className="font-body text-xs text-foreground/20 uppercase tracking-widest">
-                        Coming Soon
-                      </span>
-                    </div>
-                    <div className="p-5">
-                      <span className="font-body text-xs text-agency-blue font-medium uppercase tracking-wider">
-                        {article.category}
-                      </span>
-                      <h3 className="font-body text-base font-semibold text-foreground mt-2 mb-2 group-hover:text-agency-blue transition-colors">
+                <Link to={`/insights/${article.slug}`} className="group flex flex-col h-full">
+                  <div className="flex flex-col h-full rounded-xl border border-foreground/10 bg-white overflow-hidden transition-all duration-300 hover:shadow-md hover:border-foreground/20">
+                    {/* Decorative header strip */}
+                    <div className="h-1.5 w-full bg-gradient-to-r from-agency-blue/30 via-neon/20 to-transparent" />
+                    <div className="flex flex-col flex-1 p-5">
+                      <div className="flex items-center gap-2.5 mb-3">
+                        <span className={`font-body text-xs font-medium uppercase tracking-wider ${categoryColors[article.category]}`}>
+                          {article.category}
+                        </span>
+                        <span className="text-foreground/20 text-xs">·</span>
+                        <span className="font-body text-xs text-foreground/30 flex items-center gap-1">
+                          <Clock className="size-3" /> {article.readTime}
+                        </span>
+                      </div>
+                      <h3 className="font-body text-base font-semibold text-foreground mb-2 group-hover:text-agency-blue transition-colors leading-snug">
                         {article.title}
                       </h3>
-                      <p className="font-body text-sm text-foreground/50 leading-relaxed">
-                        {article.description}
+                      <p className="font-body text-sm text-foreground/50 leading-relaxed flex-1">
+                        {article.excerpt}
                       </p>
+                      <span className="inline-flex items-center gap-1 font-body text-xs font-semibold text-foreground/30 group-hover:text-agency-blue group-hover:gap-2 transition-all duration-300 mt-4">
+                        Read article <ArrowRight className="size-3" />
+                      </span>
                     </div>
                   </div>
                 </Link>
