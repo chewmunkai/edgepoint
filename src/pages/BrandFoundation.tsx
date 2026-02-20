@@ -4,10 +4,33 @@ import PageHero from "@/components/PageHero";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { Check, ArrowRight, ChevronDown, Palette, MessageSquare, Package, Globe, FileText, Clock, DollarSign, FolderOpen } from "lucide-react";
+import {
+  Check, ArrowRight, ChevronDown, Palette, MessageSquare,
+  Package, Globe, FileText,
+} from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { Link } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/shadcn-carousel";
+import { useEffect } from "react";
+import serviceVisibility from "@/assets/service-visibility.jpg";
+import servicePerformance from "@/assets/service-performance.jpg";
+import serviceEvents from "@/assets/service-events.jpg";
 
+/* ─── Animation Wrapper ─── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -25,7 +48,6 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 };
 
 /* ─── Data ─── */
-
 const deliverables = [
   {
     icon: Palette,
@@ -101,6 +123,79 @@ const processSteps = [
   { number: "04", title: "Launch & Optimize", description: "We launch, test, and optimize. What works gets scaled. What doesn't gets killed. No ego, just data." },
 ];
 
+const faqs = [
+  {
+    question: "How long does this take?",
+    answer: "8-12 weeks from kickoff to launch. Foundation work takes time to do right—rushing it defeats the purpose.",
+  },
+  {
+    question: "Do I need everything, or can I pick individual services?",
+    answer: "We recommend the full foundation if you're starting from scratch or have significant gaps. The Strategic Audit identifies your biggest weaknesses so we can prioritize.",
+  },
+  {
+    question: "What if I already have a logo or website?",
+    answer: "We assess what's salvageable and what needs rebuilding. Sometimes a refresh works. Sometimes you need to start over. We'll be honest about which one it is.",
+  },
+  {
+    question: "Can you work with our existing team or agency?",
+    answer: "Yes. We can provide strategic foundation and let your team execute, or handle everything in-house—depends on your preference and their capabilities.",
+  },
+  {
+    question: "What happens after foundation is complete?",
+    answer: "Most clients move into Visibility & Organic Growth (SEO, content, social) or Performance & Scale (paid media) once foundation is solid. We'll recommend the right next step based on your goals.",
+  },
+];
+
+const brands = ["VERTEX", "ONWARD", "NUCLEUS", "STRATUM", "AXIOM", "PRISM", "HELIX", "NOVA", "CIPHER", "VORTEX", "APEX", "ZENITH", "FLUX", "ORBIT", "QUANTUM"];
+
+const pillars = [
+  {
+    num: "01",
+    title: "Clarity",
+    subtitle: "Know who you serve and why you matter.",
+    body: "Clear positioning on who you're built for, what makes you different, and why prospects should choose you. Without this, your messaging sounds generic.",
+  },
+  {
+    num: "02",
+    title: "Credibility",
+    subtitle: "Look the part before you ask for trust.",
+    body: "Your visual identity signals professionalism before a word is read. Polished brands build trust instantly. Generic ones get scrolled past.",
+  },
+  {
+    num: "03",
+    title: "Structure",
+    subtitle: "Make buying decisions easy.",
+    body: "Clear offer hierarchy, logical pricing, and obvious next steps. Confused prospects don't buy. Clear offers make \"yes\" easy.",
+  },
+  {
+    num: "04",
+    title: "Conversion",
+    subtitle: "Turn visitors into revenue.",
+    body: "Your website and landing pages are revenue engines, not brochures. Strategic pages convert at 10-15%. Generic ones convert at 2%.",
+  },
+];
+
+const nextServices = [
+  {
+    slug: "visibility-organic-growth",
+    title: "Visibility & Organic Growth",
+    description: "Build sustainable attention through SEO, content, and social media—channels that compound over time.",
+    image: serviceVisibility,
+  },
+  {
+    slug: "performance-scale",
+    title: "Performance & Scale",
+    description: "Accelerate growth with strategic paid campaigns once your foundation and funnel are proven.",
+    image: servicePerformance,
+  },
+  {
+    slug: "events-activation",
+    title: "Events & Activation",
+    description: "Turn offline moments into measurable outcomes with strategic event planning and execution.",
+    image: serviceEvents,
+  },
+];
+
 /* ─── Expandable Card ─── */
 const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index: number }) => {
   const [open, setOpen] = useState(false);
@@ -164,6 +259,100 @@ const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index:
   );
 };
 
+/* ─── Brands Carousel ─── */
+const BrandsCarousel = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    const timer = setTimeout(() => {
+      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
+        setCurrent(0);
+        api.scrollTo(0);
+      } else {
+        api.scrollNext();
+        setCurrent(current + 1);
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [api, current]);
+
+  return (
+    <Carousel setApi={setApi} opts={{ align: "start", loop: true }}>
+      <CarouselContent>
+        {brands.map((brand, index) => (
+          <CarouselItem className="basis-1/3 sm:basis-1/4 lg:basis-1/6" key={index}>
+            <div className="flex rounded-lg aspect-square bg-white/5 border border-white/10 items-center justify-center p-4">
+              <span className="font-heading font-bold text-sm md:text-base text-white/30 tracking-widest">
+                {brand}
+              </span>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
+  );
+};
+
+/* ─── Contact Form ─── */
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    spend: "",
+    challenge: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="rounded-xl p-6 md:p-8 space-y-4 bg-white border border-black/10">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="space-y-1.5">
+          <Label htmlFor="bf-name" className="font-body font-medium text-sm text-black">Name *</Label>
+          <Input id="bf-name" name="name" type="text" placeholder="Your name" value={formData.name} onChange={handleChange}
+            className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" required />
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="bf-email" className="font-body font-medium text-sm text-black">Email *</Label>
+          <Input id="bf-email" name="email" type="email" placeholder="you@company.com" value={formData.email} onChange={handleChange}
+            className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" required />
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <Label htmlFor="bf-company" className="font-body font-medium text-sm text-black">Company Name</Label>
+        <Input id="bf-company" name="company" type="text" placeholder="Your company" value={formData.company} onChange={handleChange}
+          className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" />
+      </div>
+      <div className="space-y-1.5">
+        <Label htmlFor="bf-spend" className="font-body font-medium text-sm text-black">Current Monthly Marketing Spend</Label>
+        <Input id="bf-spend" name="spend" type="text" placeholder="e.g. £2,000/month" value={formData.spend} onChange={handleChange}
+          className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" />
+      </div>
+      <div className="space-y-1.5">
+        <Label htmlFor="bf-challenge" className="font-body font-medium text-sm text-black">Biggest Marketing Challenge Right Now</Label>
+        <Textarea id="bf-challenge" name="challenge" placeholder="Tell us about your main challenge..." value={formData.challenge} onChange={handleChange}
+          className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 min-h-[100px] text-sm text-black placeholder:text-black/40" />
+      </div>
+      <div className="pt-2">
+        <LiquidButton type="submit" size="lg" variant="dark"
+          className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[260px] justify-center text-white bg-black hover:bg-black/90">
+          Book Strategic Audit
+        </LiquidButton>
+      </div>
+    </form>
+  );
+};
+
 /* ─── Page ─── */
 const BrandFoundation = () => {
   return (
@@ -171,7 +360,8 @@ const BrandFoundation = () => {
       <div className="min-h-screen">
         <Header />
         <main>
-          {/* ── Hero ── */}
+
+          {/* ══ 1. HERO ══ */}
           <PageHero
             label="Service 01"
             title="Build the Foundation Before You Scale."
@@ -179,257 +369,261 @@ const BrandFoundation = () => {
             description="Look, we get it. You want to run ads, create content, and start generating leads. But here's the truth: if your positioning isn't clear and your website doesn't convert, you're just burning money on traffic that goes nowhere."
           />
 
-          {/* ═══ THE PROBLEM WITH SKIPPING FOUNDATION ═══ */}
-          <section className="bg-background overflow-hidden">
-            <div className="container mx-auto px-4 py-20 md:py-28">
-              <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
-                  {/* Left — sticky title */}
-                  <div className="lg:sticky lg:top-32">
-                    <FadeIn>
-                      <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                        The Problem With Skipping Foundation
-                      </p>
-                      <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.05]">
-                        Most businesses want to jump straight to ads and content.
-                      </h2>
-                      <p className="font-body text-foreground/40 text-sm mt-4 leading-relaxed">
-                        We get it—foundation work isn't exciting.
-                      </p>
-                    </FadeIn>
-                  </div>
+          {/* ══ 2. PROBLEM STATEMENT — white bg ══ */}
+          <section className="bg-background">
+            <div className="container mx-auto px-4 py-20 md:py-28 max-w-6xl">
+              <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
+                {/* Left */}
+                <FadeIn className="lg:sticky lg:top-32">
+                  <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                    The Cost of Skipping Foundation
+                  </p>
+                  <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.05]">
+                    Most businesses jump straight to ads and content.
+                  </h2>
+                  <p className="font-body text-foreground/40 text-sm mt-4 leading-relaxed">
+                    We get it—foundation work isn't exciting.
+                  </p>
+                </FadeIn>
 
-                  {/* Right — Prose */}
-                  <div>
-                    <FadeIn delay={0.15}>
-                      <p className="font-body text-foreground/50 text-base md:text-lg leading-[1.8] mb-6">
-                        But here's what we see all the time:
-                      </p>
-                      <p className="font-body text-foreground/50 text-base md:text-lg leading-[1.8] mb-8">
-                        Businesses spending £10K/month on ads that drive traffic to websites that don't convert. Messaging that sounds exactly like their competitors'. Prospects who visit and leave confused. Constant tactical tweaks that never move the needle.
-                      </p>
-
-                      <div className="rounded-2xl border border-foreground/10 p-6 md:p-8">
-                        <p className="font-heading font-bold text-foreground text-lg md:text-xl leading-relaxed mb-2">
-                          The problem isn't execution. It's <span className="text-neon">clarity.</span>
-                        </p>
-                        <p className="font-body text-foreground/40 text-sm leading-relaxed">
-                          Before you can scale, you need clarity on who you serve, what makes you different, and why prospects should choose you. Without that foundation, every marketing dollar is a gamble.
-                        </p>
-                      </div>
-                    </FadeIn>
+                {/* Right */}
+                <FadeIn delay={0.15}>
+                  <p className="font-body text-foreground/55 text-base md:text-lg leading-[1.85] mb-8">
+                    But here's what happens: You spend RM10K/month on ads that drive traffic to websites that don't convert. Your messaging sounds exactly like your competitors'. Prospects visit and leave confused. You keep tweaking tactics, but nothing moves.
+                  </p>
+                  <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8 mb-8">
+                    <p className="font-heading font-bold text-foreground text-lg md:text-xl leading-relaxed mb-2">
+                      The problem isn't execution. It's <span className="text-neon">clarity.</span>
+                    </p>
+                    <p className="font-body text-foreground/45 text-sm md:text-base leading-relaxed">
+                      Without clear positioning, a converting website, and structured offers, every marketing dollar is a gamble.
+                    </p>
                   </div>
-                </div>
+                </FadeIn>
               </div>
             </div>
           </section>
 
-          {/* ═══ CAN YOU ANSWER THESE THREE QUESTIONS? ═══ */}
-          <section className="bg-background overflow-hidden">
-            <div className="container mx-auto px-4 pb-20 md:pb-32">
-              <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-end mb-16">
-                  <FadeIn>
-                    <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                      Can You Answer These Three Questions?
-                    </p>
-                    <h2 className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
-                      You can't scale
-                      <br />
-                      what you can't
-                      <span className="relative inline-block ml-3">
-                        <span className="text-neon">explain.</span>
-                        <motion.span
-                          className="absolute -bottom-2 left-0 w-full h-[3px] bg-neon origin-left"
-                          initial={{ scaleX: 0 }}
-                          whileInView={{ scaleX: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.8, delay: 0.5 }}
-                        />
+          {/* ══ 3. WHY FOUNDATION COMES FIRST — dark bg ══ */}
+          <section className="bg-foreground">
+            <div className="container mx-auto px-4 py-20 md:py-32 max-w-6xl">
+              <FadeIn>
+                <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
+                  Why Foundation Comes First
+                </p>
+                <h2 className="font-heading font-bold text-3xl md:text-5xl text-white leading-tight mb-4 max-w-2xl">
+                  Four pillars that separate guessing from growth.
+                </h2>
+              </FadeIn>
+
+              <div className="grid md:grid-cols-2 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 mt-14">
+                {pillars.map((pillar, i) => (
+                  <FadeIn key={pillar.num} delay={0.1 * i}>
+                    <div className={`bg-foreground p-8 md:p-10 h-full flex flex-col ${
+                      i === 0 ? "rounded-tl-2xl" :
+                      i === 1 ? "rounded-tr-2xl" :
+                      i === 2 ? "rounded-bl-2xl" :
+                      "rounded-br-2xl"
+                    }`}>
+                      <span className="font-heading font-bold text-4xl md:text-5xl text-destructive/25 mb-6 block">
+                        {pillar.num}
                       </span>
-                    </h2>
+                      <h3 className="font-heading font-bold text-white text-xl md:text-2xl mb-1">
+                        {pillar.title}
+                      </h3>
+                      <p className="font-body text-neon/80 text-sm mb-4 font-medium">
+                        {pillar.subtitle}
+                      </p>
+                      <p className="font-body text-white/50 text-sm leading-relaxed mt-auto">
+                        {pillar.body}
+                      </p>
+                    </div>
                   </FadeIn>
-                  <FadeIn delay={0.2}>
-                    <p className="font-body text-foreground/50 text-base md:text-lg leading-relaxed lg:pb-2">
-                      Now that you know the stakes, here's the test. Pull up your website right now and answer these three questions without hesitating:
-                    </p>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ══ 4. WHAT'S INCLUDED — dark bg ══ */}
+          <section className="bg-foreground border-t border-white/5">
+            <div className="container mx-auto px-4 py-20 md:py-32 max-w-6xl">
+              <FadeIn>
+                <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
+                  What's Included
+                </p>
+                <h2 className="font-heading font-bold text-3xl md:text-5xl text-white leading-tight mb-4 max-w-2xl">
+                  Everything you need to market with confidence.
+                </h2>
+                <p className="font-body text-white/40 text-base md:text-lg leading-relaxed mb-14 max-w-xl">
+                  Click any card to explore the deliverables and understand why each one matters.
+                </p>
+              </FadeIn>
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                {deliverables.slice(0, 2).map((item, i) => (
+                  <DeliverableCard key={item.title} item={item} index={i} />
+                ))}
+              </div>
+              <div className="grid md:grid-cols-3 gap-4">
+                {deliverables.slice(2).map((item, i) => (
+                  <DeliverableCard key={item.title} item={item} index={i + 2} />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ══ 5. HOW WE WORK — light bg ══ */}
+          <section className="bg-background">
+            <div className="container mx-auto px-4 py-20 md:py-32 max-w-6xl">
+              <FadeIn>
+                <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                  How We Work
+                </p>
+                <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground leading-tight mb-16">
+                  Four phases.<br />Zero guesswork.
+                </h2>
+              </FadeIn>
+              <div className="grid md:grid-cols-4 gap-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
+                {processSteps.map((step, i) => (
+                  <FadeIn key={step.number} delay={0.1 * i}>
+                    <div className="bg-background p-6 md:p-8 h-full flex flex-col">
+                      <span className="font-heading font-bold text-4xl md:text-5xl text-foreground/10 mb-6">
+                        {step.number}
+                      </span>
+                      <h3 className="font-heading font-bold text-foreground text-base md:text-lg mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="font-body text-foreground/50 text-sm leading-relaxed mt-auto">
+                        {step.description}
+                      </p>
+                    </div>
                   </FadeIn>
-                </div>
-
-                {/* Question cards */}
-                <div className="grid md:grid-cols-3 gap-0 border border-foreground/10 rounded-2xl overflow-hidden">
-                  {[
-                    { q: "Do people immediately understand what you do and why it matters?", num: "01" },
-                    { q: "Does your website guide visitors toward a decision, or does it just… exist?", num: "02" },
-                    { q: "Can you explain why someone should choose you over a competitor in one sentence?", num: "03" },
-                  ].map((item, i) => (
-                    <FadeIn key={i} delay={0.1 * i}>
-                      <div className={`p-8 md:p-10 h-full flex flex-col ${i < 2 ? "md:border-r border-b md:border-b-0 border-foreground/10" : ""}`}>
-                        <span className="font-heading font-bold text-5xl md:text-6xl text-destructive/20 mb-6 block">
-                          {item.num}
-                        </span>
-                        <p className="font-body text-foreground/60 text-sm md:text-base leading-relaxed mt-auto">
-                          {item.q}
-                        </p>
-                      </div>
-                    </FadeIn>
-                  ))}
-                </div>
-
-                <FadeIn delay={0.4}>
-                  <p className="font-body text-foreground/30 text-sm mt-6 text-center">
-                    If you hesitated on any of those, you already know what needs to happen.
-                  </p>
-                </FadeIn>
+                ))}
               </div>
             </div>
           </section>
 
-          {/* ═══ WHAT'S INCLUDED (dark) ═══ */}
-          <section className="bg-foreground">
-            <div className="container mx-auto px-4 py-20 md:py-32">
-              <div className="max-w-6xl mx-auto">
-                <FadeIn>
-                  <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
-                    What's Included
-                  </p>
-                  <h2 className="font-heading font-bold text-3xl md:text-5xl text-white leading-tight mb-4 max-w-2xl">
-                    Everything you need to market with confidence.
-                  </h2>
-                  <p className="font-body text-white/40 text-base md:text-lg leading-relaxed mb-14 max-w-xl">
-                    Click any card to explore the deliverables and understand why each one matters.
-                  </p>
-                </FadeIn>
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  {deliverables.slice(0, 2).map((item, i) => (
-                    <DeliverableCard key={item.title} item={item} index={i} />
-                  ))}
-                </div>
-                <div className="grid md:grid-cols-3 gap-4">
-                  {deliverables.slice(2).map((item, i) => (
-                    <DeliverableCard key={item.title} item={item} index={i + 2} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ═══ HOW WE WORK (light) ═══ */}
-          <section className="bg-background">
-            <div className="container mx-auto px-4 py-20 md:py-32">
-              <div className="max-w-6xl mx-auto">
-                <FadeIn>
+          {/* ══ 6. FAQ — light bg ══ */}
+          <section className="bg-background border-t border-foreground/10">
+            <div className="container mx-auto px-4 py-20 md:py-28 max-w-6xl">
+              <div className="grid lg:grid-cols-[1fr_1.8fr] gap-12 lg:gap-20 items-start">
+                <FadeIn className="lg:sticky lg:top-32">
                   <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                    How We Work
+                    FAQ
                   </p>
-                  <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground leading-tight mb-16">
-                    Four phases.<br />Zero guesswork.
+                  <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground leading-tight">
+                    Questions we always get asked.
                   </h2>
                 </FadeIn>
-                <div className="grid md:grid-cols-4 gap-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
-                  {processSteps.map((step, i) => (
-                    <FadeIn key={step.number} delay={0.1 * i}>
-                      <div className="bg-background p-6 md:p-8 h-full flex flex-col">
-                        <span className="font-heading font-bold text-4xl md:text-5xl text-foreground/10 mb-6">
-                          {step.number}
-                        </span>
-                        <h3 className="font-heading font-bold text-foreground text-base md:text-lg mb-3">
-                          {step.title}
-                        </h3>
-                        <p className="font-body text-foreground/50 text-sm leading-relaxed mt-auto">
-                          {step.description}
-                        </p>
-                      </div>
-                    </FadeIn>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ═══ WHAT TO EXPECT ═══ */}
-          <section className="bg-foreground">
-            <div className="container mx-auto px-4 py-20 md:py-28">
-              <div className="max-w-6xl mx-auto">
-                <FadeIn>
-                  <p className="text-neon font-body font-medium tracking-widest uppercase text-xs mb-4">
-                    What To Expect
-                  </p>
-                </FadeIn>
-                <div className="grid md:grid-cols-3 gap-6 mb-10">
-                  {[
-                    { icon: Clock, label: "Timeline", value: "8-12 weeks" },
-                    { icon: DollarSign, label: "Investment", value: "Custom quote based on scope" },
-                    { icon: FolderOpen, label: "Deliverables", value: "Brand kit, positioning framework, website, landing pages" },
-                  ].map((item, i) => (
-                    <FadeIn key={i} delay={0.1 * i}>
-                      <div className="rounded-2xl border border-white/10 p-6 md:p-8 h-full">
-                        <div className="w-10 h-10 rounded-xl bg-neon/10 flex items-center justify-center mb-4">
-                          <item.icon className="size-5 text-neon" />
-                        </div>
-                        <p className="font-body text-white/40 text-xs font-medium tracking-widest uppercase mb-2">
-                          {item.label}
-                        </p>
-                        <p className="font-heading font-bold text-white text-base md:text-lg leading-snug">
-                          {item.value}
-                        </p>
-                      </div>
-                    </FadeIn>
-                  ))}
-                </div>
-                <FadeIn delay={0.4}>
-                  <p className="font-body text-white/40 text-sm leading-relaxed">
-                    Every engagement starts with a <span className="text-neon font-medium">Strategic Audit</span> to assess where you are and map the path forward.
-                  </p>
+                <FadeIn delay={0.15}>
+                  <Accordion type="single" collapsible className="space-y-3 w-full">
+                    {faqs.map((faq, index) => (
+                      <AccordionItem
+                        key={index}
+                        value={`item-${index}`}
+                        className="w-full bg-white border border-foreground/10 rounded-xl overflow-hidden"
+                      >
+                        <AccordionTrigger className="text-base text-foreground/80 hover:text-foreground transition-colors hover:no-underline text-left font-medium px-5">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-foreground/55 leading-relaxed px-5">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
                 </FadeIn>
               </div>
             </div>
           </section>
 
-          {/* ═══ FINAL CTA ═══ */}
+          {/* ══ 7. BRANDS — dark bg ══ */}
+          <section className="bg-black py-16 md:py-20">
+            <div className="container mx-auto px-4 md:px-6">
+              <FadeIn>
+                <div className="text-center mb-10">
+                  <p className="text-white/30 font-body font-medium tracking-widest uppercase text-xs mb-3">
+                    Brands We've Worked With
+                  </p>
+                  <h2 className="font-heading font-bold text-xl md:text-2xl text-white/70">
+                    Trusted by growing SMEs across industries.
+                  </h2>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.15}>
+                <BrandsCarousel />
+              </FadeIn>
+            </div>
+          </section>
+
+          {/* ══ 8. EXPLORE OTHER SERVICES — light bg ══ */}
           <section className="bg-background">
-            <div className="container mx-auto px-4 py-20 md:py-32">
-              <div className="max-w-4xl mx-auto text-center">
-                <FadeIn>
-                  <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
-                    Stop Guessing. Start With Clarity.
-                  </p>
-                  <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground leading-tight mb-5">
-                    Stop wasting budget on marketing<br />built on a weak <span className="text-neon">foundation.</span>
-                  </h2>
-                  <p className="font-body text-foreground/50 text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-                    Book a Strategic Audit and find out what actually needs to happen—before you spend another dollar.
-                  </p>
-                  <LiquidButton
-                    href="/contact"
-                    size="lg"
-                    className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center"
-                  >
-                    Book a Strategic Audit
-                  </LiquidButton>
-                </FadeIn>
-
-                <FadeIn delay={0.2}>
-                  <div className="mt-16 pt-10 border-t border-foreground/10">
+            <div className="container mx-auto px-4 py-20 md:py-28 max-w-6xl">
+              <FadeIn>
+                <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                  Explore Other Services
+                </p>
+                <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground leading-tight mb-14">
+                  Once your foundation is solid,<br />here's what comes next.
+                </h2>
+              </FadeIn>
+              <div className="grid md:grid-cols-3 gap-5">
+                {nextServices.map((svc, i) => (
+                  <FadeIn key={svc.slug} delay={0.1 * i}>
                     <Link
-                      to="/services/visibility-organic-growth"
-                      className="group inline-flex items-center gap-4 text-left"
+                      to={`/services/${svc.slug}`}
+                      className="group block rounded-2xl border border-foreground/10 bg-white overflow-hidden hover:border-foreground/25 transition-colors duration-300"
                     >
-                      <div>
-                        <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-1">
-                          Next Service
-                        </p>
-                        <p className="font-heading font-bold text-foreground text-lg md:text-xl group-hover:text-neon transition-colors">
-                          Visibility & Organic Growth
-                        </p>
+                      <div className="overflow-hidden h-44">
+                        <img
+                          src={svc.image}
+                          alt={svc.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
                       </div>
-                      <ArrowRight className="size-5 text-foreground/30 group-hover:text-neon group-hover:translate-x-1 transition-all" />
+                      <div className="p-6">
+                        <h3 className="font-heading font-bold text-foreground text-base md:text-lg mb-2 group-hover:text-neon transition-colors duration-300">
+                          {svc.title}
+                        </h3>
+                        <p className="font-body text-foreground/50 text-sm leading-relaxed mb-4">
+                          {svc.description}
+                        </p>
+                        <span className="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-foreground/40 group-hover:text-neon group-hover:gap-2.5 transition-all duration-300">
+                          Learn More <ArrowRight className="size-3.5" />
+                        </span>
+                      </div>
                     </Link>
-                  </div>
-                </FadeIn>
+                  </FadeIn>
+                ))}
               </div>
             </div>
           </section>
+
+          {/* ══ 9. CTA + CONTACT FORM — light bg ══ */}
+          <section className="bg-[#f5f5f5] border-t border-foreground/10">
+            <div className="container mx-auto px-4 py-20 md:py-28 max-w-2xl">
+              <FadeIn>
+                <div className="text-center mb-10">
+                  <p className="text-black/40 font-body font-medium tracking-widest uppercase text-xs mb-3">
+                    Ready to Build It Right?
+                  </p>
+                  <h2 className="font-heading font-bold text-2xl md:text-4xl text-black leading-tight mb-4">
+                    Stop wasting budget on marketing built on a{" "}
+                    <span className="bg-[#007BFF] text-white px-2 py-0.5 rounded-sm">weak foundation.</span>
+                  </h2>
+                  <p className="font-body text-black/50 text-base leading-relaxed max-w-xl mx-auto">
+                    Start with a Strategic Audit—we'll assess where you are, identify the gaps, and show you exactly what needs to happen next.
+                  </p>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.15}>
+                <div className="text-center mb-6">
+                  <p className="font-heading font-bold text-black text-lg">Book Your Strategic Audit</p>
+                </div>
+                <ContactForm />
+              </FadeIn>
+            </div>
+          </section>
+
         </main>
         <Footer />
       </div>
