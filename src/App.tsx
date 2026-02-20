@@ -10,6 +10,7 @@ import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import BrandFoundation from "./pages/BrandFoundation";
+import VisibilityGrowth from "./pages/VisibilityGrowth";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/about" element={<AboutUs />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/brand-foundation" element={<BrandFoundation />} />
+            <Route path="/services/visibility-organic-growth" element={<VisibilityGrowth />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/contact" element={<Contact />} />
