@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
+import blogImage from "@/assets/blog-seo-2025.jpg";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -50,6 +51,13 @@ const SEO2025WhatMovesTheNeedle = () => {
               </FadeIn>
             </div>
           </section>
+
+          {/* ── Hero Image ── */}
+          <div className="container mx-auto px-4 max-w-3xl -mt-12 relative z-10">
+            <FadeIn>
+              <img src={blogImage} alt="SEO in 2025" className="w-full rounded-2xl shadow-2xl aspect-[16/9] object-cover" />
+            </FadeIn>
+          </div>
 
           {/* ── Body ── */}
           <section className="bg-background">

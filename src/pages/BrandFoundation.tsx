@@ -19,13 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/shadcn-carousel";
-import { useEffect } from "react";
+import BrandsCarousel from "@/components/BrandsCarousel";
 import serviceVisibility from "@/assets/service-visibility.jpg";
 import servicePerformance from "@/assets/service-performance.jpg";
 import serviceEvents from "@/assets/service-events.jpg";
@@ -146,7 +140,7 @@ const faqs = [
   },
 ];
 
-const brands = ["VERTEX", "ONWARD", "NUCLEUS", "STRATUM", "AXIOM", "PRISM", "HELIX", "NOVA", "CIPHER", "VORTEX", "APEX", "ZENITH", "FLUX", "ORBIT", "QUANTUM"];
+
 
 const pillars = [
   {
@@ -259,41 +253,6 @@ const DeliverableCard = ({ item, index }: { item: typeof deliverables[0]; index:
   );
 };
 
-/* ─── Brands Carousel ─── */
-const BrandsCarousel = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-    const timer = setTimeout(() => {
-      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
-        setCurrent(0);
-        api.scrollTo(0);
-      } else {
-        api.scrollNext();
-        setCurrent(current + 1);
-      }
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [api, current]);
-
-  return (
-    <Carousel setApi={setApi} opts={{ align: "start", loop: true }}>
-      <CarouselContent>
-        {brands.map((brand, index) => (
-          <CarouselItem className="basis-1/3 sm:basis-1/4 lg:basis-1/6" key={index}>
-            <div className="flex rounded-lg aspect-square bg-white/5 border border-white/10 items-center justify-center p-4">
-              <span className="font-heading font-bold text-sm md:text-base text-white/30 tracking-widest">
-                {brand}
-              </span>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
-  );
-};
 
 /* ─── Contact Form ─── */
 const ContactForm = () => {

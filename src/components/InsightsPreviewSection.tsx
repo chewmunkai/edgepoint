@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Calendar } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import blogMarketing from "@/assets/blog-why-marketing-plans-fail.jpg";
+import blogSeo from "@/assets/blog-seo-2025.jpg";
+import blogCost from "@/assets/blog-true-cost-random-marketing.jpg";
 
 const articles = [
   {
@@ -10,6 +13,7 @@ const articles = [
     category: "Strategy",
     date: "January 2025",
     readTime: "7 min read",
+    image: blogMarketing,
   },
   {
     slug: "seo-2025-what-moves-the-needle",
@@ -18,6 +22,7 @@ const articles = [
     category: "SEO",
     date: "February 2025",
     readTime: "9 min read",
+    image: blogSeo,
   },
   {
     slug: "true-cost-of-random-marketing",
@@ -26,6 +31,7 @@ const articles = [
     category: "Growth",
     date: "February 2025",
     readTime: "8 min read",
+    image: blogCost,
   },
 ];
 
@@ -72,8 +78,14 @@ const InsightsPreviewSection = () => {
               >
                 <Link to={`/insights/${article.slug}`} className="group flex flex-col h-full">
                   <div className="flex flex-col h-full rounded-xl border border-foreground/10 bg-white overflow-hidden transition-all duration-300 hover:shadow-md hover:border-foreground/20">
-                    {/* Decorative header strip */}
-                    <div className="h-1.5 w-full bg-gradient-to-r from-agency-blue/30 via-neon/20 to-transparent" />
+                    {/* Article image */}
+                    <div className="overflow-hidden h-44">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
                     <div className="flex flex-col flex-1 p-5">
                       <div className="flex items-center gap-2.5 mb-3">
                         <span className={`font-body text-xs font-medium uppercase tracking-wider ${categoryColors[article.category]}`}>
