@@ -2,25 +2,65 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Target, Zap, BarChart3, Compass } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
+import BrandsCarousel from "@/components/BrandsCarousel";
+import { Link } from "react-router-dom";
 
-const SectionBlock = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
+/* ─── Animation Wrapper ─── */
+const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay }}
+      transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className={className}
     >
       {children}
     </motion.div>
   );
 };
+
+/* ─── Stats ─── */
+const stats = [
+  { value: "5+", label: "Years Experience" },
+  { value: "60+", label: "Projects Executed" },
+  { value: "RM5M", label: "Ads Optimized" },
+  { value: "20+", label: "Brands Served" },
+];
+
+/* ─── Approach Steps ─── */
+const approachSteps = [
+  {
+    icon: Compass,
+    num: "01",
+    title: "Diagnose First, Prescribe Second",
+    body: "We don't lead with what we sell. We start by understanding your business, then recommend what actually needs to happen.",
+  },
+  {
+    icon: Target,
+    num: "02",
+    title: "Prioritize Ruthlessly",
+    body: "You don't have unlimited budget or time. We help you focus on the 20% of activities that drive 80% of results.",
+  },
+  {
+    icon: Zap,
+    num: "03",
+    title: "Execute With Discipline",
+    body: "We handle SEO, web development, and social media in-house. For services outside our scope, we coordinate with specialists—keeping everything aligned.",
+  },
+  {
+    icon: BarChart3,
+    num: "04",
+    title: "Measure What Matters",
+    body: "Pipeline growth. Cost per acquisition. Conversion rates. Revenue. If a tactic doesn't move these numbers, we kill it.",
+  },
+];
 
 const AboutUs = () => {
   return (
@@ -32,202 +72,223 @@ const AboutUs = () => {
             label="About Edge Point"
             title="Built for Clarity. Driven by Growth."
             highlightWord="Growth."
-            description="We exist to stop businesses from wasting money on misaligned marketing. Edge Point is a strategy-first marketing partner for SME owners who want direction to lead execution, not execution without direction."
+            description="We exist to stop businesses from wasting money on misaligned marketing. Edge Point is a strategy-first marketing partner for SME owners who want direction to lead execution."
           />
 
+          {/* ══ STATS BAR ══ */}
+          <section className="bg-foreground">
+            <div className="container mx-auto px-4 py-10 md:py-14">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl mx-auto">
+                {stats.map((stat, i) => (
+                  <FadeIn key={i} delay={i * 0.1}>
+                    <div className="text-center">
+                      <p className="font-heading font-bold text-3xl md:text-4xl text-neon">{stat.value}</p>
+                      <p className="font-body text-white/50 text-sm mt-1">{stat.label}</p>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <div className="bg-[#f5f5f5]">
-            {/* Why We Exist */}
-            <section className="py-12 md:py-20">
-              <div className="container mx-auto px-4 max-w-4xl">
-                <SectionBlock>
-                  <p className="text-foreground/40 font-body font-medium tracking-widest uppercase text-xs mb-3">
-                    Why We Exist
-                  </p>
-                  <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground leading-tight mb-6">
-                    Marketing Without Direction Is Just <span className="text-neon">Noise.</span>
-                  </h2>
-                  <p className="font-body text-foreground/60 text-base leading-relaxed mb-4">
-                    Too many businesses rush into marketing with no direction. They spend on content, ads, and agencies—without a clear view of what's working or why.
-                  </p>
-                  <p className="font-body text-foreground/60 text-base leading-relaxed mb-8">
-                    We started Edge Point to give business owners a smarter way to grow—one rooted in strategy, sequence, and commercial sense.
-                  </p>
-                </SectionBlock>
+            {/* ══ WHY WE EXIST — Split Layout ══ */}
+            <section className="py-16 md:py-24">
+              <div className="container mx-auto px-4 max-w-6xl">
+                <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
+                  <FadeIn className="lg:sticky lg:top-32">
+                    <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                      Why We Exist
+                    </p>
+                    <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.05]">
+                      Marketing Without Direction Is Just{" "}
+                      <span className="text-neon">Noise.</span>
+                    </h2>
+                  </FadeIn>
 
-                <SectionBlock delay={0.2}>
-                  <h3 className="font-body text-lg text-foreground font-semibold mb-5">We believe:</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                      "Strategy should lead, not follow execution",
-                      "Every dollar spent should be tied to topline growth",
-                      "Clarity beats volume",
-                      "Marketing should be measured by impact, not activity",
-                    ].map((belief, i) => (
-                      <div
-                        key={i}
-                        className="flex items-start gap-3 rounded-xl border border-foreground/10 bg-white p-5"
-                      >
-                        <Check className="size-5 text-neon mt-0.5 shrink-0" />
-                        <p className="font-body text-foreground/70 text-sm leading-relaxed">{belief}</p>
-                      </div>
-                    ))}
-                  </div>
-                </SectionBlock>
-              </div>
-            </section>
-
-            {/* How We're Different */}
-            <section className="py-12 md:py-20 border-t border-foreground/10">
-              <div className="container mx-auto px-4 max-w-4xl">
-                <SectionBlock>
-                  <p className="text-foreground/40 font-body font-medium tracking-widest uppercase text-xs mb-3">
-                    How We're Different
-                  </p>
-                  <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground leading-tight mb-4">
-                    Not Another Vendor. <span className="text-neon">Your Senior Marketing Partner.</span>
-                  </h2>
-                  <p className="font-body text-foreground/60 text-base leading-relaxed mb-10">
-                    We're not another vendor selling services on autopilot. Edge Point operates as your senior marketing partner—deciding what needs to be done, in what order, and how it connects to revenue.
-                  </p>
-                </SectionBlock>
-
-                <SectionBlock delay={0.15}>
-                  <div className="rounded-2xl border-2 border-neon/30 bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]">
-                    <h3 className="font-heading text-sm text-neon uppercase tracking-widest mb-5">
-                      We're built for
-                    </h3>
-                    <ul className="space-y-4">
+                  <FadeIn delay={0.15}>
+                    <p className="font-body text-foreground/55 text-base md:text-lg leading-[1.85] mb-8">
+                      Too many businesses rush into marketing with no direction. They spend on content, ads, and agencies—without a clear view of what's working or why. We started Edge Point to give business owners a smarter way to grow—one rooted in strategy, sequence, and commercial sense.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4">
                       {[
-                        "SMEs already investing in marketing but unsure what's working",
-                        "In-house teams without strategic leadership",
-                        "Owners who want to stop reacting and start leading",
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
+                        "Strategy should lead, not follow execution",
+                        "Every dollar spent should be tied to topline growth",
+                        "Clarity beats volume",
+                        "Marketing should be measured by impact, not activity",
+                      ].map((belief, i) => (
+                        <div key={i} className="flex items-start gap-3 rounded-xl border border-foreground/10 bg-white p-5">
                           <Check className="size-5 text-neon mt-0.5 shrink-0" />
-                          <span className="font-body text-foreground/70 text-base">{item}</span>
-                        </li>
+                          <p className="font-body text-foreground/70 text-sm leading-relaxed">{belief}</p>
+                        </div>
                       ))}
-                    </ul>
-                  </div>
-                </SectionBlock>
-              </div>
-            </section>
-
-            {/* Meet the Leadership Team */}
-            <section className="py-12 md:py-20 border-t border-foreground/10">
-              <div className="container mx-auto px-4 max-w-4xl">
-                <SectionBlock>
-                  <p className="text-foreground/40 font-body font-medium tracking-widest uppercase text-xs mb-3">
-                    Meet the Leadership Team
-                  </p>
-                  <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground leading-tight mb-10">
-                    The People Behind <span className="text-neon">Edge Point.</span>
-                  </h2>
-                </SectionBlock>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  <SectionBlock delay={0.1}>
-                    <div className="rounded-2xl border border-foreground/10 bg-white p-6 md:p-8 h-full">
-                      <h3 className="font-heading text-xl text-foreground font-bold mb-1">
-                        Daniel Chew Wen Kai
-                      </h3>
-                      <p className="font-heading text-xs text-neon uppercase tracking-widest mb-4">
-                        CEO — Strategic, Growth, Training
-                      </p>
-                      <p className="font-body text-foreground/60 text-sm italic leading-relaxed border-l-2 border-neon/40 pl-4">
-                        "Most businesses don't need more ideas. They need better decisions."
-                      </p>
                     </div>
-                  </SectionBlock>
-
-                  <SectionBlock delay={0.2}>
-                    <div className="rounded-2xl border border-foreground/10 bg-white p-6 md:p-8 h-full">
-                      <h3 className="font-heading text-xl text-foreground font-bold mb-1">
-                        Yeoh Tzi Sheng
-                      </h3>
-                      <p className="font-heading text-xs text-neon uppercase tracking-widest mb-4">
-                        COO — Operation, Performance, Strategic
-                      </p>
-                      <p className="font-body text-foreground/60 text-sm italic leading-relaxed border-l-2 border-neon/40 pl-4">
-                        "Do less, but do it right—that's how we scale."
-                      </p>
-                    </div>
-                  </SectionBlock>
+                  </FadeIn>
                 </div>
-
-                <SectionBlock delay={0.3}>
-                  <p className="font-body text-foreground/50 text-sm text-center leading-relaxed">
-                    Together, they bring balance—vision and performance, strategy and systems—to ensure every client engagement is grounded and growth-focused.
-                  </p>
-                </SectionBlock>
               </div>
             </section>
 
-            {/* Our Approach */}
-            <section className="py-12 md:py-20 border-t border-foreground/10">
-              <div className="container mx-auto px-4 max-w-4xl">
-                <SectionBlock>
-                  <p className="text-foreground/40 font-body font-medium tracking-widest uppercase text-xs mb-3">
-                    Our Approach
-                  </p>
-                  <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground leading-tight mb-10">
-                    How We <span className="text-neon">Work.</span>
-                  </h2>
-                </SectionBlock>
+            {/* ══ HOW WE'RE DIFFERENT — Dark section ══ */}
+            <section className="bg-foreground py-16 md:py-24">
+              <div className="container mx-auto px-4 max-w-6xl">
+                <FadeIn>
+                  <div className="max-w-2xl mb-12">
+                    <p className="text-white/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                      How We're Different
+                    </p>
+                    <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-[1.05]">
+                      Not Another Vendor.{" "}
+                      <span className="text-neon">Your Senior Marketing Partner.</span>
+                    </h2>
+                    <p className="font-body text-white/50 text-base mt-6 leading-relaxed">
+                      We operate as your senior marketing partner—deciding what needs to be done, in what order, and how it connects to revenue.
+                    </p>
+                  </div>
+                </FadeIn>
 
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-3 gap-6">
                   {[
-                    {
-                      title: "We diagnose first, prescribe second.",
-                      body: "We don't lead with what we sell. We start by understanding your business, then recommend what actually needs to happen.",
-                    },
-                    {
-                      title: "We prioritize ruthlessly.",
-                      body: "You don't have unlimited budget or time. We help you focus on the 20% of activities that drive 80% of results.",
-                    },
-                    {
-                      title: "We execute with discipline.",
-                      body: "We handle SEO, web development, and social media in-house. For services outside our scope, we coordinate with specialists—keeping everything aligned to the strategic plan.",
-                      highlight: true,
-                    },
-                    {
-                      title: "We measure what matters.",
-                      body: "Pipeline growth. Cost per acquisition. Conversion rates. Revenue. If a tactic doesn't move these numbers, we kill it.",
-                    },
-                  ].map((item, i) => (
-                    <SectionBlock key={i} delay={0.1 * (i + 1)}>
-                      <div className={`rounded-2xl border ${item.highlight ? "border-2 border-neon/30 shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]" : "border-foreground/10"} bg-white p-6 md:p-8`}>
-                        <h3 className="font-body text-lg md:text-xl text-foreground font-bold mb-3">
-                          {item.title}
-                        </h3>
-                        <p className="font-body text-foreground/60 text-sm leading-relaxed">
-                          {item.body}
-                        </p>
+                    { title: "SMEs Already Investing", body: "Businesses already spending on marketing but unsure what's working or where the money is going." },
+                    { title: "Teams Without Strategic Lead", body: "In-house teams executing tactics without a senior marketing strategist guiding the direction." },
+                    { title: "Owners Ready to Lead", body: "Business owners who want to stop reacting to trends and start leading with intentional, revenue-focused marketing." },
+                  ].map((card, i) => (
+                    <FadeIn key={i} delay={i * 0.1}>
+                      <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 h-full">
+                        <div className="w-10 h-10 rounded-xl bg-neon/20 flex items-center justify-center mb-4">
+                          <Check className="size-5 text-neon" />
+                        </div>
+                        <h3 className="font-heading font-bold text-white text-lg mb-3">{card.title}</h3>
+                        <p className="font-body text-white/50 text-sm leading-relaxed">{card.body}</p>
                       </div>
-                    </SectionBlock>
+                    </FadeIn>
                   ))}
                 </div>
               </div>
             </section>
 
-            {/* Final CTA */}
-            <section className="py-12 md:py-20 border-t border-foreground/10">
+            {/* ══ OUR APPROACH — Numbered Steps ══ */}
+            <section className="py-16 md:py-24">
+              <div className="container mx-auto px-4 max-w-6xl">
+                <FadeIn>
+                  <div className="max-w-2xl mb-12">
+                    <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                      Our Approach
+                    </p>
+                    <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.05]">
+                      How We <span className="text-neon">Work.</span>
+                    </h2>
+                  </div>
+                </FadeIn>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  {approachSteps.map((step, i) => {
+                    const Icon = step.icon;
+                    return (
+                      <FadeIn key={i} delay={i * 0.1}>
+                        <div className="group relative rounded-2xl border border-foreground/10 bg-white p-6 md:p-8 h-full hover:border-neon/30 transition-all duration-300 hover:shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]">
+                          <div className="flex items-start gap-4">
+                            <div className="flex flex-col items-center gap-2">
+                              <span className="font-heading text-3xl font-bold text-neon/30">{step.num}</span>
+                              <div className="w-10 h-10 rounded-xl bg-foreground/5 flex items-center justify-center group-hover:bg-neon/10 transition-colors">
+                                <Icon className="size-5 text-foreground/60 group-hover:text-neon transition-colors" />
+                              </div>
+                            </div>
+                            <div>
+                              <h3 className="font-heading font-bold text-foreground text-lg mb-2">{step.title}</h3>
+                              <p className="font-body text-foreground/55 text-sm leading-relaxed">{step.body}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </FadeIn>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+
+            {/* ══ LEADERSHIP TEAM — Modern Cards ══ */}
+            <section className="py-16 md:py-24 border-t border-foreground/10">
+              <div className="container mx-auto px-4 max-w-6xl">
+                <FadeIn>
+                  <div className="text-center max-w-2xl mx-auto mb-12">
+                    <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-4">
+                      Meet the Leadership Team
+                    </p>
+                    <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.05]">
+                      The People Behind <span className="text-neon">Edge Point.</span>
+                    </h2>
+                  </div>
+                </FadeIn>
+
+                <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-8">
+                  {[
+                    {
+                      name: "Daniel Chew Wen Kai",
+                      role: "CEO — Strategic, Growth, Training",
+                      quote: "Most businesses don't need more ideas. They need better decisions.",
+                    },
+                    {
+                      name: "Yeoh Tzi Sheng",
+                      role: "COO — Operation, Performance, Strategic",
+                      quote: "Do less, but do it right—that's how we scale.",
+                    },
+                  ].map((person, i) => (
+                    <FadeIn key={i} delay={i * 0.15}>
+                      <div className="rounded-2xl border border-foreground/10 bg-white p-6 md:p-8 h-full hover:border-neon/30 transition-all duration-300 hover:shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]">
+                        <div className="w-12 h-12 rounded-full bg-neon/10 flex items-center justify-center mb-4">
+                          <span className="font-heading font-bold text-neon text-lg">{person.name[0]}</span>
+                        </div>
+                        <h3 className="font-heading text-xl text-foreground font-bold mb-1">{person.name}</h3>
+                        <p className="font-heading text-xs text-neon uppercase tracking-widest mb-4">{person.role}</p>
+                        <p className="font-body text-foreground/50 text-sm italic leading-relaxed border-l-2 border-neon/40 pl-4">
+                          "{person.quote}"
+                        </p>
+                      </div>
+                    </FadeIn>
+                  ))}
+                </div>
+
+                <FadeIn delay={0.3}>
+                  <p className="font-body text-foreground/50 text-sm text-center leading-relaxed max-w-xl mx-auto">
+                    Together, they bring balance—vision and performance, strategy and systems—to ensure every client engagement is grounded and growth-focused.
+                  </p>
+                </FadeIn>
+              </div>
+            </section>
+
+            {/* ══ BRANDS ══ */}
+            <section className="py-12 border-t border-foreground/10">
+              <div className="container mx-auto px-4 max-w-6xl">
+                <FadeIn>
+                  <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-6 text-center">
+                    Brands We've Worked With
+                  </p>
+                </FadeIn>
+                <BrandsCarousel />
+              </div>
+            </section>
+
+            {/* ══ FINAL CTA ══ */}
+            <section className="py-16 md:py-24 border-t border-foreground/10">
               <div className="container mx-auto px-4 max-w-3xl text-center">
-                <SectionBlock>
-                  <p className="text-foreground/40 font-body font-medium tracking-widest uppercase text-xs mb-3">
+                <FadeIn>
+                  <p className="text-foreground/30 font-body font-medium tracking-widest uppercase text-xs mb-3">
                     Let's Start With Strategy
                   </p>
                   <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground leading-tight mb-4">
-                    Ready to Make Your Marketing <span className="text-neon">Work Smarter?</span>
+                    Ready to Make Your Marketing{" "}
+                    <span className="bg-[#007BFF] text-white px-2 py-0.5 rounded-sm">Work Smarter?</span>
                   </h2>
-                  <p className="font-body text-foreground/60 text-base leading-relaxed mb-8 max-w-xl mx-auto">
+                  <p className="font-body text-foreground/50 text-base leading-relaxed mb-8 max-w-xl mx-auto">
                     Start with a Strategic Audit—and gain clarity before your next dollar is spent.
                   </p>
-                  <LiquidButton href="#contact" size="lg" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center">
-                    Book a Strategic Audit
-                    <ArrowRight className="size-4 ml-2" />
-                  </LiquidButton>
-                </SectionBlock>
+                  <Link to="/contact">
+                    <LiquidButton size="lg" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center">
+                      Book a Strategic Audit
+                      <ArrowRight className="size-4 ml-2" />
+                    </LiquidButton>
+                  </Link>
+                </FadeIn>
               </div>
             </section>
           </div>

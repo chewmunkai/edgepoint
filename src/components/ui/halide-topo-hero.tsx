@@ -133,16 +133,18 @@ const HalideLanding: React.FC = () => {
             className="text-[clamp(3rem,12vw,9rem)] font-bold leading-[0.85] tracking-tight uppercase"
             style={{ color: 'hsl(82, 100%, 60%)', textShadow: '0 0 60px rgba(153,255,51,0.15)' }}
           >
-            HOPE IS
+            EDGE POINT
             <br />
-            <span className="text-white">NOT A</span>
+            <span className="text-white">MARKETING</span>
             <br />
             <span
               className="text-white"
               style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}
             >
-              PLAN.
+              AGENCY
             </span>
+            <br />
+            <span className="text-white text-[clamp(1rem,4vw,3rem)] tracking-[0.3em]">MALAYSIA</span>
           </h1>
         </div>
 
