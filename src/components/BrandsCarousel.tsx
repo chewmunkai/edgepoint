@@ -16,6 +16,16 @@ import anjoe from "@/assets/brands/anjoe.png";
 import ckp from "@/assets/brands/ckp.png";
 import chiroCore from "@/assets/brands/chiro-core.png";
 import nadi from "@/assets/brands/nadi.png";
+import hairBar from "@/assets/brands/hair-bar.png";
+import cellesis from "@/assets/brands/cellesis.png";
+import xrAssociates from "@/assets/brands/xr-associates.png";
+import shinzo from "@/assets/brands/shinzo.png";
+import comoLab from "@/assets/brands/como-lab.png";
+import nhNutrition from "@/assets/brands/nh-nutrition.png";
+import nexus from "@/assets/brands/nexus.png";
+import benzac from "@/assets/brands/benzac.png";
+import ecLogo from "@/assets/brands/ec-logo.png";
+import equad from "@/assets/brands/equad.png";
 
 const brandLogos = [
   { name: "Veterinary Essential Services", src: veterinary },
@@ -28,6 +38,16 @@ const brandLogos = [
   { name: "CKP", src: ckp },
   { name: "Chiro Core", src: chiroCore },
   { name: "NADI", src: nadi },
+  { name: "Hair Bar", src: hairBar },
+  { name: "Cellesis Clinic", src: cellesis },
+  { name: "XR Associates", src: xrAssociates },
+  { name: "ShinZō", src: shinzo },
+  { name: "COMO Lab", src: comoLab },
+  { name: "NH Nutrition & Health", src: nhNutrition },
+  { name: "Nexus", src: nexus },
+  { name: "Benzac", src: benzac },
+  { name: "EC", src: ecLogo },
+  { name: "eQuad Technologies", src: equad },
 ];
 
 const BrandsCarousel = () => {
