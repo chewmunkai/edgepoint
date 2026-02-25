@@ -4,11 +4,13 @@ import PageHero from "@/components/PageHero";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { Check, ArrowRight, Target, Zap, BarChart3, Compass } from "lucide-react";
+import { Check, Target, Zap, BarChart3, Compass } from "lucide-react";
 import { FlippingCard } from "@/components/ui/flipping-card";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import BrandsCarousel from "@/components/BrandsCarousel";
 import { Link } from "react-router-dom";
+import teamDaniel from "@/assets/team-daniel.jpg";
+import teamTziSheng from "@/assets/team-tzisheng.jpg";
 
 /* ─── Animation Wrapper ─── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -78,12 +80,12 @@ const AboutUs = () => {
           {/* ══ STATS BAR ══ */}
           <section className="bg-foreground">
             <div className="container mx-auto px-4 py-10 md:py-14">
-              <div className="grid grid-cols-3 gap-6 md:gap-10 max-w-4xl mx-auto">
+              <div className="grid grid-cols-3 gap-3 md:gap-10 max-w-4xl mx-auto">
                 {stats.map((stat, i) => (
                   <FadeIn key={i} delay={i * 0.1}>
                     <div className="text-center">
-                      <p className="font-heading font-bold text-3xl md:text-4xl text-neon">{stat.value}</p>
-                      <p className="font-body text-white/50 text-sm mt-1">{stat.label}</p>
+                      <p className="font-heading font-bold text-xl sm:text-2xl md:text-4xl text-neon whitespace-nowrap">{stat.value}</p>
+                      <p className="font-body text-white/50 text-xs sm:text-sm mt-1">{stat.label}</p>
                     </div>
                   </FadeIn>
                 ))}
@@ -226,13 +228,13 @@ const AboutUs = () => {
                       name: "Daniel Chew Wen Kai",
                       role: "CEO — Strategic, Growth, Training",
                       quote: "Most businesses don't need more ideas. They need better decisions.",
-                      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80",
+                      image: teamDaniel,
                     },
                     {
                       name: "Yeoh Tzi Sheng",
                       role: "COO — Operation, Performance, Strategic",
                       quote: "Do less, but do it right—that's how we scale.",
-                      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&q=80",
+                      image: teamTziSheng,
                     },
                   ].map((person, i) => (
                     <FadeIn key={i} delay={i * 0.15}>
@@ -308,7 +310,6 @@ const AboutUs = () => {
                   <Link to="/contact">
                     <LiquidButton size="lg" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center">
                       Book a Strategic Audit
-                      <ArrowRight className="size-4 ml-2" />
                     </LiquidButton>
                   </Link>
                 </FadeIn>
