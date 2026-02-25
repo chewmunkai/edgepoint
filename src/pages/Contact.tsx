@@ -60,18 +60,18 @@ const Contact = () => {
           <section className="bg-[#f5f5f5] py-16 md:py-24 px-4">
             <div className="container mx-auto max-w-4xl">
               {/* 3 Pillar Company Details */}
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-12">
                 {pillars.map((pillar, i) => {
                   const Icon = pillar.icon;
                   return (
                     <div
                       key={i}
-                      className="rounded-2xl border border-foreground/10 bg-white p-6 text-center flex flex-col items-center gap-3"
+                      className="group relative rounded-2xl border border-foreground/10 bg-white p-6 md:p-8 text-center flex flex-col items-center gap-4 hover:border-neon/30 transition-all duration-300 hover:shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center">
-                        <Icon className="size-5 text-foreground/60" />
+                      <div className="w-14 h-14 rounded-2xl bg-neon/10 flex items-center justify-center group-hover:bg-neon/20 transition-colors">
+                        <Icon className="size-6 text-neon" />
                       </div>
-                      <h3 className="font-heading font-bold text-sm uppercase tracking-widest text-foreground/40">
+                      <h3 className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-foreground/30">
                         {pillar.title}
                       </h3>
                       <p className="font-body text-foreground/70 text-sm leading-relaxed">

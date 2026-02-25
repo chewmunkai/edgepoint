@@ -223,7 +223,7 @@ const WhyMarketingPlansFail = () => {
                   </p>
                   <Link to="/contact"
                     className="inline-flex items-center gap-2 bg-neon text-black font-heading font-bold text-sm px-6 py-3 rounded-lg hover:bg-neon/90 transition-colors">
-                    Book a Strategic Audit <ArrowRight className="size-4" />
+                    Book a Strategic Audit
                   </Link>
                 </div>
               </FadeIn>

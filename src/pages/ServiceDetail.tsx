@@ -227,7 +227,6 @@ const ServiceDetail = () => {
                   </p>
                   <LiquidButton href="/contact" size="lg" className="font-heading text-sm md:text-base whitespace-nowrap min-w-[260px] justify-center">
                     Book a Strategic Audit
-                    <ArrowRight className="size-4 ml-2" />
                   </LiquidButton>
                 </SectionBlock>
               </div>

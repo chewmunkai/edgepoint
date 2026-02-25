@@ -176,7 +176,7 @@ export default function AboutSection3() {
                     href="#contact"
                     className="inline-flex items-center gap-2 rounded-full bg-neon px-5 py-2.5 font-heading text-sm font-semibold text-black transition-all hover:shadow-[0_0_20px_rgba(153,255,51,0.5)]"
                   >
-                    BOOK STRATEGIC AUDIT <ArrowRight className="size-4" />
+                    BOOK STRATEGIC AUDIT
                   </a>
                 </div>
               </div>
