@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Check, ArrowRight, Target, Zap, BarChart3, Compass } from "lucide-react";
+import { FlippingCard } from "@/components/ui/flipping-card";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import BrandsCarousel from "@/components/BrandsCarousel";
 import { Link } from "react-router-dom";
@@ -30,8 +31,7 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 const stats = [
   { value: "5+", label: "Years Experience" },
   { value: "60+", label: "Projects Executed" },
-  { value: "RM5M", label: "Ads Optimized" },
-  { value: "20+", label: "Brands Served" },
+  { value: "RM3.6M+", label: "Ads Optimized" },
 ];
 
 /* ─── Approach Steps ─── */
@@ -78,7 +78,7 @@ const AboutUs = () => {
           {/* ══ STATS BAR ══ */}
           <section className="bg-foreground">
             <div className="container mx-auto px-4 py-10 md:py-14">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl mx-auto">
+              <div className="grid grid-cols-3 gap-6 md:gap-10 max-w-4xl mx-auto">
                 {stats.map((stat, i) => (
                   <FadeIn key={i} delay={i * 0.1}>
                     <div className="text-center">
@@ -206,7 +206,7 @@ const AboutUs = () => {
               </div>
             </section>
 
-            {/* ══ LEADERSHIP TEAM — Modern Cards ══ */}
+            {/* ══ LEADERSHIP TEAM — Flipping Cards ══ */}
             <section className="py-16 md:py-24 border-t border-foreground/10">
               <div className="container mx-auto px-4 max-w-6xl">
                 <FadeIn>
@@ -220,30 +220,53 @@ const AboutUs = () => {
                   </div>
                 </FadeIn>
 
-                <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-8">
+                <div className="flex flex-col md:flex-row gap-8 justify-center items-center mb-8">
                   {[
                     {
                       name: "Daniel Chew Wen Kai",
                       role: "CEO — Strategic, Growth, Training",
                       quote: "Most businesses don't need more ideas. They need better decisions.",
+                      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80",
                     },
                     {
                       name: "Yeoh Tzi Sheng",
                       role: "COO — Operation, Performance, Strategic",
                       quote: "Do less, but do it right—that's how we scale.",
+                      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&q=80",
                     },
                   ].map((person, i) => (
                     <FadeIn key={i} delay={i * 0.15}>
-                      <div className="rounded-2xl border border-foreground/10 bg-white p-6 md:p-8 h-full hover:border-neon/30 transition-all duration-300 hover:shadow-[4px_4px_0px_0px_hsl(82,100%,60%)]">
-                        <div className="w-12 h-12 rounded-full bg-neon/10 flex items-center justify-center mb-4">
-                          <span className="font-heading font-bold text-neon text-lg">{person.name[0]}</span>
-                        </div>
-                        <h3 className="font-heading text-xl text-foreground font-bold mb-1">{person.name}</h3>
-                        <p className="font-heading text-xs text-neon uppercase tracking-widest mb-4">{person.role}</p>
-                        <p className="font-body text-foreground/50 text-sm italic leading-relaxed border-l-2 border-neon/40 pl-4">
-                          "{person.quote}"
-                        </p>
-                      </div>
+                      <FlippingCard
+                        width={320}
+                        height={400}
+                        className="w-full max-w-[320px]"
+                        frontContent={
+                          <div className="relative h-full w-full">
+                            <img
+                              src={person.image}
+                              alt={person.name}
+                              className="h-full w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 className="font-heading text-xl text-white font-bold mb-1">{person.name}</h3>
+                              <p className="font-heading text-xs text-neon uppercase tracking-widest">{person.role}</p>
+                            </div>
+                          </div>
+                        }
+                        backContent={
+                          <div className="h-full w-full bg-foreground flex flex-col items-center justify-center p-8 text-center">
+                            <div className="w-14 h-14 rounded-full bg-neon/20 flex items-center justify-center mb-6">
+                              <span className="font-heading font-bold text-neon text-2xl">{person.name[0]}</span>
+                            </div>
+                            <h3 className="font-heading text-lg text-white font-bold mb-2">{person.name}</h3>
+                            <p className="font-heading text-xs text-neon uppercase tracking-widest mb-6">{person.role}</p>
+                            <p className="font-body text-white/60 text-sm italic leading-relaxed border-l-2 border-neon/40 pl-4 text-left">
+                              "{person.quote}"
+                            </p>
+                          </div>
+                        }
+                      />
                     </FadeIn>
                   ))}
                 </div>
