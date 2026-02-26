@@ -9,7 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Send } from "lucide-react"
 import logo from "@/assets/logo.png"
 
 function GlassFilter() {
@@ -56,7 +56,7 @@ function Footerdemo() {
         <div className="grid gap-8 md:gap-10 grid-cols-2 lg:grid-cols-4">
           {/* Logo & Newsletter */}
           <div className="col-span-2 lg:col-span-1">
-            <a href="#" className="inline-block mb-4">
+            <a href="/" className="inline-block mb-4">
               <img src={logo} alt="Edge Point" className="h-12 w-auto" />
             </a>
             <p className="mb-4 font-body text-sm text-white/60">
@@ -79,14 +79,15 @@ function Footerdemo() {
             </form>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links — matches header nav */}
           <div>
             <h3 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider">Quick Links</h3>
             <nav className="space-y-2 text-sm font-body">
-              <a href="#" className="block text-white/60 transition-colors hover:text-white">Home</a>
-              <a href="#about" className="block text-white/60 transition-colors hover:text-white">About Us</a>
-              <a href="#strategy" className="block text-white/60 transition-colors hover:text-white">Framework</a>
-              <a href="#faq" className="block text-white/60 transition-colors hover:text-white">FAQ</a>
+              <a href="/" className="block text-white/60 transition-colors hover:text-white">Home</a>
+              <a href="/about" className="block text-white/60 transition-colors hover:text-white">About Us</a>
+              <a href="/services" className="block text-white/60 transition-colors hover:text-white">Services</a>
+              <a href="/insights" className="block text-white/60 transition-colors hover:text-white">Insights</a>
+              <a href="/contact" className="block text-white/60 transition-colors hover:text-white">Contact Us</a>
             </nav>
           </div>
 
@@ -94,8 +95,8 @@ function Footerdemo() {
           <div>
             <h3 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider">Contact</h3>
             <address className="space-y-2 text-sm font-body not-italic text-white/60">
-              <p>hello@edgepoint.com</p>
-              <p>(123) 456-7890</p>
+              <p>daniel@edgepoint.agency</p>
+              <p>0182317815</p>
             </address>
           </div>
 
@@ -112,17 +113,6 @@ function Footerdemo() {
                     </button>
                   </TooltipTrigger>
                   <TooltipContent><p>Facebook</p></TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button className="h-9 w-9 rounded-full flex items-center justify-center text-white shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)] hover:scale-105 transition-all duration-300">
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent><p>Twitter</p></TooltipContent>
                 </Tooltip>
               </TooltipProvider>
               <TooltipProvider>

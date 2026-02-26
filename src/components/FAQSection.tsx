@@ -17,7 +17,7 @@ const FAQSection = () => {
     },
     {
       question: "What size business do you work with?",
-      answer: "We're built for SMEs doing £500K–£10M in revenue, already investing (or ready to invest) £3K–£30K/month in marketing."
+      answer: "We're built for SMEs doing RM500K–RM10M in revenue, already investing (or ready to invest) RM3K–RM30K/month in marketing."
     },
     {
       question: "What if we already have a marketing team or agency?",

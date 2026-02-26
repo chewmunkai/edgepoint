@@ -282,7 +282,7 @@ const ContactForm = () => {
       </div>
       <div className="space-y-1.5">
         <Label htmlFor="vg-spend" className="font-body font-medium text-sm text-black">Current Monthly Marketing Spend</Label>
-        <Input id="vg-spend" name="spend" type="text" placeholder="e.g. £2,000/month" value={formData.spend} onChange={handleChange}
+        <Input id="vg-spend" name="spend" type="text" placeholder="e.g. RM2,000/month" value={formData.spend} onChange={handleChange}
           className="bg-black/5 border-black/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-black placeholder:text-black/40" />
       </div>
       <div className="space-y-1.5">
