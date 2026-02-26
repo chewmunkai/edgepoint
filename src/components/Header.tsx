@@ -85,7 +85,7 @@ const Header = () => {
             </div>
             
             {/* Desktop CTA */}
-            <LiquidButton href="#contact" size="default" className="font-heading text-sm text-white">
+            <LiquidButton href="/contact" size="default" className="font-heading text-sm text-white">
               Start Our Growth Journey
             </LiquidButton>
           </div>
@@ -170,7 +170,7 @@ const Header = () => {
                 </motion.div>
               ))}
               <div className="mt-4">
-                <LiquidButton href="#contact" size="lg" className="w-full justify-center font-heading text-black" onClick={() => setIsOpen(false)}>
+                <LiquidButton href="/contact" size="lg" className="w-full justify-center font-heading text-black" onClick={() => setIsOpen(false)}>
                   Start Our Growth Journey
                 </LiquidButton>
               </div>
