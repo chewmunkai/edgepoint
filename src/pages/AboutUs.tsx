@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import FAQSection from "@/components/FAQSection";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
@@ -292,6 +293,9 @@ const AboutUs = () => {
                 <BrandsCarousel />
               </div>
             </section>
+
+            {/* ══ FAQ ══ */}
+            <FAQSection />
 
             {/* ══ FINAL CTA ══ */}
             <section className="py-16 md:py-24 border-t border-foreground/10">
