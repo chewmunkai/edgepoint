@@ -12,7 +12,7 @@ const marketFeatures = [
     icon: <TrendingDown className="size-6 text-neon" />,
     title: "Wasted Spend, No Journey",
     description:
-      "We've seen businesses spend £15K/month on ads with no clear customer journey. Launch rebrands without testing market positioning. Hire agencies that optimize tactics while the strategy drifts.",
+      "We've seen businesses spend RM15K/month on ads with no clear customer journey. Launch rebrands without testing market positioning. Hire agencies that optimize tactics while the strategy drifts.",
   },
   {
     icon: <Compass className="size-6 text-neon" />,
