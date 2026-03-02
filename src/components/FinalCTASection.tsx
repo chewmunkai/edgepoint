@@ -3,6 +3,8 @@ import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const FinalCTASection = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +14,25 @@ const FinalCTASection = () => {
     bestProduct: "",
     bottleneck: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-enquiry", {
+        body: { ...formData, source: "Homepage CTA" },
+      });
+      if (error) throw error;
+      toast({ title: "Enquiry sent!", description: "We'll get back to you within 24 hours." });
+      setFormData({ name: "", company: "", competitors: "", bestProduct: "", bottleneck: "" });
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast({ title: "Something went wrong", description: "Please try again or email us directly.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -70,8 +87,8 @@ const FinalCTASection = () => {
             </div>
 
             <div className="pt-2">
-              <LiquidButton type="submit" size="lg" variant="dark" className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[280px] justify-center text-white bg-black hover:bg-black/90">
-                Book Your Strategic Audit
+              <LiquidButton type="submit" size="lg" variant="dark" disabled={isSubmitting} className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[280px] justify-center text-white bg-black hover:bg-black/90">
+                {isSubmitting ? "Sending..." : "Book Your Strategic Audit"}
               </LiquidButton>
             </div>
           </form>
