@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import {
-  Check, ArrowRight, ChevronDown, CalendarDays, Sparkles, Link2,
+  Check, ArrowRight, ChevronDown, CalendarDays, Sparkles, Link2, Users,
 } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { Link } from "react-router-dom";
@@ -116,6 +116,20 @@ const deliverables = [
       "Attribution tracking (connecting event leads to revenue)",
     ],
     why: "The event is just the start. The real ROI comes from nurturing relationships and converting interest into sales.",
+  },
+  {
+    icon: Users,
+    title: "KOL / Influencer Marketing",
+    lead: "Leverage trusted voices to amplify your brand reach and credibility.",
+    description: "The right KOL partnership doesn't just generate impressions—it builds trust with audiences who already listen. We identify, negotiate, and manage influencer collaborations that align with your brand and drive measurable results.",
+    items: [
+      "KOL identification and vetting aligned to your target audience",
+      "Campaign strategy and content brief development",
+      "Contract negotiation and relationship management",
+      "Content co-creation and approval workflows",
+      "Performance tracking (reach, engagement, conversions, ROI)",
+    ],
+    why: "Consumers trust people over brands. Strategic KOL partnerships put your message in front of the right audience through voices they already trust.",
   },
 ];
 

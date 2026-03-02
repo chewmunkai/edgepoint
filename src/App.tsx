@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { AiLoader } from "@/components/ui/ai-loader";
+import BoxLoader from "@/components/ui/box-loader";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
@@ -35,7 +35,7 @@ const RouteTransitionLoader = ({ children }: { children: React.ReactNode }) => {
   if (loading) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
-        <AiLoader />
+        <BoxLoader />
       </div>
     );
   }
