@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { MapPin, Building2, FileText } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,10 +19,25 @@ const Contact = () => {
     spend: "",
     challenge: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-enquiry", {
+        body: { ...formData, source: "Contact Page" },
+      });
+      if (error) throw error;
+      toast({ title: "Enquiry sent!", description: "We'll get back to you within 24 hours." });
+      setFormData({ name: "", email: "", company: "", spend: "", challenge: "" });
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast({ title: "Something went wrong", description: "Please try again or email us directly.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -59,7 +76,6 @@ const Contact = () => {
 
           <section className="bg-[#f5f5f5] py-16 md:py-24 px-4">
             <div className="container mx-auto max-w-4xl">
-              {/* 3 Pillar Company Details */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-12">
                 {pillars.map((pillar, i) => {
                   const Icon = pillar.icon;
@@ -82,7 +98,6 @@ const Contact = () => {
                 })}
               </div>
 
-              {/* Strategic Audit Form — same as homepage */}
               <div className="max-w-2xl mx-auto">
                 <div className="text-center mb-8">
                   <p className="text-foreground/40 font-body font-medium tracking-widest uppercase text-xs mb-3">
@@ -129,9 +144,9 @@ const Contact = () => {
                       className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 min-h-[100px] text-sm text-foreground placeholder:text-foreground/40" />
                   </div>
                   <div className="pt-2">
-                    <LiquidButton type="submit" size="lg" variant="dark"
+                    <LiquidButton type="submit" size="lg" variant="dark" disabled={isSubmitting}
                       className="w-full md:w-auto font-heading text-sm whitespace-nowrap min-w-[260px] justify-center text-white bg-foreground hover:bg-foreground/90">
-                      Book Your Strategic Audit
+                      {isSubmitting ? "Sending..." : "Book Your Strategic Audit"}
                     </LiquidButton>
                   </div>
                 </form>
