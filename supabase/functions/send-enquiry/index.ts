@@ -18,18 +18,16 @@ serve(async (req) => {
     }
 
     const body = await req.json();
-    const { name, email, company, competitors, bestProduct, bottleneck, spend, challenge, source } = body;
+    const { name, email, company, phone, spend, challenge, source } = body;
 
     // Build email HTML based on which form was submitted
     const fields: { label: string; value: string }[] = [];
     fields.push({ label: "Name", value: name || "—" });
-    if (email) fields.push({ label: "Email", value: email });
     if (company) fields.push({ label: "Company", value: company });
-    if (competitors) fields.push({ label: "Top 3 Competitors", value: competitors });
-    if (bestProduct) fields.push({ label: "Best-Selling Product/Service", value: bestProduct });
-    if (bottleneck) fields.push({ label: "Biggest Growth Bottleneck", value: bottleneck });
-    if (spend) fields.push({ label: "Monthly Marketing Spend", value: spend });
-    if (challenge) fields.push({ label: "Biggest Marketing Challenge", value: challenge });
+    if (phone) fields.push({ label: "Phone", value: phone });
+    if (email) fields.push({ label: "Email", value: email });
+    if (spend) fields.push({ label: "Annual Marketing Budget", value: spend });
+    if (challenge) fields.push({ label: "Biggest Bottleneck / Challenge", value: challenge });
 
     const rows = fields
       .map(

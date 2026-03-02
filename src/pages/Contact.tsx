@@ -5,17 +5,28 @@ import PageHero from "@/components/PageHero";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { MapPin, Building2, FileText } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
+const budgetOptions = [
+  "Less than RM15,000",
+  "RM15,000 - RM40,000",
+  "RM40,000 - RM100K",
+  "RM100K - RM300K",
+  "RM300K - RM1 mil",
+  "RM1 mil and above",
+];
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     company: "",
+    phone: "",
+    email: "",
     spend: "",
     challenge: "",
   });
@@ -31,7 +42,7 @@ const Contact = () => {
       });
       if (error) throw error;
       toast({ title: "Enquiry sent!", description: "We'll get back to you within 24 hours." });
-      setFormData({ name: "", email: "", company: "", spend: "", challenge: "" });
+      setFormData({ name: "", company: "", phone: "", email: "", spend: "", challenge: "" });
     } catch (err) {
       console.error("Submit error:", err);
       toast({ title: "Something went wrong", description: "Please try again or email us directly.", variant: "destructive" });
@@ -123,23 +134,38 @@ const Contact = () => {
                         className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-foreground placeholder:text-foreground/40" required />
                     </div>
                     <div className="space-y-1.5">
+                      <Label htmlFor="ct-company" className="font-body font-medium text-sm text-foreground">Company Name *</Label>
+                      <Input id="ct-company" name="company" type="text" placeholder="Your company" value={formData.company} onChange={handleChange}
+                        className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-foreground placeholder:text-foreground/40" required />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="ct-phone" className="font-body font-medium text-sm text-foreground">Phone *</Label>
+                      <Input id="ct-phone" name="phone" type="tel" placeholder="012-345 6789" value={formData.phone} onChange={handleChange}
+                        className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-foreground placeholder:text-foreground/40" required />
+                    </div>
+                    <div className="space-y-1.5">
                       <Label htmlFor="ct-email" className="font-body font-medium text-sm text-foreground">Email *</Label>
                       <Input id="ct-email" name="email" type="email" placeholder="you@company.com" value={formData.email} onChange={handleChange}
                         className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-foreground placeholder:text-foreground/40" required />
                     </div>
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="ct-company" className="font-body font-medium text-sm text-foreground">Company Name</Label>
-                    <Input id="ct-company" name="company" type="text" placeholder="Your company" value={formData.company} onChange={handleChange}
-                      className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-foreground placeholder:text-foreground/40" />
+                    <Label htmlFor="ct-spend" className="font-body font-medium text-sm text-foreground">Annual Marketing Budget</Label>
+                    <Select value={formData.spend} onValueChange={(val) => setFormData((prev) => ({ ...prev, spend: val }))}>
+                      <SelectTrigger className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-foreground data-[placeholder]:text-foreground/40">
+                        <SelectValue placeholder="Select your budget range" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {budgetOptions.map((opt) => (
+                          <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="ct-spend" className="font-body font-medium text-sm text-foreground">Current Monthly Marketing Spend</Label>
-                    <Input id="ct-spend" name="spend" type="text" placeholder="e.g. RM2,000/month" value={formData.spend} onChange={handleChange}
-                      className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 text-sm text-foreground placeholder:text-foreground/40" />
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="ct-challenge" className="font-body font-medium text-sm text-foreground">Biggest Marketing Challenge Right Now</Label>
+                    <Label htmlFor="ct-challenge" className="font-body font-medium text-sm text-foreground">Biggest Bottleneck / Challenge</Label>
                     <Textarea id="ct-challenge" name="challenge" placeholder="Tell us about your main challenge..." value={formData.challenge} onChange={handleChange}
                       className="bg-foreground/5 border-foreground/15 focus:border-[#007BFF] focus:ring-[#007BFF]/20 min-h-[100px] text-sm text-foreground placeholder:text-foreground/40" />
                   </div>
