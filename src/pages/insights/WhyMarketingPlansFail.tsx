@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
 import blogImage from "@/assets/blog-why-marketing-plans-fail.jpg";
+import SEOHead, { createArticleSchema } from "@/components/SEOHead";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -27,6 +28,12 @@ const WhyMarketingPlansFail = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="Why Most Marketing Plans Fail | Edge Point"
+          description="The biggest mistake SMEs make isn't choosing the wrong tactic—it's skipping strategy entirely. Here's what that costs and how to fix it."
+          ogType="article"
+          jsonLd={createArticleSchema({ title: "Why Most Marketing Plans Fail Before They Start", description: "The biggest mistake SMEs make isn't choosing the wrong tactic—it's skipping strategy.", datePublished: "2025-01-15", slug: "why-marketing-plans-fail" })}
+        />
         <Header />
         <main>
 

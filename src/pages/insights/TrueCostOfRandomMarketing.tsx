@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
 import blogImage from "@/assets/blog-true-cost-random-marketing.jpg";
+import SEOHead, { createArticleSchema } from "@/components/SEOHead";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -27,6 +28,12 @@ const TrueCostOfRandomMarketing = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="The True Cost of Random Marketing | Edge Point"
+          description="How disconnected campaigns silently drain your budget and stall growth—and the counterintuitive fix most businesses overlook."
+          ogType="article"
+          jsonLd={createArticleSchema({ title: "The True Cost of Random Marketing", description: "How disconnected campaigns silently drain your budget and stall growth.", datePublished: "2025-02-15", slug: "true-cost-of-random-marketing" })}
+        />
         <Header />
         <main>
 

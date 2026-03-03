@@ -23,6 +23,7 @@ import BrandsCarousel from "@/components/BrandsCarousel";
 import serviceBrand from "@/assets/service-brand.jpg";
 import serviceVisibility from "@/assets/service-visibility.jpg";
 import serviceEvents from "@/assets/service-events.jpg";
+import SEOHead, { createFaqSchema } from "@/components/SEOHead";
 
 /* ─── Animation Wrapper ─── */
 const FadeIn = ({
@@ -397,6 +398,11 @@ const PerformanceScale = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="Performance Marketing | Edge Point Services"
+          description="Scale what's already working. Strategic paid campaigns, funnel optimization, and campaign tracking tied to revenue outcomes."
+          jsonLd={createFaqSchema(faqs)}
+        />
         <Header />
         <main>
 

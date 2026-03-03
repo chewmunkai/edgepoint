@@ -7,6 +7,7 @@ import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Check, ArrowRight } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { Link } from "react-router-dom";
+import SEOHead, { servicesSchema } from "@/components/SEOHead";
 import serviceBrand from "@/assets/service-brand.jpg";
 import serviceVisibility from "@/assets/service-visibility.jpg";
 import servicePerformance from "@/assets/service-performance.jpg";
@@ -94,6 +95,11 @@ const Services = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="Marketing Services | Edge Point Malaysia"
+          description="From brand foundation to performance marketing—Edge Point's services are designed to drive revenue, not just activity. Explore our strategy-first approach."
+          jsonLd={servicesSchema}
+        />
         <Header />
         <main>
           <PageHero

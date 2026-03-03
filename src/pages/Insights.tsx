@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
+import SEOHead from "@/components/SEOHead";
 
 export const articles = [
   {
@@ -48,6 +49,10 @@ const Insights = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="Marketing Insights & Articles | Edge Point"
+          description="Perspectives on strategy, growth, SEO, and building marketing that actually works for Malaysian SMEs."
+        />
         <Header />
         <main>
           <PageHero

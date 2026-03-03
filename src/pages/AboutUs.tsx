@@ -12,6 +12,7 @@ import BrandsCarousel from "@/components/BrandsCarousel";
 import { Link } from "react-router-dom";
 import teamDaniel from "@/assets/team-daniel.jpg";
 import teamTziSheng from "@/assets/team-tzisheng.jpg";
+import SEOHead from "@/components/SEOHead";
 
 /* ─── Animation Wrapper ─── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -69,6 +70,10 @@ const AboutUs = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="About Edge Point | Strategy-First Marketing Partner"
+          description="Built for clarity, driven by growth. Edge Point is a strategy-first marketing partner for Malaysian SMEs who want direction before execution."
+        />
         <Header />
         <main>
           <PageHero
