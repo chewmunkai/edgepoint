@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
 import blogImage from "@/assets/blog-seo-2025.jpg";
+import SEOHead, { createArticleSchema } from "@/components/SEOHead";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -27,6 +28,12 @@ const SEO2025WhatMovesTheNeedle = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="SEO in 2025: What Moves the Needle | Edge Point"
+          description="Forget keyword stuffing. Here's what search engines really reward now and how to build an organic strategy that compounds over time."
+          ogType="article"
+          jsonLd={createArticleSchema({ title: "SEO in 2025: What Actually Moves the Needle", description: "What search engines really reward now and how to build an organic strategy that compounds.", datePublished: "2025-02-01", slug: "seo-2025-what-moves-the-needle" })}
+        />
         <Header />
         <main>
 

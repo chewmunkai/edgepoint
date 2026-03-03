@@ -23,6 +23,7 @@ import BrandsCarousel from "@/components/BrandsCarousel";
 import serviceVisibility from "@/assets/service-visibility.jpg";
 import servicePerformance from "@/assets/service-performance.jpg";
 import serviceEvents from "@/assets/service-events.jpg";
+import SEOHead, { createFaqSchema } from "@/components/SEOHead";
 
 /* ─── Animation Wrapper ─── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -317,6 +318,11 @@ const BrandFoundation = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="Brand & Foundation | Edge Point Services"
+          description="Build clarity before you scale. Brand positioning, messaging, website development, and offer structuring for Malaysian SMEs."
+          jsonLd={createFaqSchema(faqs)}
+        />
         <Header />
         <main>
 

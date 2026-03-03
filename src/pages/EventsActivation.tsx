@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import { Link } from "react-router-dom";
+import SEOHead, { createFaqSchema } from "@/components/SEOHead";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -350,6 +351,11 @@ const EventsActivation = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="Events & Activation | Edge Point Services"
+          description="Turn offline moments into online revenue. Event planning, brand activations, KOL marketing, and offline-online funnel integration."
+          jsonLd={createFaqSchema(faqs)}
+        />
         <Header />
         <main>
 

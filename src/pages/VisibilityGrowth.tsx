@@ -23,6 +23,7 @@ import BrandsCarousel from "@/components/BrandsCarousel";
 import serviceBrand from "@/assets/service-brand.jpg";
 import servicePerformance from "@/assets/service-performance.jpg";
 import serviceEvents from "@/assets/service-events.jpg";
+import SEOHead, { createFaqSchema } from "@/components/SEOHead";
 
 /* ─── Animation Wrapper ─── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -305,6 +306,11 @@ const VisibilityGrowth = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="SEO & Organic Growth | Edge Point Services"
+          description="Build sustainable visibility through SEO, content strategy, and social media marketing. Organic channels that compound over time."
+          jsonLd={createFaqSchema(faqs)}
+        />
         <Header />
         <main>
 

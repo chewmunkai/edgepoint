@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import SEOHead from "@/components/SEOHead";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -76,6 +77,10 @@ const Contact = () => {
   return (
     <SmoothScroll>
       <div className="min-h-screen">
+        <SEOHead
+          title="Contact Edge Point | Book a Strategic Audit"
+          description="Ready to make your marketing work smarter? Contact Edge Point for a strategic audit and get clarity on your next 90 days of growth."
+        />
         <Header />
         <main>
           <PageHero
