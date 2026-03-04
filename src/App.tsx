@@ -2,46 +2,35 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import BoxLoader from "@/components/ui/box-loader";
+
+// Eagerly load the homepage for fastest FCP
 import Index from "./pages/Index";
-import AboutUs from "./pages/AboutUs";
-import Services from "./pages/Services";
-import ServiceDetail from "./pages/ServiceDetail";
-import BrandFoundation from "./pages/BrandFoundation";
-import VisibilityGrowth from "./pages/VisibilityGrowth";
-import PerformanceScale from "./pages/PerformanceScale";
-import EventsActivation from "./pages/EventsActivation";
-import Insights from "./pages/Insights";
-import WhyMarketingPlansFail from "./pages/insights/WhyMarketingPlansFail";
-import SEO2025WhatMovesTheNeedle from "./pages/insights/SEO2025WhatMovesTheNeedle";
-import TrueCostOfRandomMarketing from "./pages/insights/TrueCostOfRandomMarketing";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+
+// Lazy-load all other pages to reduce initial JS bundle
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Services = lazy(() => import("./pages/Services"));
+const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const BrandFoundation = lazy(() => import("./pages/BrandFoundation"));
+const VisibilityGrowth = lazy(() => import("./pages/VisibilityGrowth"));
+const PerformanceScale = lazy(() => import("./pages/PerformanceScale"));
+const EventsActivation = lazy(() => import("./pages/EventsActivation"));
+const Insights = lazy(() => import("./pages/Insights"));
+const WhyMarketingPlansFail = lazy(() => import("./pages/insights/WhyMarketingPlansFail"));
+const SEO2025WhatMovesTheNeedle = lazy(() => import("./pages/insights/SEO2025WhatMovesTheNeedle"));
+const TrueCostOfRandomMarketing = lazy(() => import("./pages/insights/TrueCostOfRandomMarketing"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const RouteTransitionLoader = ({ children }: { children: React.ReactNode }) => {
-  const location = useLocation();
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 800);
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
-
-  if (loading) {
-    return (
-      <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
-        <BoxLoader />
-      </div>
-    );
-  }
-
-  return <>{children}</>;
-};
+const PageLoader = () => (
+  <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
+    <BoxLoader />
+  </div>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -49,7 +38,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <RouteTransitionLoader>
+        <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutUs />} />
@@ -66,7 +55,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </RouteTransitionLoader>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
