@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://edgepoint.lovable.app/</loc>
+    <loc>https://edgepoint.agency/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/about</loc>
+    <loc>https://edgepoint.agency/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/services</loc>
+    <loc>https://edgepoint.agency/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/services/brand-foundation</loc>
+    <loc>https://edgepoint.agency/services/brand-foundation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/services/visibility-organic-growth</loc>
+    <loc>https://edgepoint.agency/services/visibility-organic-growth</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/services/performance-scale</loc>
+    <loc>https://edgepoint.agency/services/performance-scale</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/services/events-activation</loc>
+    <loc>https://edgepoint.agency/services/events-activation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/insights</loc>
+    <loc>https://edgepoint.agency/insights</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/insights/why-marketing-plans-fail</loc>
+    <loc>https://edgepoint.agency/insights/why-marketing-plans-fail</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/insights/seo-2025-what-moves-the-needle</loc>
+    <loc>https://edgepoint.agency/insights/seo-2025-what-moves-the-needle</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/insights/true-cost-of-random-marketing</loc>
+    <loc>https://edgepoint.agency/insights/true-cost-of-random-marketing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://edgepoint.lovable.app/contact</loc>
+    <loc>https://edgepoint.agency/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

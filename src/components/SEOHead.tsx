@@ -9,7 +9,7 @@ interface SEOHeadProps {
   jsonLd?: object | object[];
 }
 
-const BASE_URL = "https://edgepoint.lovable.app";
+const BASE_URL = "https://edgepoint.agency";
 
 const SEOHead = ({ title, description, canonical, ogType = "website", jsonLd }: SEOHeadProps) => {
   const location = useLocation();
@@ -77,8 +77,8 @@ export const businessSchema = {
   "@context": "https://schema.org",
   "@type": "MarketingAgency",
   name: "Edge Point Solutions Sdn Bhd",
-  url: "https://edgepoint.lovable.app",
-  logo: "https://edgepoint.lovable.app/og-image.png",
+  url: "https://edgepoint.agency",
+  logo: "https://edgepoint.agency/og-image.png",
   description: "Strategy-first marketing agency in Malaysia helping SMEs grow with brand foundation, SEO, performance marketing, and events activation.",
   address: {
     "@type": "PostalAddress",
@@ -140,11 +140,11 @@ export const createArticleSchema = (article: {
   headline: article.title,
   description: article.description,
   datePublished: article.datePublished,
-  url: `https://edgepoint.lovable.app/insights/${article.slug}`,
+  url: `https://edgepoint.agency/insights/${article.slug}`,
   publisher: {
     "@type": "Organization",
     name: "Edge Point Solutions Sdn Bhd",
-    logo: { "@type": "ImageObject", url: "https://edgepoint.lovable.app/og-image.png" },
+    logo: { "@type": "ImageObject", url: "https://edgepoint.agency/og-image.png" },
   },
   author: { "@type": "Organization", name: "Edge Point Solutions Sdn Bhd" },
 });
