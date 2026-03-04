@@ -99,6 +99,9 @@ const CoreServicesSection = () => {
                 <img
                   src={step.imageSrc}
                   alt={step.title}
+                  width={307}
+                  height={384}
+                  loading="lazy"
                   className="w-full aspect-[4/5] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/55" />
