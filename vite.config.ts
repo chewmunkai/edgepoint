@@ -22,4 +22,16 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     include: ["@tanstack/react-query"],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ["three", "@react-three/fiber", "@react-three/drei"],
+          gsap: ["gsap", "gsap/SplitText", "gsap/ScrollTrigger", "@gsap/react"],
+          recharts: ["recharts"],
+          motion: ["framer-motion", "motion"],
+        },
+      },
+    },
+  },
 }));
