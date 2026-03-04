@@ -83,6 +83,9 @@ const InsightsPreviewSection = () => {
                       <img
                         src={article.image}
                         alt={article.title}
+                        width={662}
+                        height={372}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>

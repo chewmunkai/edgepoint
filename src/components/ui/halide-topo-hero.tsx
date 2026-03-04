@@ -99,6 +99,9 @@ const HalideLanding: React.FC = () => {
               <img
                 src={topoIllustration}
                 alt=""
+                width={1024}
+                height={639}
+                loading="eager"
                 className="w-full h-full object-cover"
                 style={{ filter: 'brightness(0.7) contrast(1.3) grayscale(0.3)' }}
               />

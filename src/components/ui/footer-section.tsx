@@ -57,7 +57,7 @@ function Footerdemo() {
           {/* Logo & Newsletter */}
           <div className="col-span-2 lg:col-span-1">
             <a href="/" className="inline-block mb-4">
-              <img src={logo} alt="Edge Point" className="h-12 w-auto" />
+              <img src={logo} alt="Edge Point" width={48} height={48} loading="lazy" className="h-12 w-auto" />
             </a>
             <p className="mb-4 font-body text-sm text-white/60">
               Join our newsletter for updates.

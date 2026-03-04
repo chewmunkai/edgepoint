@@ -77,6 +77,9 @@ const BrandsCarousel = () => {
               <img
                 src={brand.src}
                 alt={brand.name}
+                width={132}
+                height={79}
+                loading="lazy"
                 className="max-h-full max-w-full object-contain"
               />
             </div>
