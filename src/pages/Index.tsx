@@ -1,18 +1,15 @@
-import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import CoreServicesSection from "@/components/CoreServicesSection";
+import AboutSection from "@/components/AboutSection";
+import WhyStrategySection from "@/components/WhyStrategySection";
+import FAQSection from "@/components/FAQSection";
+import InsightsPreviewSection from "@/components/InsightsPreviewSection";
+import BuildProperlySection from "@/components/BuildProperlySection";
+import FinalCTASection from "@/components/FinalCTASection";
+import { Case as CaseSection } from "@/components/ui/cases-with-infinite-scroll";
 import Footer from "@/components/Footer";
 import SEOHead, { businessSchema, servicesSchema, createFaqSchema } from "@/components/SEOHead";
-
-// Lazy-load below-the-fold sections to reduce initial JS bundle
-const CoreServicesSection = lazy(() => import("@/components/CoreServicesSection"));
-const AboutSection = lazy(() => import("@/components/AboutSection"));
-const WhyStrategySection = lazy(() => import("@/components/WhyStrategySection"));
-const FAQSection = lazy(() => import("@/components/FAQSection"));
-const InsightsPreviewSection = lazy(() => import("@/components/InsightsPreviewSection"));
-const BuildProperlySection = lazy(() => import("@/components/BuildProperlySection"));
-const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
-const CaseSection = lazy(() => import("@/components/ui/cases-with-infinite-scroll").then(m => ({ default: m.Case })));
 
 const homeFaqs = [
   { question: "Do you only do strategy, or do you execute too?", answer: "Both. We offer in-house execution for SEO, website development, and social media marketing. For other services, we coordinate with specialists." },
@@ -32,20 +29,18 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <Suspense fallback={null}>
-          <div className="relative z-20 bg-[#f5f5f5]">
-            <CoreServicesSection />
-          </div>
-          <AboutSection />
-          <WhyStrategySection />
-          <CaseSection />
-          <div className="relative z-20 bg-[#f5f5f5]">
-            <FAQSection />
-            <InsightsPreviewSection />
-            <BuildProperlySection />
-            <FinalCTASection />
-          </div>
-        </Suspense>
+        <div className="relative z-20 bg-[#f5f5f5]">
+          <CoreServicesSection />
+        </div>
+        <AboutSection />
+        <WhyStrategySection />
+        <CaseSection />
+        <div className="relative z-20 bg-[#f5f5f5]">
+          <FAQSection />
+          <InsightsPreviewSection />
+          <BuildProperlySection />
+          <FinalCTASection />
+        </div>
       </main>
       <Footer />
     </div>
