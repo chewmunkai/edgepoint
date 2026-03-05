@@ -154,7 +154,7 @@ const AboutUs = () => {
                   </div>
                 </FadeIn>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                   {[
                     { title: "SMEs Already Investing", body: "Businesses already spending on marketing but unsure what's working or where the money is going." },
                     { title: "Teams Without Strategic Lead", body: "In-house teams executing tactics without a senior marketing strategist guiding the direction." },

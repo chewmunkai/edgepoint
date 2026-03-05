@@ -76,7 +76,7 @@ const Insights = () => {
                   to={`/insights/${featured.slug}`}
                   className="group grid md:grid-cols-[1.5fr_1fr] rounded-2xl border border-foreground/10 bg-white overflow-hidden hover:border-foreground/25 transition-all duration-300 hover:shadow-sm"
                 >
-                  <div className="p-8 md:p-10 flex flex-col justify-between">
+                  <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center gap-3 mb-5">
                         <span className={`font-body text-xs font-medium uppercase tracking-widest ${categoryColors[featured.category]}`}>
@@ -113,7 +113,7 @@ const Insights = () => {
               </motion.div>
 
               {/* Article Grid */}
-              <div className="grid md:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-5">
                 {rest.map((article, i) => (
                   <motion.div
                     key={article.slug}

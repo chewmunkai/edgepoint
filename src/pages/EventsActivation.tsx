@@ -457,7 +457,7 @@ const EventsActivation = () => {
                   Click any card to explore the deliverables and understand why each one matters.
                 </p>
               </FadeIn>
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {deliverables.map((item, i) => (
                   <DeliverableCard key={item.title} item={item} index={i} />
                 ))}
@@ -476,10 +476,10 @@ const EventsActivation = () => {
                   Four phases.<br />Zero guesswork.
                 </h2>
               </FadeIn>
-              <div className="grid md:grid-cols-4 gap-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
                 {processSteps.map((step, i) => (
                   <FadeIn key={step.number} delay={0.1 * i}>
-                    <div className="bg-background p-6 md:p-8 h-full flex flex-col">
+                    <div className="bg-background p-5 sm:p-6 md:p-8 h-full flex flex-col">
                       <span className="font-heading font-bold text-4xl md:text-5xl text-foreground/10 mb-6">
                         {step.number}
                       </span>
@@ -560,7 +560,7 @@ const EventsActivation = () => {
                   Events work best when integrated<br />with your broader strategy.
                 </h2>
               </FadeIn>
-              <div className="grid md:grid-cols-3 gap-5">
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
                 {nextServices.map((svc, i) => (
                   <FadeIn key={svc.slug} delay={0.1 * i}>
                     <Link

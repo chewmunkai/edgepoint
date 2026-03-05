@@ -82,9 +82,9 @@ const HalideLanding: React.FC = () => {
           <span className="text-sm font-bold tracking-[0.15em] text-white uppercase hidden">
             EDGE_POINT
           </span>
-          <div className="text-right text-[11px] tracking-[0.15em] uppercase" style={{ color: 'hsl(0, 70%, 55%)' }}>
+          <div className="text-right text-[10px] sm:text-[11px] tracking-[0.15em] uppercase" style={{ color: 'hsl(0, 70%, 55%)' }}>
             <p>STRATEGIC MARKETING</p>
-            <p>PRECISION EXECUTION</p>
+            <p className="hidden sm:block">PRECISION EXECUTION</p>
           </div>
         </div>
 
@@ -133,7 +133,7 @@ const HalideLanding: React.FC = () => {
         {/* Headline — vertically centered, left-aligned */}
         <div className="absolute left-6 top-1/2 -translate-y-1/2 z-10 sm:left-10 md:left-16">
           <h1
-            className="text-[clamp(3rem,12vw,9rem)] font-bold leading-[0.85] tracking-tight uppercase"
+            className="text-[clamp(2.2rem,10vw,9rem)] font-bold leading-[0.85] tracking-tight uppercase"
             style={{ color: 'hsl(82, 100%, 60%)', textShadow: '0 0 60px rgba(153,255,51,0.15)' }}
           >
             EDGE POINT
@@ -147,20 +147,20 @@ const HalideLanding: React.FC = () => {
               AGENCY
             </span>
             <br />
-            <span className="text-white text-[clamp(1rem,4vw,3rem)] tracking-[0.3em]">MALAYSIA</span>
+            <span className="text-white text-[clamp(0.75rem,3vw,3rem)] tracking-[0.2em] sm:tracking-[0.3em]">MALAYSIA</span>
           </h1>
         </div>
 
         {/* Bottom bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 flex items-end justify-between px-6 pb-6 sm:px-10 md:px-16 md:pb-8">
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between px-6 pb-6 sm:px-10 md:px-16 md:pb-8">
           <div className="flex flex-col gap-1 text-[10px] tracking-[0.2em] text-white/50 uppercase font-body">
             <span>[ STRATEGIC AUDIT ]</span>
-            <span className="text-white/30">FOCUSED STRATEGY & PRECISION EXECUTION</span>
+            <span className="text-white/30 hidden sm:inline">FOCUSED STRATEGY & PRECISION EXECUTION</span>
           </div>
 
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black transition-all duration-300 hover:bg-neon hover:shadow-[0_0_30px_rgba(153,255,51,0.3)]"
+            className="inline-flex items-center justify-center gap-3 bg-white px-5 py-2.5 sm:px-6 sm:py-3 text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-black transition-all duration-300 hover:bg-neon hover:shadow-[0_0_30px_rgba(153,255,51,0.3)]"
           >
             BOOK YOUR AUDIT
           </a>
