@@ -23,8 +23,8 @@ const WhyMarketingPlansFail = () => {
       }}
       seoHead={
         <SEOHead
-          title="Why Most Marketing Plans Fail | Edge Point"
-          description="The biggest mistake SMEs make isn't choosing the wrong tactic—it's skipping strategy entirely. Here's what that costs and how to fix it."
+          title="Why Marketing Plans Fail | Marketing Agency Malaysia"
+          description="A Kuala Lumpur digital marketing agency on why SME marketing plans fail—and the strategy fix Malaysian businesses need before spending on ads or SEO."
           ogType="article"
           jsonLd={createArticleSchema({ title: "Why Most Marketing Plans Fail Before They Start", description: "The biggest mistake SMEs make isn't choosing the wrong tactic—it's skipping strategy.", datePublished: "2025-01-15", slug: "why-marketing-plans-fail" })}
         />
