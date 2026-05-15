@@ -1,0 +1,23 @@
+# Edge Point
+
+> Strategy-first marketing agency in Malaysia helping SMEs grow with brand foundation, SEO, performance marketing, and events activation.
+
+Edge Point Solutions Sdn Bhd is a Malaysian marketing agency focused on building strategy-led growth systems for SMEs. We work with businesses doing RM500K–RM10M in revenue, combining brand foundation, organic visibility, paid performance, and events activation into one coherent system tied to revenue.
+
+## Pages
+
+- [Home](/): Overview of Edge Point's strategy-first approach to marketing for Malaysian SMEs.
+- [About](/about): Who we are, how we think, and why strategy comes before tactics.
+- [Services](/services): Our four service pillars — brand, organic growth, performance, and events.
+- [Brand & Foundation](/services/brand-foundation): Positioning, messaging, offers, and website development.
+- [Visibility & Organic Growth](/services/visibility-organic-growth): SEO, content, social media, and organic funnels.
+- [Performance & Scale](/services/performance-scale): Paid media, performance marketing, funnel optimization, and tracking.
+- [Events & Activation](/services/events-activation): Event planning, brand activations, and KOL marketing.
+- [Insights](/insights): Articles on marketing strategy, SEO, and growth for SMEs.
+- [Contact](/contact): Get in touch to start a strategic audit or engagement.
+
+## Insights
+
+- [Why Most Marketing Plans Fail Before They Start](/insights/why-marketing-plans-fail): The biggest mistake SMEs make is skipping strategy entirely — what it costs and how to fix it.
+- [SEO in 2025: What Actually Moves the Needle](/insights/seo-2025-what-moves-the-needle): What search engines reward now and how to build organic strategy that compounds.
+- [The True Cost of Random Marketing](/insights/true-cost-of-random-marketing): How disconnected campaigns drain budget — and the counterintuitive fix.
