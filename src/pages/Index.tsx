@@ -22,8 +22,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="Edge Point | Strategy-First Marketing Agency Malaysia"
-        description="Stop wasting money on misaligned marketing. Edge Point helps Malaysian SMEs build strategy-first growth systems—brand, SEO, performance, events—tied to revenue."
+        title="Digital Marketing Agency Kuala Lumpur | Edge Point"
+        description="Digital marketing agency in Kuala Lumpur, Malaysia. SEO, social media marketing, Google Ads, branding & AI-powered marketing for SMEs—tied to revenue."
         jsonLd={[businessSchema, servicesSchema, createFaqSchema(homeFaqs)]}
       />
       <Header />
