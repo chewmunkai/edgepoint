@@ -22,8 +22,8 @@ const SEO2025WhatMovesTheNeedle = () => {
       }}
       seoHead={
         <SEOHead
-          title="SEO in 2025: What Moves the Needle | Edge Point"
-          description="Forget keyword stuffing. Here's what search engines really reward now and how to build an organic strategy that compounds over time."
+          title="SEO 2025: What Moves the Needle | SEO Agency Malaysia"
+          description="From a Kuala Lumpur SEO agency: what Google really rewards in 2025 and how Malaysian SMEs can build organic strategies that compound."
           ogType="article"
           jsonLd={createArticleSchema({ title: "SEO in 2025: What Actually Moves the Needle", description: "What search engines really reward now and how to build an organic strategy that compounds.", datePublished: "2025-02-01", slug: "seo-2025-what-moves-the-needle" })}
         />
