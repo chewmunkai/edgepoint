@@ -96,8 +96,8 @@ const Services = () => {
     <SmoothScroll>
       <div className="min-h-screen">
         <SEOHead
-          title="Marketing Services | Edge Point Malaysia"
-          description="From brand foundation to performance marketing—Edge Point's services are designed to drive revenue, not just activity. Explore our strategy-first approach."
+          title="Digital Marketing Services Malaysia | Edge Point"
+          description="Digital marketing services in Malaysia—SEO, social media marketing, Google Ads, branding & AI marketing. Strategy-first agency in Kuala Lumpur."
           jsonLd={servicesSchema}
         />
         <Header />
