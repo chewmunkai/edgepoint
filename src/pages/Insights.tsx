@@ -71,7 +71,7 @@ const Insights = () => {
             label="Insights"
             title="Latest Thinking."
             highlightWord="Thinking."
-            description="Perspectives on strategy, growth, and building marketing that actually works."
+            description="Perspectives from a Kuala Lumpur digital marketing agency on SEO, Google Ads, social media and branding that actually works for Malaysian SMEs."
           />
 
           <section className="bg-foreground py-16 md:py-24 px-4 relative overflow-hidden">
