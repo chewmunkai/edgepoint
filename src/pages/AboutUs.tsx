@@ -71,8 +71,8 @@ const AboutUs = () => {
     <SmoothScroll>
       <div className="min-h-screen">
         <SEOHead
-          title="About Edge Point | Strategy-First Marketing Partner"
-          description="Built for clarity, driven by growth. Edge Point is a strategy-first marketing partner for Malaysian SMEs who want direction before execution."
+          title="About Edge Point | Marketing Agency Malaysia"
+          description="About Edge Point—a Kuala Lumpur-based marketing agency in Malaysia. Strategy-first digital marketing, SEO, branding & AI marketing for SMEs."
         />
         <Header />
         <main>
