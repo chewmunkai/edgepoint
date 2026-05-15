@@ -22,8 +22,8 @@ const TrueCostOfRandomMarketing = () => {
       }}
       seoHead={
         <SEOHead
-          title="The True Cost of Random Marketing | Edge Point"
-          description="How disconnected campaigns silently drain your budget and stall growth—and the counterintuitive fix most businesses overlook."
+          title="True Cost of Random Marketing | Digital Marketing Malaysia"
+          description="A Kuala Lumpur marketing agency view on how disconnected SEO, Google Ads and social campaigns drain Malaysian SME budgets—and the fix."
           ogType="article"
           jsonLd={createArticleSchema({ title: "The True Cost of Random Marketing", description: "How disconnected campaigns silently drain your budget and stall growth.", datePublished: "2025-02-15", slug: "true-cost-of-random-marketing" })}
         />
