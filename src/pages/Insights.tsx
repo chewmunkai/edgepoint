@@ -62,8 +62,8 @@ const Insights = () => {
     <SmoothScroll>
       <div className="min-h-screen">
         <SEOHead
-          title="Marketing Insights & Articles | Edge Point"
-          description="Perspectives on strategy, growth, SEO, and building marketing that actually works for Malaysian SMEs."
+          title="Marketing Insights Malaysia | Edge Point KL"
+          description="SEO, Google Ads, social media & branding insights from a Kuala Lumpur digital marketing agency helping Malaysian SMEs grow."
         />
         <Header />
         <main>
